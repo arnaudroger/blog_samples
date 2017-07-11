@@ -1,0 +1,98 @@
+# {method} {0x000000012a37c778} 'clone' '()Ljava/lang/Object;' in 'java/lang/Object'
+#           [sp+0x50]  (sp of caller)
+[Entry Point]
+0x0000000112cbae80: mov 0x8(%rsi),%r10d
+0x0000000112cbae84: shl $0x3,%r10
+0x0000000112cbae88: cmp %r10,%rax
+0x0000000112cbae8b: je L0000
+0x0000000112cbae91: jmpq 0x0000000112bc1e20  ;   {runtime_call}
+0x0000000112cbae96: xchg %ax,%ax
+[Verified Entry Point]
+             L0000: mov %eax,-0x14000(%rsp)
+0x0000000112cbae9f: push %rbp
+0x0000000112cbaea0: mov %rsp,%rbp
+0x0000000112cbaea3: sub $0x40,%rsp
+0x0000000112cbaea7: mov %rsi,(%rsp)
+0x0000000112cbaeab: cmp $0x0,%rsi
+0x0000000112cbaeaf: lea (%rsp),%rsi
+0x0000000112cbaeb3: cmove (%rsp),%rsi  ; OopMap{[0]=Oop off=56}
+0x0000000112cbaeb8: movabs $0x112cbaeb8,%r10  ;   {section_word}
+0x0000000112cbaec2: mov %r10,0x1e0(%r15)
+0x0000000112cbaec9: mov %rsp,0x1d8(%r15)
+0x0000000112cbaed0: cmpb $0x0,-0x19d3c0d(%rip)  # 0x00000001112e72ca
+                                                ;   {external_word}
+0x0000000112cbaed7: je L0003
+0x0000000112cbaedd: push %rsi
+0x0000000112cbaede: movabs $0x12a37c778,%rsi  ;   {metadata({method} {0x000000012a37c778} 'clone' '()Ljava/lang/Object;' in 'java/lang/Object')}
+0x0000000112cbaee8: mov %r15,%rdi
+0x0000000112cbaeeb: test $0xf,%esp
+0x0000000112cbaef1: je L0001
+0x0000000112cbaef7: sub $0x8,%rsp
+0x0000000112cbaefb: callq 0x0000000110ee7724  ;   {runtime_call}
+0x0000000112cbaf00: add $0x8,%rsp
+0x0000000112cbaf04: jmpq L0002
+             L0001: callq 0x0000000110ee7724  ;   {runtime_call}
+             L0002: pop %rsi
+             L0003: lea 0x1f8(%r15),%rdi
+0x0000000112cbaf16: movl $0x4,0x270(%r15)
+0x0000000112cbaf21: callq 0x0000000110d4ef07  ;   {runtime_call}
+0x0000000112cbaf26: vzeroupper
+0x0000000112cbaf29: movl $0x5,0x270(%r15)
+0x0000000112cbaf34: lock addl $0x0,(%rsp)
+0x0000000112cbaf39: cmpl $0x0,-0x19c92e3(%rip)  # 0x00000001112f1c60
+                                                ;   {external_word}
+0x0000000112cbaf43: jne L0004
+0x0000000112cbaf49: cmpl $0x0,0x30(%r15)
+0x0000000112cbaf51: je L0005
+             L0004: mov %rax,-0x8(%rbp)
+0x0000000112cbaf5b: mov %r15,%rdi
+0x0000000112cbaf5e: mov %rsp,%r12
+0x0000000112cbaf61: sub $0x0,%rsp
+0x0000000112cbaf65: and $0xfffffffffffffff0,%rsp
+0x0000000112cbaf69: callq 0x0000000110f69dc0  ;   {runtime_call}
+0x0000000112cbaf6e: mov %r12,%rsp
+0x0000000112cbaf71: xor %r12,%r12
+0x0000000112cbaf74: mov -0x8(%rbp),%rax
+             L0005: movl $0x8,0x270(%r15)
+0x0000000112cbaf83: cmpl $0x1,0x29c(%r15)
+0x0000000112cbaf8e: je L000c
+             L0006: cmpb $0x0,-0x19d3cd1(%rip)  # 0x00000001112e72ca
+                                                ;   {external_word}
+0x0000000112cbaf9b: je L0009
+0x0000000112cbafa1: mov %rax,-0x8(%rbp)
+0x0000000112cbafa5: movabs $0x12a37c778,%rsi  ;   {metadata({method} {0x000000012a37c778} 'clone' '()Ljava/lang/Object;' in 'java/lang/Object')}
+0x0000000112cbafaf: mov %r15,%rdi
+0x0000000112cbafb2: test $0xf,%esp
+0x0000000112cbafb8: je L0007
+0x0000000112cbafbe: sub $0x8,%rsp
+0x0000000112cbafc2: callq 0x0000000110ee7696  ;   {runtime_call}
+0x0000000112cbafc7: add $0x8,%rsp
+0x0000000112cbafcb: jmpq L0008
+             L0007: callq 0x0000000110ee7696  ;   {runtime_call}
+             L0008: mov -0x8(%rbp),%rax
+             L0009: movabs $0x0,%r10
+0x0000000112cbafe3: mov %r10,0x1d8(%r15)
+0x0000000112cbafea: movabs $0x0,%r10
+0x0000000112cbaff4: mov %r10,0x1e0(%r15)
+0x0000000112cbaffb: test %rax,%rax
+0x0000000112cbaffe: je L000a
+0x0000000112cbb004: mov (%rax),%rax
+             L000a: mov 0x38(%r15),%rcx
+0x0000000112cbb00b: movl $0x0,0x100(%rcx)
+0x0000000112cbb015: leaveq
+0x0000000112cbb016: cmpq $0x0,0x8(%r15)
+0x0000000112cbb01e: jne L000b
+0x0000000112cbb024: retq
+             L000b: jmpq Stub::forward exception  ;   {runtime_call}
+             L000c: mov %rax,-0x8(%rbp)
+0x0000000112cbb02e: mov %rsp,%r12
+0x0000000112cbb031: sub $0x0,%rsp
+0x0000000112cbb035: and $0xfffffffffffffff0,%rsp
+0x0000000112cbb039: callq 0x0000000110ee54fc  ;   {runtime_call}
+0x0000000112cbb03e: mov %r12,%rsp
+0x0000000112cbb041: xor %r12,%r12
+0x0000000112cbb044: mov -0x8(%rbp),%rax
+0x0000000112cbb048: jmpq L0006
+0x0000000112cbb04d: hlt
+0x0000000112cbb04e: hlt
+0x0000000112cbb04f: hlt

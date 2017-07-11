@@ -1,0 +1,230 @@
+# {method} {0x000000010e98db08} 'testCopy' '()Lcom/github/arnaudroger/ObjectCopyVsClone$Object32Clonable;' in 'com/github/arnaudroger/ObjectCopyVsClone'
+#           [sp+0x20]  (sp of caller)
+[Entry Point]
+0x000000010f11a760: mov 0x8(%rsi),%r10d
+0x000000010f11a764: shl $0x3,%r10
+0x000000010f11a768: cmp %r10,%rax
+0x000000010f11a76b: jne 0x000000010ef79e20  ;   {runtime_call}
+0x000000010f11a771: data32 xchg %ax,%ax
+0x000000010f11a774: nopl 0x0(%rax,%rax,1)
+0x000000010f11a77c: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x000000010f11a780: mov %eax,-0x14000(%rsp)
+0x000000010f11a787: push %rbp
+0x000000010f11a788: sub $0x10,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@-1 (line 84)
+0x000000010f11a78c: mov %rsi,%rbp
+0x000000010f11a78f: mov 0x60(%r15),%r8
+0x000000010f11a793: mov %r8,%r10
+0x000000010f11a796: add $0x90,%r10
+0x000000010f11a79d: cmp 0x70(%r15),%r10
+0x000000010f11a7a1: jae L0001
+0x000000010f11a7a7: mov %r10,0x60(%r15)
+0x000000010f11a7ab: prefetchnta 0xc0(%r10)
+0x000000010f11a7b3: mov %r8,%rdi
+0x000000010f11a7b6: add $0x10,%rdi
+0x000000010f11a7ba: mov $0xf8015eab,%r10d  ;   {metadata('com/github/arnaudroger/ObjectCopyVsClone$Object32Clonable')}
+0x000000010f11a7c0: shl $0x3,%r10
+0x000000010f11a7c4: mov 0xa8(%r10),%r10
+0x000000010f11a7cb: mov %r10,(%r8)
+0x000000010f11a7ce: movl $0xf8015eab,0x8(%r8)  ;   {metadata('com/github/arnaudroger/ObjectCopyVsClone$Object32Clonable')}
+0x000000010f11a7d6: mov %r12d,0xc(%r8)
+0x000000010f11a7da: mov $0x10,%ecx
+0x000000010f11a7df: xor %rax,%rax
+0x000000010f11a7e2: shl $0x3,%rcx
+0x000000010f11a7e6: rep rex  ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@0 (line 84)
+             L0000: mov 0xc(%rbp),%r9d  ;*getfield original
+                                        ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@5 (line 84)
+0x000000010f11a7ed: mov 0xc(%r12,%r9,8),%r10d  ; implicit exception: dispatches to 0x000000010f11a948
+0x000000010f11a7f2: mov %r10d,0xc(%r8)  ;*putfield f1
+                                        ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@9 (line 130)
+                                        ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a7f6: mov 0x10(%r12,%r9,8),%r11d
+0x000000010f11a7fb: mov %r11d,0x10(%r8)  ;*putfield f2
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@17 (line 131)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a7ff: mov 0x14(%r12,%r9,8),%r10d
+0x000000010f11a804: mov %r10d,0x14(%r8)  ;*putfield f3
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@25 (line 132)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a808: mov 0x18(%r12,%r9,8),%r11d
+0x000000010f11a80d: mov %r11d,0x18(%r8)  ;*putfield f4
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@33 (line 133)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a811: mov 0x1c(%r12,%r9,8),%r10d
+0x000000010f11a816: mov %r10d,0x1c(%r8)  ;*putfield f5
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@41 (line 134)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a81a: mov 0x20(%r12,%r9,8),%r11d
+0x000000010f11a81f: mov %r11d,0x20(%r8)  ;*putfield f6
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@49 (line 135)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a823: mov 0x24(%r12,%r9,8),%r10d
+0x000000010f11a828: mov %r10d,0x24(%r8)  ;*putfield f7
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@57 (line 136)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a82c: mov 0x28(%r12,%r9,8),%r11d
+0x000000010f11a831: mov %r11d,0x28(%r8)  ;*putfield f8
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@65 (line 137)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a835: mov 0x2c(%r12,%r9,8),%r10d
+0x000000010f11a83a: mov %r10d,0x2c(%r8)  ;*putfield f9
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@73 (line 138)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a83e: mov 0x30(%r12,%r9,8),%r11d
+0x000000010f11a843: mov %r11d,0x30(%r8)  ;*putfield f10
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@81 (line 139)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a847: mov 0x34(%r12,%r9,8),%r11d
+0x000000010f11a84c: mov %r11d,0x34(%r8)  ;*putfield f11
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@89 (line 140)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a850: mov 0x38(%r12,%r9,8),%r10d
+0x000000010f11a855: mov %r10d,0x38(%r8)  ;*putfield f12
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@97 (line 141)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a859: mov 0x3c(%r12,%r9,8),%r11d
+0x000000010f11a85e: mov %r11d,0x3c(%r8)  ;*putfield f13
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@105 (line 142)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a862: mov 0x40(%r12,%r9,8),%r10d
+0x000000010f11a867: mov %r10d,0x40(%r8)  ;*putfield f14
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@113 (line 143)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a86b: mov 0x44(%r12,%r9,8),%r11d
+0x000000010f11a870: mov %r11d,0x44(%r8)  ;*putfield f15
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@121 (line 144)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a874: mov 0x48(%r12,%r9,8),%r10d
+0x000000010f11a879: mov %r10d,0x48(%r8)  ;*putfield f16
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@129 (line 145)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a87d: mov 0x4c(%r12,%r9,8),%r11d
+0x000000010f11a882: mov %r11d,0x4c(%r8)  ;*putfield f17
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@137 (line 146)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a886: mov 0x50(%r12,%r9,8),%r10d
+0x000000010f11a88b: mov %r10d,0x50(%r8)  ;*putfield f18
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@145 (line 147)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a88f: mov 0x54(%r12,%r9,8),%r11d
+0x000000010f11a894: mov %r11d,0x54(%r8)  ;*putfield f19
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@153 (line 148)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a898: mov 0x58(%r12,%r9,8),%r10d
+0x000000010f11a89d: mov %r10d,0x58(%r8)  ;*putfield f20
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@161 (line 149)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8a1: mov 0x5c(%r12,%r9,8),%r11d
+0x000000010f11a8a6: mov %r11d,0x5c(%r8)  ;*putfield f21
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@169 (line 150)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8aa: mov 0x60(%r12,%r9,8),%r10d
+0x000000010f11a8af: mov %r10d,0x60(%r8)  ;*putfield f22
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@177 (line 151)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8b3: mov 0x64(%r12,%r9,8),%r11d
+0x000000010f11a8b8: mov %r11d,0x64(%r8)  ;*putfield f23
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@185 (line 152)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8bc: mov 0x68(%r12,%r9,8),%r10d
+0x000000010f11a8c1: mov %r10d,0x68(%r8)  ;*putfield f24
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@193 (line 153)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8c5: mov 0x6c(%r12,%r9,8),%r11d
+0x000000010f11a8ca: mov %r11d,0x6c(%r8)  ;*putfield f25
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@201 (line 154)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8ce: mov 0x70(%r12,%r9,8),%r10d
+0x000000010f11a8d3: mov %r10d,0x70(%r8)  ;*putfield f26
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@209 (line 155)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8d7: mov 0x74(%r12,%r9,8),%r11d
+0x000000010f11a8dc: mov %r11d,0x74(%r8)  ;*putfield f27
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@217 (line 156)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8e0: mov 0x78(%r12,%r9,8),%r10d
+0x000000010f11a8e5: mov %r10d,0x78(%r8)  ;*putfield f28
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@225 (line 157)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8e9: mov 0x7c(%r12,%r9,8),%r11d
+0x000000010f11a8ee: mov %r11d,0x7c(%r8)  ;*putfield f29
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@233 (line 158)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a8f2: mov 0x80(%r12,%r9,8),%r10d
+0x000000010f11a8fa: mov %r10d,0x80(%r8)  ;*putfield f30
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@241 (line 159)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a901: mov 0x84(%r12,%r9,8),%r11d
+0x000000010f11a909: mov %r11d,0x84(%r8)  ;*putfield f31
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@249 (line 160)
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a910: mov 0x88(%r12,%r9,8),%r10d
+0x000000010f11a918: mov %r10d,0x88(%r8)  ;*synchronization entry
+                                         ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@-1 (line 84)
+0x000000010f11a91f: mov %r8,%rax
+0x000000010f11a922: add $0x10,%rsp
+0x000000010f11a926: pop %rbp
+0x000000010f11a927: test %eax,-0xc60d92d(%rip)  # 0x0000000102b0d000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x000000010f11a92d: retq
+             L0001: movabs $0x7c00af558,%rsi  ;   {metadata('com/github/arnaudroger/ObjectCopyVsClone$Object32Clonable')}
+0x000000010f11a938: data32 xchg %ax,%ax
+0x000000010f11a93b: callq 0x000000010f035d60  ; OopMap{rbp=Oop off=480}
+                                              ;*new  ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@0 (line 84)
+                                              ;   {runtime_call}
+0x000000010f11a940: mov %rax,%r8
+0x000000010f11a943: jmpq L0000  ;*getfield f1
+                                ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@6 (line 130)
+                                ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+0x000000010f11a948: mov $0xfffffff6,%esi
+0x000000010f11a94d: xchg %ax,%ax
+0x000000010f11a94f: callq 0x000000010ef391a0  ; OopMap{off=500}
+                                              ;*getfield f1
+                                              ; - com.github.arnaudroger.ObjectCopyVsClone$Object32Clonable::<init>@6 (line 130)
+                                              ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@8 (line 84)
+                                              ;   {runtime_call}
+0x000000010f11a954: callq 0x0000000104085c18  ;*new
+                                              ; - com.github.arnaudroger.ObjectCopyVsClone::testCopy@0 (line 84)
+                                              ;   {runtime_call}
+0x000000010f11a959: mov %rax,%rsi
+0x000000010f11a95c: add $0x10,%rsp
+0x000000010f11a960: pop %rbp
+0x000000010f11a961: jmpq 0x000000010f033ae0  ;   {runtime_call}
+0x000000010f11a966: hlt
+0x000000010f11a967: hlt
+0x000000010f11a968: hlt
+0x000000010f11a969: hlt
+0x000000010f11a96a: hlt
+0x000000010f11a96b: hlt
+0x000000010f11a96c: hlt
+0x000000010f11a96d: hlt
+0x000000010f11a96e: hlt
+0x000000010f11a96f: hlt
+0x000000010f11a970: hlt
+0x000000010f11a971: hlt
+0x000000010f11a972: hlt
+0x000000010f11a973: hlt
+0x000000010f11a974: hlt
+0x000000010f11a975: hlt
+0x000000010f11a976: hlt
+0x000000010f11a977: hlt
+0x000000010f11a978: hlt
+0x000000010f11a979: hlt
+0x000000010f11a97a: hlt
+0x000000010f11a97b: hlt
+0x000000010f11a97c: hlt
+0x000000010f11a97d: hlt
+0x000000010f11a97e: hlt
+0x000000010f11a97f: hlt
+[Exception Handler]
+[Stub Code]
+0x000000010f11a980: jmpq 0x000000010efa0760  ;   {no_reloc}
+[Deopt Handler Code]
+0x000000010f11a985: callq 0x000000010f11a98a
+0x000000010f11a98a: subq $0x5,(%rsp)
+0x000000010f11a98f: jmpq 0x000000010ef7b3c0  ;   {runtime_call}
+0x000000010f11a994: hlt
+0x000000010f11a995: hlt
+0x000000010f11a996: hlt
+0x000000010f11a997: hlt

@@ -1,0 +1,112 @@
+# {method} {0x000000012a852a88} 'testClone' '()[B' in 'com/github/arnaudroger/ByteArrayCopyVsClone'
+#           [sp+0x30]  (sp of caller)
+[Entry Point]
+0x0000000112d5c960: mov 0x8(%rsi),%r10d
+0x0000000112d5c964: shl $0x3,%r10
+0x0000000112d5c968: cmp %r10,%rax
+0x0000000112d5c96b: jne 0x0000000112bc1e20  ;   {runtime_call}
+0x0000000112d5c971: data32 xchg %ax,%ax
+0x0000000112d5c974: nopl 0x0(%rax,%rax,1)
+0x0000000112d5c97c: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x0000000112d5c980: mov %eax,-0x14000(%rsp)
+0x0000000112d5c987: push %rbp
+0x0000000112d5c988: sub $0x20,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@-1 (line 78)
+0x0000000112d5c98c: mov 0x10(%rsi),%r9d  ;*getfield original
+                                         ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@1 (line 78)
+0x0000000112d5c990: mov 0xc(%r12,%r9,8),%r8d  ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ; implicit exception: dispatches to 0x0000000112d5ca4e
+0x0000000112d5c995: lea (%r12,%r9,8),%rbp  ;*getfield original
+                                           ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@1 (line 78)
+0x0000000112d5c999: movslq %r8d,%rdx
+0x0000000112d5c99c: add $0x17,%rdx
+0x0000000112d5c9a0: and $0xfffffffffffffff8,%rdx
+0x0000000112d5c9a4: cmp $0x100000,%r8d
+0x0000000112d5c9ab: ja L0001
+0x0000000112d5c9ad: mov 0x60(%r15),%rbx
+0x0000000112d5c9b1: mov %rbx,%r10
+0x0000000112d5c9b4: add %rdx,%r10
+0x0000000112d5c9b7: cmp 0x70(%r15),%r10
+0x0000000112d5c9bb: jae L0001
+0x0000000112d5c9bd: mov %r10,0x60(%r15)
+0x0000000112d5c9c1: prefetchnta 0xc0(%r10)
+0x0000000112d5c9c9: movq $0x1,(%rbx)
+0x0000000112d5c9d0: prefetchnta 0x100(%r10)
+0x0000000112d5c9d8: movl $0xf80000f5,0x8(%rbx)  ;   {metadata({type array byte})}
+0x0000000112d5c9df: mov %r8d,0xc(%rbx)
+0x0000000112d5c9e3: prefetchnta 0x140(%r10)
+0x0000000112d5c9eb: prefetchnta 0x180(%r10)
+             L0000: lea 0x10(%r12,%r9,8),%rdi
+0x0000000112d5c9f8: mov %rbx,%rsi
+0x0000000112d5c9fb: add $0x10,%rsi
+0x0000000112d5c9ff: add $0xfffffffffffffff0,%rdx
+0x0000000112d5ca03: shr $0x3,%rdx
+0x0000000112d5ca07: movabs $0x112bce780,%r10
+0x0000000112d5ca11: callq *%r10  ;*invokevirtual clone
+                                 ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+0x0000000112d5ca14: mov %rbx,%rax
+0x0000000112d5ca17: add $0x20,%rsp
+0x0000000112d5ca1b: pop %rbp
+0x0000000112d5ca1c: test %eax,-0x3510a22(%rip)  # 0x000000010f84c000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x0000000112d5ca22: retq
+             L0001: mov %rdx,0x8(%rsp)
+0x0000000112d5ca28: mov %r9d,(%rsp)
+0x0000000112d5ca2c: movabs $0x7c00007a8,%rsi  ;   {metadata({type array byte})}
+0x0000000112d5ca36: mov %r8d,%edx
+0x0000000112d5ca39: xchg %ax,%ax
+0x0000000112d5ca3b: callq 0x0000000112c7e220  ; OopMap{rbp=Oop [0]=NarrowOop off=224}
+                                              ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ;   {runtime_call}
+0x0000000112d5ca40: mov (%rsp),%r9d
+0x0000000112d5ca44: mov 0x8(%rsp),%rdx
+0x0000000112d5ca49: mov %rax,%rbx
+0x0000000112d5ca4c: jmp L0000
+0x0000000112d5ca4e: mov $0xfffffff6,%esi
+0x0000000112d5ca53: callq 0x0000000112b811a0  ; OopMap{off=248}
+                                              ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ;   {runtime_call}
+0x0000000112d5ca58: callq 0x0000000110e85c18  ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ;   {runtime_call}
+0x0000000112d5ca5d: mov %rax,%rsi
+0x0000000112d5ca60: add $0x20,%rsp
+0x0000000112d5ca64: pop %rbp
+0x0000000112d5ca65: jmpq 0x0000000112c7ba20  ;   {runtime_call}
+0x0000000112d5ca6a: hlt
+0x0000000112d5ca6b: hlt
+0x0000000112d5ca6c: hlt
+0x0000000112d5ca6d: hlt
+0x0000000112d5ca6e: hlt
+0x0000000112d5ca6f: hlt
+0x0000000112d5ca70: hlt
+0x0000000112d5ca71: hlt
+0x0000000112d5ca72: hlt
+0x0000000112d5ca73: hlt
+0x0000000112d5ca74: hlt
+0x0000000112d5ca75: hlt
+0x0000000112d5ca76: hlt
+0x0000000112d5ca77: hlt
+0x0000000112d5ca78: hlt
+0x0000000112d5ca79: hlt
+0x0000000112d5ca7a: hlt
+0x0000000112d5ca7b: hlt
+0x0000000112d5ca7c: hlt
+0x0000000112d5ca7d: hlt
+0x0000000112d5ca7e: hlt
+0x0000000112d5ca7f: hlt
+[Exception Handler]
+[Stub Code]
+0x0000000112d5ca80: jmpq 0x0000000112be8760  ;   {no_reloc}
+[Deopt Handler Code]
+0x0000000112d5ca85: callq 0x0000000112d5ca8a
+0x0000000112d5ca8a: subq $0x5,(%rsp)
+0x0000000112d5ca8f: jmpq 0x0000000112bc33c0  ;   {runtime_call}
+0x0000000112d5ca94: hlt
+0x0000000112d5ca95: hlt
+0x0000000112d5ca96: hlt
+0x0000000112d5ca97: hlt
