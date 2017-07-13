@@ -1,0 +1,64 @@
+# {method} {0x000000010938aae0} 'testCopy' '()I' in 'com/github/arnaudroger/Object32CopyVsCloneEABenchmark'
+#           [sp+0x20]  (sp of caller)
+[Entry Point]
+0x0000000109c7b1a0: mov 0x8(%rsi),%r10d
+0x0000000109c7b1a4: shl $0x3,%r10
+0x0000000109c7b1a8: cmp %r10,%rax
+0x0000000109c7b1ab: jne 0x0000000109ae3e20  ;   {runtime_call}
+0x0000000109c7b1b1: data32 xchg %ax,%ax
+0x0000000109c7b1b4: nopl 0x0(%rax,%rax,1)
+0x0000000109c7b1bc: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x0000000109c7b1c0: mov %eax,-0x14000(%rsp)
+0x0000000109c7b1c7: push %rbp
+0x0000000109c7b1c8: sub $0x10,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testCopy@-1 (line 63)
+0x0000000109c7b1cc: mov 0xc(%rsi),%r11d  ;*getfield original
+                                         ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testCopy@5 (line 63)
+0x0000000109c7b1d0: mov 0x7c(%r12,%r11,8),%eax  ;*getfield f29
+                                                ; - com.github.arnaudroger.beans.Object32::<init>@230 (line 67)
+                                                ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testCopy@8 (line 63)
+                                                ; implicit exception: dispatches to 0x0000000109c7b1e1
+0x0000000109c7b1d5: add $0x10,%rsp
+0x0000000109c7b1d9: pop %rbp
+0x0000000109c7b1da: test %eax,-0x47b81e0(%rip)  # 0x00000001054c3000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x0000000109c7b1e0: retq
+0x0000000109c7b1e1: mov $0xfffffff6,%esi
+0x0000000109c7b1e6: nop
+0x0000000109c7b1e7: callq 0x0000000109aa31a0  ; OopMap{off=76}
+                                              ;*getfield f1
+                                              ; - com.github.arnaudroger.beans.Object32::<init>@6 (line 39)
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testCopy@8 (line 63)
+                                              ;   {runtime_call}
+0x0000000109c7b1ec: callq 0x0000000106a85c18  ;*getfield f1
+                                              ; - com.github.arnaudroger.beans.Object32::<init>@6 (line 39)
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testCopy@8 (line 63)
+                                              ;   {runtime_call}
+0x0000000109c7b1f1: hlt
+0x0000000109c7b1f2: hlt
+0x0000000109c7b1f3: hlt
+0x0000000109c7b1f4: hlt
+0x0000000109c7b1f5: hlt
+0x0000000109c7b1f6: hlt
+0x0000000109c7b1f7: hlt
+0x0000000109c7b1f8: hlt
+0x0000000109c7b1f9: hlt
+0x0000000109c7b1fa: hlt
+0x0000000109c7b1fb: hlt
+0x0000000109c7b1fc: hlt
+0x0000000109c7b1fd: hlt
+0x0000000109c7b1fe: hlt
+0x0000000109c7b1ff: hlt
+[Exception Handler]
+[Stub Code]
+0x0000000109c7b200: jmpq 0x0000000109b0a760  ;   {no_reloc}
+[Deopt Handler Code]
+0x0000000109c7b205: callq 0x0000000109c7b20a
+0x0000000109c7b20a: subq $0x5,(%rsp)
+0x0000000109c7b20f: jmpq 0x0000000109ae53c0  ;   {runtime_call}
+0x0000000109c7b214: hlt
+0x0000000109c7b215: hlt
+0x0000000109c7b216: hlt
+0x0000000109c7b217: hlt
+

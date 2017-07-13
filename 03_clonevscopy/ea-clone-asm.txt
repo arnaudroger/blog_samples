@@ -1,0 +1,111 @@
+# {method} {0x0000000105b7dba8} 'testClone' '()I' in 'com/github/arnaudroger/Object32CopyVsCloneEABenchmark'
+#           [sp+0x30]  (sp of caller)
+[Entry Point]
+0x000000010ceebe60: mov 0x8(%rsi),%r10d
+0x000000010ceebe64: shl $0x3,%r10
+0x000000010ceebe68: cmp %r10,%rax
+0x000000010ceebe6b: jne 0x000000010cd50e20  ;   {runtime_call}
+0x000000010ceebe71: data32 xchg %ax,%ax
+0x000000010ceebe74: nopl 0x0(%rax,%rax,1)
+0x000000010ceebe7c: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x000000010ceebe80: mov %eax,-0x14000(%rsp)
+0x000000010ceebe87: push %rbp
+0x000000010ceebe88: sub $0x20,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@-1 (line 69)
+0x000000010ceebe8c: mov 0xc(%rsi),%r9d  ;*getfield original
+                                        ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@1 (line 69)
+0x000000010ceebe90: test %r9d,%r9d
+0x000000010ceebe93: je L0002  ;*invokespecial clone
+                              ; - com.github.arnaudroger.beans.Object32::clone@1 (line 111)
+                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+0x000000010ceebe99: lea (%r12,%r9,8),%rbp  ;*getfield original
+                                           ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@1 (line 69)
+0x000000010ceebe9d: mov 0x60(%r15),%rbx
+0x000000010ceebea1: mov %rbx,%r10
+0x000000010ceebea4: add $0x90,%r10
+0x000000010ceebeab: cmp 0x70(%r15),%r10
+0x000000010ceebeaf: jae L0001
+0x000000010ceebeb1: mov %r10,0x60(%r15)
+0x000000010ceebeb5: prefetchnta 0xc0(%r10)
+0x000000010ceebebd: mov $0xf8015eab,%r11d  ;   {metadata('com/github/arnaudroger/beans/Object32')}
+0x000000010ceebec3: movabs $0x0,%r10
+0x000000010ceebecd: lea (%r10,%r11,8),%r10
+0x000000010ceebed1: mov 0xa8(%r10),%r10
+0x000000010ceebed8: mov %r10,(%rbx)
+0x000000010ceebedb: movl $0xf8015eab,0x8(%rbx)  ;   {metadata('com/github/arnaudroger/beans/Object32')}
+             L0000: lea 0x8(%r12,%r9,8),%rdi
+0x000000010ceebee7: mov %rbx,%rsi
+0x000000010ceebeea: add $0x8,%rsi
+0x000000010ceebeee: mov $0x11,%edx
+0x000000010ceebef3: movabs $0x10cd5d780,%r10
+0x000000010ceebefd: callq *%r10  ;*invokespecial clone
+                                 ; - com.github.arnaudroger.beans.Object32::clone@1 (line 111)
+                                 ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+0x000000010ceebf00: mov 0x7c(%rbx),%eax  ;*getfield f29
+                                         ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@7 (line 69)
+0x000000010ceebf03: add $0x20,%rsp
+0x000000010ceebf07: pop %rbp
+0x000000010ceebf08: test %eax,-0xb154f0e(%rip)  # 0x0000000101d97000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x000000010ceebf0e: retq
+             L0001: mov %r9d,(%rsp)
+0x000000010ceebf13: movabs $0x7c00af558,%rsi  ;   {metadata('com/github/arnaudroger/beans/Object32')}
+0x000000010ceebf1d: xchg %ax,%ax
+0x000000010ceebf1f: callq 0x000000010ce0b360  ; OopMap{rbp=Oop [0]=NarrowOop off=196}
+                                              ;*invokespecial clone
+                                              ; - com.github.arnaudroger.beans.Object32::clone@1 (line 111)
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+                                              ;   {runtime_call}
+0x000000010ceebf24: mov (%rsp),%r9d
+0x000000010ceebf28: mov %rax,%rbx
+0x000000010ceebf2b: jmp L0000
+             L0002: mov $0xfffffff6,%esi
+0x000000010ceebf32: nop
+0x000000010ceebf33: callq 0x000000010cd101a0  ; OopMap{off=216}
+                                              ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+                                              ;   {runtime_call}
+0x000000010ceebf38: callq 0x0000000103285c18  ;*invokespecial clone
+                                              ; - com.github.arnaudroger.beans.Object32::clone@1 (line 111)
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+                                              ;   {runtime_call}
+0x000000010ceebf3d: mov $0xffffffa7,%esi
+0x000000010ceebf42: mov (%rsp),%ebp
+0x000000010ceebf45: xchg %ax,%ax
+0x000000010ceebf47: callq 0x000000010cd101a0  ; OopMap{rbp=NarrowOop off=236}
+                                              ;*invokespecial clone
+                                              ; - com.github.arnaudroger.beans.Object32::clone@1 (line 111)
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+                                              ;   {runtime_call}
+0x000000010ceebf4c: callq 0x0000000103285c18  ;*invokespecial clone
+                                              ; - com.github.arnaudroger.beans.Object32::clone@1 (line 111)
+                                              ; - com.github.arnaudroger.Object32CopyVsCloneEABenchmark::testClone@4 (line 69)
+                                              ;   {runtime_call}
+0x000000010ceebf51: hlt
+0x000000010ceebf52: hlt
+0x000000010ceebf53: hlt
+0x000000010ceebf54: hlt
+0x000000010ceebf55: hlt
+0x000000010ceebf56: hlt
+0x000000010ceebf57: hlt
+0x000000010ceebf58: hlt
+0x000000010ceebf59: hlt
+0x000000010ceebf5a: hlt
+0x000000010ceebf5b: hlt
+0x000000010ceebf5c: hlt
+0x000000010ceebf5d: hlt
+0x000000010ceebf5e: hlt
+0x000000010ceebf5f: hlt
+[Exception Handler]
+[Stub Code]
+0x000000010ceebf60: jmpq 0x000000010cd77760  ;   {no_reloc}
+[Deopt Handler Code]
+0x000000010ceebf65: callq 0x000000010ceebf6a
+0x000000010ceebf6a: subq $0x5,(%rsp)
+0x000000010ceebf6f: jmpq 0x000000010cd523c0  ;   {runtime_call}
+0x000000010ceebf74: hlt
+0x000000010ceebf75: hlt
+0x000000010ceebf76: hlt
+0x000000010ceebf77: hlt
+
