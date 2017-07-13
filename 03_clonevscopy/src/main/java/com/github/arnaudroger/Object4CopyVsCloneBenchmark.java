@@ -44,26 +44,26 @@ import java.util.Random;
 public class Object4CopyVsCloneBenchmark {
 
 
-    private Object4 original4;
+    private Object4 original;
     
     @Setup
     public void setUp() {
         Random r = new Random();
-        original4 = new Object4(
+        original = new Object4(
                 r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt()
         );
     }
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public Object4 testCopy4() {
-        return new Object4(original4);
+    public Object4 testCopy() {
+        return new Object4(original);
     }
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public Object4 testClone4() {
-        return original4.clone();
+    public Object4 testClone() {
+        return original.clone();
     }
 
 

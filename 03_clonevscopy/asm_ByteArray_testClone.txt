@@ -12,14 +12,14 @@
 0x0000000112d5c980: mov %eax,-0x14000(%rsp)
 0x0000000112d5c987: push %rbp
 0x0000000112d5c988: sub $0x20,%rsp  ;*synchronization entry
-                                    ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@-1 (line 78)
+                                    ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@-1 (line 78)
 0x0000000112d5c98c: mov 0x10(%rsi),%r9d  ;*getfield original
-                                         ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@1 (line 78)
+                                         ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@1 (line 78)
 0x0000000112d5c990: mov 0xc(%r12,%r9,8),%r8d  ;*invokevirtual clone
-                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 78)
                                               ; implicit exception: dispatches to 0x0000000112d5ca4e
 0x0000000112d5c995: lea (%r12,%r9,8),%rbp  ;*getfield original
-                                           ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@1 (line 78)
+                                           ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@1 (line 78)
 0x0000000112d5c999: movslq %r8d,%rdx
 0x0000000112d5c99c: add $0x17,%rdx
 0x0000000112d5c9a0: and $0xfffffffffffffff8,%rdx
@@ -45,7 +45,7 @@
 0x0000000112d5ca03: shr $0x3,%rdx
 0x0000000112d5ca07: movabs $0x112bce780,%r10
 0x0000000112d5ca11: callq *%r10  ;*invokevirtual clone
-                                 ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                 ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 78)
 0x0000000112d5ca14: mov %rbx,%rax
 0x0000000112d5ca17: add $0x20,%rsp
 0x0000000112d5ca1b: pop %rbp
@@ -59,7 +59,7 @@
 0x0000000112d5ca39: xchg %ax,%ax
 0x0000000112d5ca3b: callq 0x0000000112c7e220  ; OopMap{rbp=Oop [0]=NarrowOop off=224}
                                               ;*invokevirtual clone
-                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 78)
                                               ;   {runtime_call}
 0x0000000112d5ca40: mov (%rsp),%r9d
 0x0000000112d5ca44: mov 0x8(%rsp),%rdx
@@ -68,10 +68,10 @@
 0x0000000112d5ca4e: mov $0xfffffff6,%esi
 0x0000000112d5ca53: callq 0x0000000112b811a0  ; OopMap{off=248}
                                               ;*invokevirtual clone
-                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 78)
                                               ;   {runtime_call}
 0x0000000112d5ca58: callq 0x0000000110e85c18  ;*invokevirtual clone
-                                              ; - com.github.arnaudroger.ByteArrayCopyVsClone::testClone@4 (line 78)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 78)
                                               ;   {runtime_call}
 0x0000000112d5ca5d: mov %rax,%rsi
 0x0000000112d5ca60: add $0x20,%rsp
