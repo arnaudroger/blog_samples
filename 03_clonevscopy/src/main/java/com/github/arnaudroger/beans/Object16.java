@@ -61,7 +61,11 @@ public class Object16 implements Cloneable {
     }
 
     @Override
-    public Object16 clone() throws CloneNotSupportedException {
-        return (Object16) super.clone();
+    public Object16 clone() {
+        try {
+            return (Object16) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new Error(e);
+        }
     }
 }

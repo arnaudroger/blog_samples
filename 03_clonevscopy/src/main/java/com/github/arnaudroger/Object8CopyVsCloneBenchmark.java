@@ -64,7 +64,7 @@ public class Object8CopyVsCloneBenchmark {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public Object8 testClone() throws CloneNotSupportedException {
+    public Object8 testClone() {
         return original.clone();
     }
 

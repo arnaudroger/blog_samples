@@ -39,7 +39,11 @@ public class Object8 implements Cloneable {
     }
 
     @Override
-    public Object8 clone() throws CloneNotSupportedException {
-        return (Object8) super.clone();
+    public Object8 clone() {
+        try {
+            return (Object8) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new Error(e);
+        }
     }
 }

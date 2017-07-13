@@ -23,7 +23,11 @@ public class Object4 implements Cloneable {
     }
 
     @Override
-    public Object4 clone() throws CloneNotSupportedException {
-        return (Object4) super.clone();
+    public Object4 clone() {
+        try {
+            return (Object4) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new Error(e);
+        }
     }
 }

@@ -62,7 +62,7 @@ public class Object4CopyVsCloneBenchmark {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public Object4 testClone4() throws CloneNotSupportedException {
+    public Object4 testClone4() {
         return original4.clone();
     }
 

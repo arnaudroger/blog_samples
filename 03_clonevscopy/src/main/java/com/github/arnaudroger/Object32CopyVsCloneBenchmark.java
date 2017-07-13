@@ -65,7 +65,7 @@ public class Object32CopyVsCloneBenchmark {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public Object32 testClone() throws CloneNotSupportedException {
+    public Object32 testClone() {
         return original.clone();
     }
     

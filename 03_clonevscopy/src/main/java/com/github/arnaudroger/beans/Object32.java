@@ -106,7 +106,11 @@ public class Object32 implements Cloneable {
     }
 
     @Override
-    public Object32 clone() throws CloneNotSupportedException {
-        return (Object32) super.clone();
+    public Object32 clone() {
+        try {
+            return (Object32) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new Error(e);
+        }
     }
 }
