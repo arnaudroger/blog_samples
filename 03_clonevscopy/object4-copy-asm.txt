@@ -1,0 +1,87 @@
+# {method} {0x000000011e18ca40} 'testCopy4' '()Lcom/github/arnaudroger/beans/Object4;' in 'com/github/arnaudroger/Object4CopyVsCloneBenchmark'
+#           [sp+0x20]  (sp of caller)
+[Entry Point]
+0x000000010593d260: mov 0x8(%rsi),%r10d
+0x000000010593d264: shl $0x3,%r10
+0x000000010593d268: cmp %r10,%rax
+0x000000010593d26b: jne 0x00000001057a6e20  ;   {runtime_call}
+0x000000010593d271: data32 xchg %ax,%ax
+0x000000010593d274: nopl 0x0(%rax,%rax,1)
+0x000000010593d27c: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x000000010593d280: mov %eax,-0x14000(%rsp)
+0x000000010593d287: push %rbp
+0x000000010593d288: sub $0x10,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@-1 (line 60)
+0x000000010593d28c: mov %rsi,%rbp
+0x000000010593d28f: mov 0x60(%r15),%rax
+0x000000010593d293: mov %rax,%r10
+0x000000010593d296: add $0x20,%r10
+0x000000010593d29a: cmp 0x70(%r15),%r10
+0x000000010593d29e: jae L0001
+0x000000010593d2a0: mov %r10,0x60(%r15)
+0x000000010593d2a4: prefetchnta 0xc0(%r10)
+0x000000010593d2ac: mov $0xf8015eab,%r11d  ;   {metadata('com/github/arnaudroger/beans/Object4')}
+0x000000010593d2b2: movabs $0x0,%r10
+0x000000010593d2bc: lea (%r10,%r11,8),%r10
+0x000000010593d2c0: mov 0xa8(%r10),%r10
+0x000000010593d2c7: mov %r10,(%rax)
+0x000000010593d2ca: movl $0xf8015eab,0x8(%rax)  ;   {metadata('com/github/arnaudroger/beans/Object4')}
+0x000000010593d2d1: mov %r12d,0xc(%rax)
+0x000000010593d2d5: mov %r12,0x10(%rax)
+0x000000010593d2d9: mov %r12,0x18(%rax)  ;*new  ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@0 (line 60)
+             L0000: mov 0xc(%rbp),%r11d  ;*getfield original4
+                                         ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@5 (line 60)
+0x000000010593d2e1: mov 0xc(%r12,%r11,8),%r10d  ; implicit exception: dispatches to 0x000000010593d322
+0x000000010593d2e6: mov %r10d,0xc(%rax)  ;*putfield f1
+                                         ; - com.github.arnaudroger.beans.Object4::<init>@9 (line 12)
+                                         ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@8 (line 60)
+0x000000010593d2ea: mov 0x10(%r12,%r11,8),%r8d
+0x000000010593d2ef: mov %r8d,0x10(%rax)  ;*putfield f2
+                                         ; - com.github.arnaudroger.beans.Object4::<init>@17 (line 13)
+                                         ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@8 (line 60)
+0x000000010593d2f3: mov 0x14(%r12,%r11,8),%r10d
+0x000000010593d2f8: mov %r10d,0x14(%rax)  ;*putfield f3
+                                          ; - com.github.arnaudroger.beans.Object4::<init>@25 (line 14)
+                                          ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@8 (line 60)
+0x000000010593d2fc: mov 0x18(%r12,%r11,8),%r11d
+0x000000010593d301: mov %r11d,0x18(%rax)
+0x000000010593d305: add $0x10,%rsp
+0x000000010593d309: pop %rbp
+0x000000010593d30a: test %eax,-0x2a20310(%rip)  # 0x0000000102f1d000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x000000010593d310: retq
+             L0001: movabs $0x7c00af558,%rsi  ;   {metadata('com/github/arnaudroger/beans/Object4')}
+0x000000010593d31b: callq 0x0000000105862de0  ; OopMap{rbp=Oop off=192}
+                                              ;*new  ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@0 (line 60)
+                                              ;   {runtime_call}
+0x000000010593d320: jmp L0000  ;*getfield f1
+                               ; - com.github.arnaudroger.beans.Object4::<init>@6 (line 12)
+                               ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@8 (line 60)
+0x000000010593d322: mov $0xfffffff6,%esi
+0x000000010593d327: callq 0x00000001057661a0  ; OopMap{off=204}
+                                              ;*getfield f1
+                                              ; - com.github.arnaudroger.beans.Object4::<init>@6 (line 12)
+                                              ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@8 (line 60)
+                                              ;   {runtime_call}
+0x000000010593d32c: callq 0x0000000104485c18  ;*new
+                                              ; - com.github.arnaudroger.Object4CopyVsCloneBenchmark::testCopy4@0 (line 60)
+                                              ;   {runtime_call}
+0x000000010593d331: mov %rax,%rsi
+0x000000010593d334: add $0x10,%rsp
+0x000000010593d338: pop %rbp
+0x000000010593d339: jmpq 0x0000000105860b60  ;   {runtime_call}
+0x000000010593d33e: hlt
+0x000000010593d33f: hlt
+[Exception Handler]
+[Stub Code]
+0x000000010593d340: jmpq 0x00000001057cd760  ;   {no_reloc}
+[Deopt Handler Code]
+0x000000010593d345: callq 0x000000010593d34a
+0x000000010593d34a: subq $0x5,(%rsp)
+0x000000010593d34f: jmpq 0x00000001057a83c0  ;   {runtime_call}
+0x000000010593d354: hlt
+0x000000010593d355: hlt
+0x000000010593d356: hlt
+0x000000010593d357: hlt
+
