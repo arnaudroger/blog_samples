@@ -1,5 +1,14 @@
 package com.github.arnaudroger.beans;
 
+import org.openjdk.jol.datamodel.CurrentDataModel;
+import org.openjdk.jol.datamodel.X86_32_DataModel;
+import org.openjdk.jol.datamodel.X86_64_COOPS_DataModel;
+import org.openjdk.jol.datamodel.X86_64_DataModel;
+import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.layouters.HotSpotLayouter;
+
+import static java.lang.System.out;
+
 public class Object4 implements Cloneable {
 
     public int f1;
@@ -29,5 +38,14 @@ public class Object4 implements Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new Error(e);
         }
+    }
+
+    public static void main(String[] args) {
+        
+        Class klass = Object4.class;
+
+        out.println(ClassLayout.parseClass(klass, new HotSpotLayouter(new CurrentDataModel())).toPrintable());
+
+        
     }
 }
