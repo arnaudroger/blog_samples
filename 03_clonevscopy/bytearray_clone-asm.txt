@@ -1,0 +1,112 @@
+# {method} {0x00000001147f0a88} 'testClone' '()[B' in 'com/github/arnaudroger/ArrayByteCopyVsCloneBenchmark'
+#           [sp+0x30]  (sp of caller)
+[Entry Point]
+0x0000000116972e20: mov 0x8(%rsi),%r10d
+0x0000000116972e24: shl $0x3,%r10
+0x0000000116972e28: cmp %r10,%rax
+0x0000000116972e2b: jne 0x00000001167d8e20  ;   {runtime_call}
+0x0000000116972e31: data32 xchg %ax,%ax
+0x0000000116972e34: nopl 0x0(%rax,%rax,1)
+0x0000000116972e3c: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x0000000116972e40: mov %eax,-0x14000(%rsp)
+0x0000000116972e47: push %rbp
+0x0000000116972e48: sub $0x20,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@-1 (line 68)
+0x0000000116972e4c: mov 0x10(%rsi),%r9d  ;*getfield original
+                                         ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@1 (line 68)
+0x0000000116972e50: mov 0xc(%r12,%r9,8),%r8d  ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 68)
+                                              ; implicit exception: dispatches to 0x0000000116972f0e
+0x0000000116972e55: lea (%r12,%r9,8),%rbp  ;*getfield original
+                                           ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@1 (line 68)
+0x0000000116972e59: movslq %r8d,%rdx
+0x0000000116972e5c: add $0x17,%rdx
+0x0000000116972e60: and $0xfffffffffffffff8,%rdx
+0x0000000116972e64: cmp $0x100000,%r8d
+0x0000000116972e6b: ja L0001
+0x0000000116972e6d: mov 0x60(%r15),%rbx
+0x0000000116972e71: mov %rbx,%r10
+0x0000000116972e74: add %rdx,%r10
+0x0000000116972e77: cmp 0x70(%r15),%r10
+0x0000000116972e7b: jae L0001
+0x0000000116972e7d: mov %r10,0x60(%r15)
+0x0000000116972e81: prefetchnta 0xc0(%r10)
+0x0000000116972e89: movq $0x1,(%rbx)
+0x0000000116972e90: prefetchnta 0x100(%r10)
+0x0000000116972e98: movl $0xf80000f5,0x8(%rbx)  ;   {metadata({type array byte})}
+0x0000000116972e9f: mov %r8d,0xc(%rbx)
+0x0000000116972ea3: prefetchnta 0x140(%r10)
+0x0000000116972eab: prefetchnta 0x180(%r10)
+             L0000: lea 0x10(%r12,%r9,8),%rdi
+0x0000000116972eb8: mov %rbx,%rsi
+0x0000000116972ebb: add $0x10,%rsi
+0x0000000116972ebf: add $0xfffffffffffffff0,%rdx
+0x0000000116972ec3: shr $0x3,%rdx
+0x0000000116972ec7: movabs $0x1167e5780,%r10
+0x0000000116972ed1: callq *%r10  ;*invokevirtual clone
+                                 ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 68)
+0x0000000116972ed4: mov %rbx,%rax
+0x0000000116972ed7: add $0x20,%rsp
+0x0000000116972edb: pop %rbp
+0x0000000116972edc: test %eax,-0xdf73ee2(%rip)  # 0x00000001089ff000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x0000000116972ee2: retq
+             L0001: mov %rdx,0x8(%rsp)
+0x0000000116972ee8: mov %r9d,(%rsp)
+0x0000000116972eec: movabs $0x7c00007a8,%rsi  ;   {metadata({type array byte})}
+0x0000000116972ef6: mov %r8d,%edx
+0x0000000116972ef9: xchg %ax,%ax
+0x0000000116972efb: callq 0x0000000116894fe0  ; OopMap{rbp=Oop [0]=NarrowOop off=224}
+                                              ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 68)
+                                              ;   {runtime_call}
+0x0000000116972f00: mov (%rsp),%r9d
+0x0000000116972f04: mov 0x8(%rsp),%rdx
+0x0000000116972f09: mov %rax,%rbx
+0x0000000116972f0c: jmp L0000
+0x0000000116972f0e: mov $0xfffffff6,%esi
+0x0000000116972f13: callq 0x00000001167981a0  ; OopMap{off=248}
+                                              ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 68)
+                                              ;   {runtime_call}
+0x0000000116972f18: callq 0x0000000109e85c18  ;*invokevirtual clone
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testClone@4 (line 68)
+                                              ;   {runtime_call}
+0x0000000116972f1d: mov %rax,%rsi
+0x0000000116972f20: add $0x20,%rsp
+0x0000000116972f24: pop %rbp
+0x0000000116972f25: jmpq 0x0000000116892c20  ;   {runtime_call}
+0x0000000116972f2a: hlt
+0x0000000116972f2b: hlt
+0x0000000116972f2c: hlt
+0x0000000116972f2d: hlt
+0x0000000116972f2e: hlt
+0x0000000116972f2f: hlt
+0x0000000116972f30: hlt
+0x0000000116972f31: hlt
+0x0000000116972f32: hlt
+0x0000000116972f33: hlt
+0x0000000116972f34: hlt
+0x0000000116972f35: hlt
+0x0000000116972f36: hlt
+0x0000000116972f37: hlt
+0x0000000116972f38: hlt
+0x0000000116972f39: hlt
+0x0000000116972f3a: hlt
+0x0000000116972f3b: hlt
+0x0000000116972f3c: hlt
+0x0000000116972f3d: hlt
+0x0000000116972f3e: hlt
+0x0000000116972f3f: hlt
+[Exception Handler]
+[Stub Code]
+0x0000000116972f40: jmpq 0x00000001167ff760  ;   {no_reloc}
+[Deopt Handler Code]
+0x0000000116972f45: callq 0x0000000116972f4a
+0x0000000116972f4a: subq $0x5,(%rsp)
+0x0000000116972f4f: jmpq 0x00000001167da3c0  ;   {runtime_call}
+0x0000000116972f54: hlt
+0x0000000116972f55: hlt
+0x0000000116972f56: hlt
+0x0000000116972f57: hlt

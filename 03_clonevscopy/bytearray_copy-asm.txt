@@ -1,0 +1,182 @@
+# {method} {0x00000001094339c0} 'testCopy' '()[B' in 'com/github/arnaudroger/ArrayByteCopyVsCloneBenchmark'
+#           [sp+0x40]  (sp of caller)
+[Entry Point]
+0x000000010b1639a0: mov 0x8(%rsi),%r10d
+0x000000010b1639a4: shl $0x3,%r10
+0x000000010b1639a8: cmp %r10,%rax
+0x000000010b1639ab: jne 0x000000010afc8e20  ;   {runtime_call}
+0x000000010b1639b1: data32 xchg %ax,%ax
+0x000000010b1639b4: nopl 0x0(%rax,%rax,1)
+0x000000010b1639bc: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x000000010b1639c0: mov %eax,-0x14000(%rsp)
+0x000000010b1639c7: push %rbp
+0x000000010b1639c8: sub $0x30,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@-1 (line 62)
+0x000000010b1639cc: mov 0xc(%rsi),%r10d  ;*getfield size
+                                         ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@5 (line 62)
+0x000000010b1639d0: cmp $0x100000,%r10d
+0x000000010b1639d7: ja L0005
+0x000000010b1639dd: movslq %r10d,%r8  ;*newarray
+                                      ; - java.util.Arrays::copyOf@1 (line 3236)
+                                      ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+             L0000: mov 0x10(%rsi),%r9d  ;*getfield original
+                                         ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@1 (line 62)
+0x000000010b1639e4: mov %r9d,0x10(%rsp)
+0x000000010b1639e9: add $0x17,%r8
+0x000000010b1639ed: mov %r8,%rdx
+0x000000010b1639f0: and $0xfffffffffffffff8,%rdx
+0x000000010b1639f4: cmp $0x100000,%r10d
+0x000000010b1639fb: ja L0004
+0x000000010b163a01: mov 0x60(%r15),%rbp
+0x000000010b163a05: mov %rbp,%r11
+0x000000010b163a08: add %rdx,%r11
+0x000000010b163a0b: cmp 0x70(%r15),%r11
+0x000000010b163a0f: jae L0004
+0x000000010b163a15: mov %r11,0x60(%r15)
+0x000000010b163a19: prefetchnta 0xc0(%r11)
+0x000000010b163a21: movq $0x1,0x0(%rbp)
+0x000000010b163a29: prefetchnta 0x100(%r11)
+0x000000010b163a31: movl $0xf80000f5,0x8(%rbp)  ;   {metadata({type array byte})}
+0x000000010b163a38: mov %r10d,0xc(%rbp)
+0x000000010b163a3c: prefetchnta 0x140(%r11)
+0x000000010b163a44: prefetchnta 0x180(%r11)  ;*newarray
+                                             ; - java.util.Arrays::copyOf@1 (line 3236)
+                                             ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+             L0001: mov 0x10(%rsp),%r11d
+0x000000010b163a51: mov 0xc(%r12,%r11,8),%r11d  ;*arraylength
+                                                ; - java.util.Arrays::copyOf@9 (line 3237)
+                                                ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+                                                ; implicit exception: dispatches to 0x000000010b163b77
+0x000000010b163a56: cmp %r10d,%r11d
+0x000000010b163a59: mov %r10d,%r9d
+0x000000010b163a5c: cmovl %r11d,%r9d  ;*invokestatic min
+                                      ; - java.util.Arrays::copyOf@11 (line 3238)
+                                      ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+0x000000010b163a60: mov %rbp,%rbx
+0x000000010b163a63: add $0x10,%rbx
+0x000000010b163a67: shr $0x3,%r8  ;*invokestatic arraycopy
+                                  ; - java.util.Arrays::copyOf@14 (line 3237)
+                                  ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+0x000000010b163a6b: mov 0x10(%rsp),%edi
+0x000000010b163a6f: lea (%r12,%rdi,8),%rsi  ;*getfield original
+                                            ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@1 (line 62)
+0x000000010b163a73: mov %r8,%rcx
+0x000000010b163a76: add $0xfffffffffffffffe,%rcx
+0x000000010b163a7a: cmp %r9d,%r11d
+0x000000010b163a7d: jb L0006
+0x000000010b163a83: cmp %r9d,%r10d
+0x000000010b163a86: jb L0006
+0x000000010b163a8c: test %r9d,%r9d
+0x000000010b163a8f: jle L0007
+0x000000010b163a95: lea 0x10(%r12,%rdi,8),%r11
+0x000000010b163a9a: cmp %r10d,%r9d
+0x000000010b163a9d: jl L0003
+0x000000010b163a9f: add $0xfffffffffffffff0,%rdx
+0x000000010b163aa3: shr $0x3,%rdx
+0x000000010b163aa7: mov %r11,%rdi
+0x000000010b163aaa: mov %rbx,%rsi
+0x000000010b163aad: movabs $0x10afd5780,%r10
+0x000000010b163ab7: callq *%r10
+             L0002: mov %rbp,%rax
+0x000000010b163abd: add $0x30,%rsp
+0x000000010b163ac1: pop %rbp
+0x000000010b163ac2: test %eax,-0x5b6aac8(%rip)  # 0x00000001055f9000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x000000010b163ac8: retq
+             L0003: movslq %r9d,%rdx
+0x000000010b163acc: mov %rdx,%r10
+0x000000010b163acf: add $0x10,%r10
+0x000000010b163ad3: mov %r10,%r9
+0x000000010b163ad6: and $0xfffffffffffffff8,%r9
+0x000000010b163ada: mov %rbp,%rdi
+0x000000010b163add: add %r9,%rdi
+0x000000010b163ae0: shr $0x3,%r10
+0x000000010b163ae4: sub %r10,%r8
+0x000000010b163ae7: mov %r8,%rcx
+0x000000010b163aea: xor %rax,%rax
+0x000000010b163aed: shl $0x3,%rcx
+0x000000010b163af1: rep rex
+0x000000010b163af4: mov %r11,%rdi
+0x000000010b163af7: mov %rbx,%rsi
+0x000000010b163afa: movabs $0x10afd5320,%r10
+0x000000010b163b04: callq *%r10  ;*invokestatic arraycopy
+                                 ; - java.util.Arrays::copyOf@14 (line 3237)
+                                 ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+0x000000010b163b07: jmp L0002
+             L0004: mov %rdx,0x8(%rsp)
+0x000000010b163b0e: mov %r8,(%rsp)
+0x000000010b163b12: mov %r10d,%ebp
+0x000000010b163b15: movabs $0x7c00007a8,%rsi  ;   {metadata({type array byte})}
+0x000000010b163b1f: mov %r10d,%edx
+0x000000010b163b22: nop
+0x000000010b163b23: callq 0x000000010b0826e0  ; OopMap{[16]=NarrowOop off=392}
+                                              ;*newarray
+                                              ; - java.util.Arrays::copyOf@1 (line 3236)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+                                              ;   {runtime_call}
+0x000000010b163b28: mov %ebp,%r10d
+0x000000010b163b2b: mov (%rsp),%r8
+0x000000010b163b2f: mov 0x8(%rsp),%rdx
+0x000000010b163b34: mov %rax,%rbp
+0x000000010b163b37: jmpq L0001
+             L0005: movslq %r10d,%r8  ;*newarray
+                                      ; - java.util.Arrays::copyOf@1 (line 3236)
+                                      ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+0x000000010b163b3f: jmpq L0000
+             L0006: mov %rbx,%rdi
+0x000000010b163b47: xor %rax,%rax
+0x000000010b163b4a: shl $0x3,%rcx
+0x000000010b163b4e: rep rex
+0x000000010b163b51: xor %edx,%edx
+0x000000010b163b53: mov %rbp,%rcx
+0x000000010b163b56: xor %r8d,%r8d
+0x000000010b163b59: xchg %ax,%ax
+0x000000010b163b5b: callq 0x000000010b080aa0  ; OopMap{rbp=Oop off=448}
+                                              ;*invokestatic arraycopy
+                                              ; - java.util.Arrays::copyOf@14 (line 3237)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+                                              ;   {runtime_call}
+0x000000010b163b60: jmpq L0002
+             L0007: mov %rbx,%rdi
+0x000000010b163b68: xor %rax,%rax
+0x000000010b163b6b: shl $0x3,%rcx
+0x000000010b163b6f: rep rex  ; - java.util.Arrays::copyOf@14 (line 3237)
+                             ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+0x000000010b163b72: jmpq L0002
+0x000000010b163b77: mov $0xfffffff6,%esi
+0x000000010b163b7c: data32 xchg %ax,%ax
+0x000000010b163b7f: callq 0x000000010af881a0  ; OopMap{off=484}
+                                              ;*arraylength
+                                              ; - java.util.Arrays::copyOf@9 (line 3237)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+                                              ;   {runtime_call}
+0x000000010b163b84: callq 0x0000000106a85c18  ;*invokestatic arraycopy
+                                              ; - java.util.Arrays::copyOf@14 (line 3237)
+                                              ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+                                              ;   {runtime_call}
+0x000000010b163b89: mov %rax,%rsi
+0x000000010b163b8c: jmp L0008  ;*newarray
+                               ; - java.util.Arrays::copyOf@1 (line 3236)
+                               ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@8 (line 62)
+0x000000010b163b8e: mov %rax,%rsi  ;*synchronization entry
+                                   ; - com.github.arnaudroger.ArrayByteCopyVsCloneBenchmark::testCopy@-1 (line 62)
+             L0008: add $0x30,%rsp
+0x000000010b163b95: pop %rbp
+0x000000010b163b96: jmpq 0x000000010b080b60  ;   {runtime_call}
+0x000000010b163b9b: hlt
+0x000000010b163b9c: hlt
+0x000000010b163b9d: hlt
+0x000000010b163b9e: hlt
+0x000000010b163b9f: hlt
+[Exception Handler]
+[Stub Code]
+0x000000010b163ba0: jmpq 0x000000010afef760  ;   {no_reloc}
+[Deopt Handler Code]
+0x000000010b163ba5: callq 0x000000010b163baa
+0x000000010b163baa: subq $0x5,(%rsp)
+0x000000010b163baf: jmpq 0x000000010afca3c0  ;   {runtime_call}
+0x000000010b163bb4: hlt
+0x000000010b163bb5: hlt
+0x000000010b163bb6: hlt
+0x000000010b163bb7: hlt
