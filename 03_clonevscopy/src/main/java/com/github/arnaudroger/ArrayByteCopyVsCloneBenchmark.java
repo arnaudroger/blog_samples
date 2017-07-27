@@ -64,6 +64,12 @@ public class ArrayByteCopyVsCloneBenchmark {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public byte[] testCopyFixed() {
+        return Arrays.copyOf(original, original.length);
+    }
+
+    @Benchmark
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public byte[] testClone() {
         return original.clone();
     }

@@ -65,6 +65,11 @@ public class ArrayObjectCopyVsCloneBenchmark {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public Object[] testCopyFixed() {
+        return Arrays.copyOf(original, original.length);
+    }
+    @Benchmark
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public Object[] testClone() {
         return original.clone();
     }
