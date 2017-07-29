@@ -1,0 +1,131 @@
+# {method} {0x00000001276fba80} 'testCopyFixed' '()[Ljava/lang/Object;' in 'com/github/arnaudroger/ArrayObjectCopyVsCloneBenchmark'
+#           [sp+0x40]  (sp of caller)
+[Entry Point]
+0x000000010eaf3f60: mov 0x8(%rsi),%r10d
+0x000000010eaf3f64: shl $0x3,%r10
+0x000000010eaf3f68: cmp %r10,%rax
+0x000000010eaf3f6b: jne 0x000000010e954e20  ;   {runtime_call}
+0x000000010eaf3f71: data32 xchg %ax,%ax
+0x000000010eaf3f74: nopl 0x0(%rax,%rax,1)
+0x000000010eaf3f7c: data32 data32 xchg %ax,%ax
+[Verified Entry Point]
+0x000000010eaf3f80: mov %eax,-0x14000(%rsp)
+0x000000010eaf3f87: push %rbp
+0x000000010eaf3f88: sub $0x30,%rsp  ;*synchronization entry
+                                    ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@-1 (line 69)
+0x000000010eaf3f8c: mov 0x10(%rsi),%edi  ;*getfield original
+                                         ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@1 (line 69)
+0x000000010eaf3f8f: mov 0xc(%r12,%rdi,8),%ecx  ;*arraylength
+                                               ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@8 (line 69)
+                                               ; implicit exception: dispatches to 0x000000010eaf4097
+0x000000010eaf3f94: mov 0x8(%r12,%rdi,8),%r11d  ;*invokevirtual getClass
+                                                ; - java.util.Arrays::copyOf@3 (line 3181)
+                                                ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@9 (line 69)
+0x000000010eaf3f99: lea (%r12,%rdi,8),%rdx  ;*getfield original
+                                            ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@1 (line 69)
+0x000000010eaf3f9d: movslq %ecx,%rax
+0x000000010eaf3fa0: mov %rax,%r9
+0x000000010eaf3fa3: shl $0x2,%r9
+0x000000010eaf3fa7: add $0x17,%r9
+0x000000010eaf3fab: cmp $0x40000,%ecx
+0x000000010eaf3fb1: ja L0002
+0x000000010eaf3fb3: mov %r9,%r10
+0x000000010eaf3fb6: and $0xfffffffffffffff8,%r10
+0x000000010eaf3fba: mov 0x60(%r15),%rbx
+0x000000010eaf3fbe: mov %rbx,%r8
+0x000000010eaf3fc1: add %r10,%r8
+0x000000010eaf3fc4: cmp 0x70(%r15),%r8
+0x000000010eaf3fc8: jae L0002
+0x000000010eaf3fca: mov %r8,0x60(%r15)
+0x000000010eaf3fce: prefetchnta 0xc0(%r8)
+0x000000010eaf3fd6: movq $0x1,(%rbx)
+0x000000010eaf3fdd: mov %r11d,0x8(%rbx)
+0x000000010eaf3fe1: mov %ecx,0xc(%rbx)
+0x000000010eaf3fe4: prefetchnta 0x100(%r8)
+0x000000010eaf3fec: prefetchnta 0x140(%r8)
+0x000000010eaf3ff4: prefetchnta 0x180(%r8)
+             L0000: mov %rbx,%rsi
+0x000000010eaf3fff: add $0x10,%rsi
+0x000000010eaf4003: test %ecx,%ecx
+0x000000010eaf4005: je L0003
+0x000000010eaf4007: lea 0x10(%r12,%rdi,8),%rdi
+0x000000010eaf400c: mov %rax,%rdx
+0x000000010eaf400f: movabs $0x10e961640,%r10
+0x000000010eaf4019: callq *%r10  ;*invokestatic copyOf
+                                 ; - java.util.Arrays::copyOf@6 (line 3181)
+                                 ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@9 (line 69)
+             L0001: mov %rbx,%rax
+0x000000010eaf401f: add $0x30,%rsp
+0x000000010eaf4023: pop %rbp
+0x000000010eaf4024: test %eax,-0x25e402a(%rip)  # 0x000000010c510000
+                                                ;   {poll_return} *** SAFEPOINT POLL ***
+0x000000010eaf402a: retq
+             L0002: mov %r9,0x18(%rsp)
+0x000000010eaf4030: mov %rax,0x10(%rsp)
+0x000000010eaf4035: mov %rdx,0x8(%rsp)
+0x000000010eaf403a: mov %ecx,0x4(%rsp)
+0x000000010eaf403e: mov %edi,(%rsp)
+0x000000010eaf4041: movabs $0x0,%rsi
+0x000000010eaf404b: lea (%rsi,%r11,8),%rsi
+0x000000010eaf404f: mov 0x68(%rsi),%rbp  ;*invokevirtual getClass
+                                         ; - java.util.Arrays::copyOf@3 (line 3181)
+                                         ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@9 (line 69)
+0x000000010eaf4053: mov %ecx,%edx
+0x000000010eaf4055: xchg %ax,%ax
+0x000000010eaf4057: callq 0x000000010ea0e3e0  ; OopMap{rbp=Oop [0]=NarrowOop [8]=Oop off=252}
+                                              ;*invokestatic copyOf
+                                              ; - java.util.Arrays::copyOf@6 (line 3181)
+                                              ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@9 (line 69)
+                                              ;   {runtime_call}
+0x000000010eaf405c: mov %rax,%r10
+0x000000010eaf405f: mov (%rsp),%edi
+0x000000010eaf4062: mov 0x4(%rsp),%ecx
+0x000000010eaf4066: mov 0x8(%rsp),%rdx
+0x000000010eaf406b: mov 0x10(%rsp),%rax
+0x000000010eaf4070: mov 0x18(%rsp),%r9
+0x000000010eaf4075: mov %r10,%rbx
+0x000000010eaf4078: jmpq L0000
+             L0003: shr $0x3,%r9
+0x000000010eaf4081: add $0xfffffffffffffffe,%r9
+0x000000010eaf4085: mov %r9,%rcx
+0x000000010eaf4088: mov %rsi,%rdi
+0x000000010eaf408b: xor %rax,%rax
+0x000000010eaf408e: shl $0x3,%rcx
+0x000000010eaf4092: rep rex  ; - java.util.Arrays::copyOf@6 (line 3181)
+                             ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@9 (line 69)
+0x000000010eaf4095: jmp L0001
+0x000000010eaf4097: mov $0xfffffff6,%esi
+0x000000010eaf409c: data32 xchg %ax,%ax
+0x000000010eaf409f: callq 0x000000010e9141a0  ; OopMap{off=324}
+                                              ;*arraylength
+                                              ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@8 (line 69)
+                                              ;   {runtime_call}
+0x000000010eaf40a4: callq 0x000000010da85c18  ;*invokestatic copyOf
+                                              ; - java.util.Arrays::copyOf@6 (line 3181)
+                                              ; - com.github.arnaudroger.ArrayObjectCopyVsCloneBenchmark::testCopyFixed@9 (line 69)
+                                              ;   {runtime_call}
+0x000000010eaf40a9: mov %rax,%rsi
+0x000000010eaf40ac: add $0x30,%rsp
+0x000000010eaf40b0: pop %rbp
+0x000000010eaf40b1: jmpq 0x000000010ea1a220  ;   {runtime_call}
+0x000000010eaf40b6: hlt
+0x000000010eaf40b7: hlt
+0x000000010eaf40b8: hlt
+0x000000010eaf40b9: hlt
+0x000000010eaf40ba: hlt
+0x000000010eaf40bb: hlt
+0x000000010eaf40bc: hlt
+0x000000010eaf40bd: hlt
+0x000000010eaf40be: hlt
+0x000000010eaf40bf: hlt
+[Exception Handler]
+[Stub Code]
+0x000000010eaf40c0: jmpq 0x000000010e97b760  ;   {no_reloc}
+[Deopt Handler Code]
+0x000000010eaf40c5: callq 0x000000010eaf40ca
+0x000000010eaf40ca: subq $0x5,(%rsp)
+0x000000010eaf40cf: jmpq 0x000000010e9563c0  ;   {runtime_call}
+0x000000010eaf40d4: hlt
+0x000000010eaf40d5: hlt
+0x000000010eaf40d6: hlt
+0x000000010eaf40d7: hlt
