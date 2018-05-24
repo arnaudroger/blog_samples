@@ -57,17 +57,24 @@ public class SeqListAccess {
     }
     
     @Benchmark
-    //@CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public void testNewForEach(Blackhole b) {
         data.forEach(b::consume);
     }
 
     @Benchmark
-    //@CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public void testClassicForEach(Blackhole b) {
         for(Long l : data) {
             b.consume(l);
         }
     }
 
+
+    @Benchmark
+    public void testIndexed(Blackhole b) {
+        ArrayList<Long> data = this.data;
+        int size = data.size();
+        for(int i = 0; i < size; i++) {
+            b.consume(data.get(i));
+        }
+    }
 }
