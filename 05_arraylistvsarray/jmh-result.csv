@@ -1,0 +1,16 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"com.github.arnaudroger.RandomArrayAccess.testGet","avgt",1,50,20.883367,0.189244,"ns/op",10
+"com.github.arnaudroger.RandomArrayAccess.testGet","avgt",1,50,20.520675,0.101956,"ns/op",1000
+"com.github.arnaudroger.RandomArrayAccess.testGet","avgt",1,50,33.544620,0.043889,"ns/op",1000000
+"com.github.arnaudroger.RandomListAccess.testGet","avgt",1,50,23.177701,0.094023,"ns/op",10
+"com.github.arnaudroger.RandomListAccess.testGet","avgt",1,50,23.346338,0.255139,"ns/op",1000
+"com.github.arnaudroger.RandomListAccess.testGet","avgt",1,50,94.595782,1.653953,"ns/op",1000000
+"com.github.arnaudroger.SeqArrayAccess.testGet","avgt",1,50,27.573426,0.109011,"ns/op",10
+"com.github.arnaudroger.SeqArrayAccess.testGet","avgt",1,50,2596.527625,5.961310,"ns/op",1000
+"com.github.arnaudroger.SeqArrayAccess.testGet","avgt",1,50,2658757.992632,11849.966794,"ns/op",1000000
+"com.github.arnaudroger.SeqListAccess.testClassicForEach","avgt",1,50,44.148242,0.517052,"ns/op",10
+"com.github.arnaudroger.SeqListAccess.testClassicForEach","avgt",1,50,4352.548891,55.062044,"ns/op",1000
+"com.github.arnaudroger.SeqListAccess.testClassicForEach","avgt",1,50,4269158.555763,10417.058299,"ns/op",1000000
+"com.github.arnaudroger.SeqListAccess.testNewForEach","avgt",1,50,46.189332,0.240934,"ns/op",10
+"com.github.arnaudroger.SeqListAccess.testNewForEach","avgt",1,50,4587.762594,24.895013,"ns/op",1000
+"com.github.arnaudroger.SeqListAccess.testNewForEach","avgt",1,50,4623080.959144,11991.690670,"ns/op",1000000
