@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"com.github.arnaudroger.Random2ArrayAccess.testGet","avgt",1,200,21.937883,0.031982,"ns/op",10
+"com.github.arnaudroger.Random2ArrayAccess.testGet","avgt",1,200,22.252160,0.029777,"ns/op",1000
+"com.github.arnaudroger.Random2ArrayAccess.testGet","avgt",1,200,89.436072,0.223964,"ns/op",1000000
+"com.github.arnaudroger.Random2ListAccess.testGet","avgt",1,200,23.488817,0.039437,"ns/op",10
+"com.github.arnaudroger.Random2ListAccess.testGet","avgt",1,200,23.763667,0.049982,"ns/op",1000
+"com.github.arnaudroger.Random2ListAccess.testGet","avgt",1,200,94.676082,0.239606,"ns/op",1000000
