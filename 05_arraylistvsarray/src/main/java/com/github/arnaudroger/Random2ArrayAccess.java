@@ -62,7 +62,6 @@ public class Random2ArrayAccess {
     }
     
     @Benchmark
-    //@CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public long testGet() {
         return data[index];
     }

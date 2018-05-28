@@ -80,7 +80,6 @@ public class Random2ListAccess {
     }
     
     @Benchmark
-    //@CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public long testGet() {
         return data.get(index);
     }
