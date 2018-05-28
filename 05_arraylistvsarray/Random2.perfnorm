@@ -1,0 +1,855 @@
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ArrayAccess.testGet
+# Parameters: (size = 10)
+
+# Run progress: 0.00% complete, ETA 00:04:00
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 22.385 ns/op
+# Warmup Iteration   2: 21.931 ns/op
+# Warmup Iteration   3: 21.726 ns/op
+# Warmup Iteration   4: 21.748 ns/op
+# Warmup Iteration   5: 21.696 ns/op
+# Warmup Iteration   6: 21.744 ns/op
+# Warmup Iteration   7: 21.803 ns/op
+# Warmup Iteration   8: 21.781 ns/op
+# Warmup Iteration   9: 21.776 ns/op
+# Warmup Iteration  10: 21.724 ns/op
+# Warmup Iteration  11: 21.798 ns/op
+# Warmup Iteration  12: 21.767 ns/op
+# Warmup Iteration  13: 21.788 ns/op
+# Warmup Iteration  14: 21.862 ns/op
+# Warmup Iteration  15: 21.779 ns/op
+# Warmup Iteration  16: 21.760 ns/op
+# Warmup Iteration  17: 21.873 ns/op
+# Warmup Iteration  18: 22.080 ns/op
+# Warmup Iteration  19: 21.728 ns/op
+# Warmup Iteration  20: 21.891 ns/op
+Iteration   1: 21.798 ns/op
+Iteration   2: 21.849 ns/op
+Iteration   3: 21.887 ns/op
+Iteration   4: 21.892 ns/op
+Iteration   5: 21.853 ns/op
+Iteration   6: 21.730 ns/op
+Iteration   7: 21.829 ns/op
+Iteration   8: 21.917 ns/op
+Iteration   9: 21.872 ns/op
+Iteration  10: 21.824 ns/op
+Iteration  11: 21.776 ns/op
+Iteration  12: 21.872 ns/op
+Iteration  13: 21.931 ns/op
+Iteration  14: 21.749 ns/op
+Iteration  15: 21.764 ns/op
+Iteration  16: 21.770 ns/op
+Iteration  17: 21.793 ns/op
+Iteration  18: 21.941 ns/op
+Iteration  19: 21.890 ns/op
+Iteration  20: 21.752 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Random2ArrayAccess.testGet":
+  21.835 ±(99.9%) 0.057 ns/op [Average]
+  (min, avg, max) = (21.730, 21.835, 21.941), stdev = 0.065
+  CI (99.9%): [21.778, 21.891] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:CPI":
+  0.850 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-load-misses":
+  0.005 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-loads":
+  104.273 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-stores":
+  58.067 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-icache-load-misses":
+  0.006 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-load-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-loads":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁵ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-stores":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:branch-misses":
+  0.005 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:branches":
+  56.877 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:cycles":
+  278.126 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-load-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-loads":
+  104.051 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-stores":
+  57.833 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:iTLB-load-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:iTLB-loads":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:instructions":
+  327.252 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ArrayAccess.testGet
+# Parameters: (size = 1000)
+
+# Run progress: 16.67% complete, ETA 00:03:30
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 22.828 ns/op
+# Warmup Iteration   2: 22.665 ns/op
+# Warmup Iteration   3: 22.275 ns/op
+# Warmup Iteration   4: 22.447 ns/op
+# Warmup Iteration   5: 22.225 ns/op
+# Warmup Iteration   6: 22.218 ns/op
+# Warmup Iteration   7: 22.252 ns/op
+# Warmup Iteration   8: 22.292 ns/op
+# Warmup Iteration   9: 22.429 ns/op
+# Warmup Iteration  10: 22.289 ns/op
+# Warmup Iteration  11: 22.242 ns/op
+# Warmup Iteration  12: 22.234 ns/op
+# Warmup Iteration  13: 22.276 ns/op
+# Warmup Iteration  14: 22.407 ns/op
+# Warmup Iteration  15: 22.224 ns/op
+# Warmup Iteration  16: 22.149 ns/op
+# Warmup Iteration  17: 22.359 ns/op
+# Warmup Iteration  18: 22.397 ns/op
+# Warmup Iteration  19: 22.488 ns/op
+# Warmup Iteration  20: 22.465 ns/op
+Iteration   1: 22.319 ns/op
+Iteration   2: 22.349 ns/op
+Iteration   3: 22.430 ns/op
+Iteration   4: 22.963 ns/op
+Iteration   5: 22.337 ns/op
+Iteration   6: 22.389 ns/op
+Iteration   7: 22.346 ns/op
+Iteration   8: 22.387 ns/op
+Iteration   9: 22.509 ns/op
+Iteration  10: 22.443 ns/op
+Iteration  11: 22.344 ns/op
+Iteration  12: 22.345 ns/op
+Iteration  13: 22.363 ns/op
+Iteration  14: 22.501 ns/op
+Iteration  15: 22.430 ns/op
+Iteration  16: 22.351 ns/op
+Iteration  17: 22.325 ns/op
+Iteration  18: 22.369 ns/op
+Iteration  19: 22.517 ns/op
+Iteration  20: 22.374 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Random2ArrayAccess.testGet":
+  22.420 ±(99.9%) 0.123 ns/op [Average]
+  (min, avg, max) = (22.319, 22.420, 22.963), stdev = 0.142
+  CI (99.9%): [22.296, 22.543] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:CPI":
+  0.853 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-load-misses":
+  0.139 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-loads":
+  103.943 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-stores":
+  57.937 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-icache-load-misses":
+  0.004 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-loads":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-stores":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:branch-misses":
+  0.005 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:branches":
+  56.830 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:cycles":
+  278.603 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-load-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-loads":
+  104.018 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-stores":
+  57.916 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:iTLB-load-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:iTLB-loads":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:instructions":
+  326.571 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ArrayAccess.testGet
+# Parameters: (size = 1000000)
+
+# Run progress: 33.33% complete, ETA 00:02:52
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 93.987 ns/op
+# Warmup Iteration   2: 90.925 ns/op
+# Warmup Iteration   3: 92.408 ns/op
+# Warmup Iteration   4: 90.305 ns/op
+# Warmup Iteration   5: 90.763 ns/op
+# Warmup Iteration   6: 91.632 ns/op
+# Warmup Iteration   7: 91.141 ns/op
+# Warmup Iteration   8: 89.646 ns/op
+# Warmup Iteration   9: 90.419 ns/op
+# Warmup Iteration  10: 91.086 ns/op
+# Warmup Iteration  11: 90.923 ns/op
+# Warmup Iteration  12: 90.154 ns/op
+# Warmup Iteration  13: 90.111 ns/op
+# Warmup Iteration  14: 90.465 ns/op
+# Warmup Iteration  15: 90.455 ns/op
+# Warmup Iteration  16: 90.137 ns/op
+# Warmup Iteration  17: 89.950 ns/op
+# Warmup Iteration  18: 89.885 ns/op
+# Warmup Iteration  19: 90.322 ns/op
+# Warmup Iteration  20: 90.865 ns/op
+Iteration   1: 90.590 ns/op
+Iteration   2: 90.767 ns/op
+Iteration   3: 89.806 ns/op
+Iteration   4: 93.663 ns/op
+Iteration   5: 90.669 ns/op
+Iteration   6: 89.963 ns/op
+Iteration   7: 90.119 ns/op
+Iteration   8: 90.102 ns/op
+Iteration   9: 90.971 ns/op
+Iteration  10: 90.763 ns/op
+Iteration  11: 90.515 ns/op
+Iteration  12: 89.875 ns/op
+Iteration  13: 89.674 ns/op
+Iteration  14: 90.263 ns/op
+Iteration  15: 90.708 ns/op
+Iteration  16: 90.742 ns/op
+Iteration  17: 90.127 ns/op
+Iteration  18: 90.373 ns/op
+Iteration  19: 92.687 ns/op
+Iteration  20: 90.448 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Random2ArrayAccess.testGet":
+  90.641 ±(99.9%) 0.827 ns/op [Average]
+  (min, avg, max) = (89.674, 90.641, 93.663), stdev = 0.953
+  CI (99.9%): [89.814, 91.469] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:CPI":
+  1.636 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-load-misses":
+  3.095 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-loads":
+  104.796 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-dcache-stores":
+  58.291 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:L1-icache-load-misses":
+  0.009 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-load-misses":
+  0.580 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-loads":
+  2.138 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:LLC-stores":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:branch-misses":
+  0.008 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:branches":
+  57.082 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:cycles":
+  536.608 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-load-misses":
+  1.443 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-loads":
+  104.321 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:dTLB-stores":
+  57.939 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:iTLB-load-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:iTLB-loads":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:instructions":
+  328.072 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ListAccess.testGet
+# Parameters: (size = 10)
+
+# Run progress: 50.00% complete, ETA 00:02:09
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 24.929 ns/op
+# Warmup Iteration   2: 24.010 ns/op
+# Warmup Iteration   3: 23.347 ns/op
+# Warmup Iteration   4: 23.152 ns/op
+# Warmup Iteration   5: 23.667 ns/op
+# Warmup Iteration   6: 23.851 ns/op
+# Warmup Iteration   7: 23.246 ns/op
+# Warmup Iteration   8: 23.722 ns/op
+# Warmup Iteration   9: 23.223 ns/op
+# Warmup Iteration  10: 23.874 ns/op
+# Warmup Iteration  11: 24.018 ns/op
+# Warmup Iteration  12: 24.067 ns/op
+# Warmup Iteration  13: 23.812 ns/op
+# Warmup Iteration  14: 23.822 ns/op
+# Warmup Iteration  15: 23.850 ns/op
+# Warmup Iteration  16: 23.503 ns/op
+# Warmup Iteration  17: 23.337 ns/op
+# Warmup Iteration  18: 23.362 ns/op
+# Warmup Iteration  19: 23.334 ns/op
+# Warmup Iteration  20: 23.172 ns/op
+Iteration   1: 23.498 ns/op
+Iteration   2: 23.352 ns/op
+Iteration   3: 23.228 ns/op
+Iteration   4: 23.329 ns/op
+Iteration   5: 23.411 ns/op
+Iteration   6: 23.487 ns/op
+Iteration   7: 23.337 ns/op
+Iteration   8: 23.424 ns/op
+Iteration   9: 23.339 ns/op
+Iteration  10: 23.369 ns/op
+Iteration  11: 23.486 ns/op
+Iteration  12: 23.346 ns/op
+Iteration  13: 23.350 ns/op
+Iteration  14: 23.331 ns/op
+Iteration  15: 23.395 ns/op
+Iteration  16: 23.495 ns/op
+Iteration  17: 23.321 ns/op
+Iteration  18: 23.342 ns/op
+Iteration  19: 23.351 ns/op
+Iteration  20: 23.388 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Random2ListAccess.testGet":
+  23.379 ±(99.9%) 0.061 ns/op [Average]
+  (min, avg, max) = (23.228, 23.379, 23.498), stdev = 0.070
+  CI (99.9%): [23.318, 23.440] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:CPI":
+  0.857 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-load-misses":
+  0.003 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-loads":
+  106.717 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-stores":
+  57.693 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-icache-load-misses":
+  0.007 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-load-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-loads":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-stores":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:branch-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:branches":
+  58.874 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:cycles":
+  287.553 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-loads":
+  106.723 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁵ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-stores":
+  57.768 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:iTLB-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:iTLB-loads":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:instructions":
+  335.437 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ListAccess.testGet
+# Parameters: (size = 1000)
+
+# Run progress: 66.67% complete, ETA 00:01:26
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 25.057 ns/op
+# Warmup Iteration   2: 24.175 ns/op
+# Warmup Iteration   3: 25.415 ns/op
+# Warmup Iteration   4: 25.377 ns/op
+# Warmup Iteration   5: 25.392 ns/op
+# Warmup Iteration   6: 25.433 ns/op
+# Warmup Iteration   7: 25.552 ns/op
+# Warmup Iteration   8: 25.369 ns/op
+# Warmup Iteration   9: 25.368 ns/op
+# Warmup Iteration  10: 25.409 ns/op
+# Warmup Iteration  11: 25.394 ns/op
+# Warmup Iteration  12: 25.488 ns/op
+# Warmup Iteration  13: 25.399 ns/op
+# Warmup Iteration  14: 25.419 ns/op
+# Warmup Iteration  15: 25.500 ns/op
+# Warmup Iteration  16: 25.436 ns/op
+# Warmup Iteration  17: 24.280 ns/op
+# Warmup Iteration  18: 24.208 ns/op
+# Warmup Iteration  19: 24.245 ns/op
+# Warmup Iteration  20: 24.189 ns/op
+Iteration   1: 24.226 ns/op
+Iteration   2: 24.307 ns/op
+Iteration   3: 24.214 ns/op
+Iteration   4: 23.527 ns/op
+Iteration   5: 24.219 ns/op
+Iteration   6: 24.264 ns/op
+Iteration   7: 24.376 ns/op
+Iteration   8: 24.194 ns/op
+Iteration   9: 24.274 ns/op
+Iteration  10: 24.300 ns/op
+Iteration  11: 24.257 ns/op
+Iteration  12: 24.249 ns/op
+Iteration  13: 24.193 ns/op
+Iteration  14: 24.183 ns/op
+Iteration  15: 24.192 ns/op
+Iteration  16: 24.207 ns/op
+Iteration  17: 24.278 ns/op
+Iteration  18: 24.236 ns/op
+Iteration  19: 24.199 ns/op
+Iteration  20: 24.179 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Random2ListAccess.testGet":
+  24.204 ±(99.9%) 0.145 ns/op [Average]
+  (min, avg, max) = (23.527, 24.204, 24.376), stdev = 0.167
+  CI (99.9%): [24.059, 24.349] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:CPI":
+  0.867 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-load-misses":
+  0.154 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-loads":
+  107.342 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-stores":
+  57.878 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-icache-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-load-misses":
+  ≈ 10⁻⁵ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-loads":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-stores":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:branch-misses":
+  0.003 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:branches":
+  59.100 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:cycles":
+  291.663 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-load-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-loads":
+  106.657 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-stores":
+  57.917 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:iTLB-load-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:iTLB-loads":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:instructions":
+  336.248 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ListAccess.testGet
+# Parameters: (size = 1000000)
+
+# Run progress: 83.33% complete, ETA 00:00:43
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 99.715 ns/op
+# Warmup Iteration   2: 98.473 ns/op
+# Warmup Iteration   3: 96.253 ns/op
+# Warmup Iteration   4: 94.819 ns/op
+# Warmup Iteration   5: 94.242 ns/op
+# Warmup Iteration   6: 94.306 ns/op
+# Warmup Iteration   7: 94.215 ns/op
+# Warmup Iteration   8: 97.170 ns/op
+# Warmup Iteration   9: 94.770 ns/op
+# Warmup Iteration  10: 94.491 ns/op
+# Warmup Iteration  11: 94.758 ns/op
+# Warmup Iteration  12: 94.199 ns/op
+# Warmup Iteration  13: 94.700 ns/op
+# Warmup Iteration  14: 94.107 ns/op
+# Warmup Iteration  15: 94.428 ns/op
+# Warmup Iteration  16: 94.584 ns/op
+# Warmup Iteration  17: 96.159 ns/op
+# Warmup Iteration  18: 96.986 ns/op
+# Warmup Iteration  19: 95.930 ns/op
+# Warmup Iteration  20: 95.021 ns/op
+Iteration   1: 94.729 ns/op
+Iteration   2: 95.087 ns/op
+Iteration   3: 94.587 ns/op
+Iteration   4: 94.631 ns/op
+Iteration   5: 94.951 ns/op
+Iteration   6: 94.495 ns/op
+Iteration   7: 94.861 ns/op
+Iteration   8: 94.851 ns/op
+Iteration   9: 94.342 ns/op
+Iteration  10: 94.392 ns/op
+Iteration  11: 94.004 ns/op
+Iteration  12: 94.767 ns/op
+Iteration  13: 97.515 ns/op
+Iteration  14: 95.086 ns/op
+Iteration  15: 95.695 ns/op
+Iteration  16: 94.792 ns/op
+Iteration  17: 94.377 ns/op
+Iteration  18: 94.858 ns/op
+Iteration  19: 94.388 ns/op
+Iteration  20: 94.152 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Random2ListAccess.testGet":
+  94.828 ±(99.9%) 0.640 ns/op [Average]
+  (min, avg, max) = (94.004, 94.828, 97.515), stdev = 0.736
+  CI (99.9%): [94.189, 95.468] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:CPI":
+  1.656 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-load-misses":
+  3.225 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-loads":
+  107.759 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-dcache-stores":
+  58.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:L1-icache-load-misses":
+  0.008 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-load-misses":
+  0.654 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-loads":
+  2.269 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:LLC-stores":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:branch-misses":
+  0.008 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:branches":
+  59.035 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:cycles":
+  556.178 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-load-misses":
+  1.444 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-loads":
+  107.141 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:dTLB-stores":
+  58.052 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:iTLB-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:iTLB-loads":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:instructions":
+  335.877 #/op
+
+
+# Run complete. Total time: 00:04:21
+
+Benchmark                                          (size)  Mode  Cnt    Score   Error  Units
+Random2ArrayAccess.testGet                             10  avgt   20   21.835 ± 0.057  ns/op
+Random2ArrayAccess.testGet:CPI                         10  avgt         0.850           #/op
+Random2ArrayAccess.testGet:L1-dcache-load-misses       10  avgt         0.005           #/op
+Random2ArrayAccess.testGet:L1-dcache-loads             10  avgt       104.273           #/op
+Random2ArrayAccess.testGet:L1-dcache-stores            10  avgt        58.067           #/op
+Random2ArrayAccess.testGet:L1-icache-load-misses       10  avgt         0.006           #/op
+Random2ArrayAccess.testGet:LLC-load-misses             10  avgt        ≈ 10⁻³           #/op
+Random2ArrayAccess.testGet:LLC-loads                   10  avgt         0.001           #/op
+Random2ArrayAccess.testGet:LLC-store-misses            10  avgt        ≈ 10⁻⁵           #/op
+Random2ArrayAccess.testGet:LLC-stores                  10  avgt        ≈ 10⁻³           #/op
+Random2ArrayAccess.testGet:branch-misses               10  avgt         0.005           #/op
+Random2ArrayAccess.testGet:branches                    10  avgt        56.877           #/op
+Random2ArrayAccess.testGet:cycles                      10  avgt       278.126           #/op
+Random2ArrayAccess.testGet:dTLB-load-misses            10  avgt         0.001           #/op
+Random2ArrayAccess.testGet:dTLB-loads                  10  avgt       104.051           #/op
+Random2ArrayAccess.testGet:dTLB-store-misses           10  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:dTLB-stores                 10  avgt        57.833           #/op
+Random2ArrayAccess.testGet:iTLB-load-misses            10  avgt        ≈ 10⁻³           #/op
+Random2ArrayAccess.testGet:iTLB-loads                  10  avgt        ≈ 10⁻³           #/op
+Random2ArrayAccess.testGet:instructions                10  avgt       327.252           #/op
+Random2ArrayAccess.testGet                           1000  avgt   20   22.420 ± 0.123  ns/op
+Random2ArrayAccess.testGet:CPI                       1000  avgt         0.853           #/op
+Random2ArrayAccess.testGet:L1-dcache-load-misses     1000  avgt         0.139           #/op
+Random2ArrayAccess.testGet:L1-dcache-loads           1000  avgt       103.943           #/op
+Random2ArrayAccess.testGet:L1-dcache-stores          1000  avgt        57.937           #/op
+Random2ArrayAccess.testGet:L1-icache-load-misses     1000  avgt         0.004           #/op
+Random2ArrayAccess.testGet:LLC-load-misses           1000  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:LLC-loads                 1000  avgt         0.001           #/op
+Random2ArrayAccess.testGet:LLC-store-misses          1000  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:LLC-stores                1000  avgt         0.002           #/op
+Random2ArrayAccess.testGet:branch-misses             1000  avgt         0.005           #/op
+Random2ArrayAccess.testGet:branches                  1000  avgt        56.830           #/op
+Random2ArrayAccess.testGet:cycles                    1000  avgt       278.603           #/op
+Random2ArrayAccess.testGet:dTLB-load-misses          1000  avgt         0.001           #/op
+Random2ArrayAccess.testGet:dTLB-loads                1000  avgt       104.018           #/op
+Random2ArrayAccess.testGet:dTLB-store-misses         1000  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:dTLB-stores               1000  avgt        57.916           #/op
+Random2ArrayAccess.testGet:iTLB-load-misses          1000  avgt        ≈ 10⁻³           #/op
+Random2ArrayAccess.testGet:iTLB-loads                1000  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:instructions              1000  avgt       326.571           #/op
+Random2ArrayAccess.testGet                        1000000  avgt   20   90.641 ± 0.827  ns/op
+Random2ArrayAccess.testGet:CPI                    1000000  avgt         1.636           #/op
+Random2ArrayAccess.testGet:L1-dcache-load-misses  1000000  avgt         3.095           #/op
+Random2ArrayAccess.testGet:L1-dcache-loads        1000000  avgt       104.796           #/op
+Random2ArrayAccess.testGet:L1-dcache-stores       1000000  avgt        58.291           #/op
+Random2ArrayAccess.testGet:L1-icache-load-misses  1000000  avgt         0.009           #/op
+Random2ArrayAccess.testGet:LLC-load-misses        1000000  avgt         0.580           #/op
+Random2ArrayAccess.testGet:LLC-loads              1000000  avgt         2.138           #/op
+Random2ArrayAccess.testGet:LLC-store-misses       1000000  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:LLC-stores             1000000  avgt         0.001           #/op
+Random2ArrayAccess.testGet:branch-misses          1000000  avgt         0.008           #/op
+Random2ArrayAccess.testGet:branches               1000000  avgt        57.082           #/op
+Random2ArrayAccess.testGet:cycles                 1000000  avgt       536.608           #/op
+Random2ArrayAccess.testGet:dTLB-load-misses       1000000  avgt         1.443           #/op
+Random2ArrayAccess.testGet:dTLB-loads             1000000  avgt       104.321           #/op
+Random2ArrayAccess.testGet:dTLB-store-misses      1000000  avgt        ≈ 10⁻⁴           #/op
+Random2ArrayAccess.testGet:dTLB-stores            1000000  avgt        57.939           #/op
+Random2ArrayAccess.testGet:iTLB-load-misses       1000000  avgt         0.001           #/op
+Random2ArrayAccess.testGet:iTLB-loads             1000000  avgt         0.001           #/op
+Random2ArrayAccess.testGet:instructions           1000000  avgt       328.072           #/op
+Random2ListAccess.testGet                              10  avgt   20   23.379 ± 0.061  ns/op
+Random2ListAccess.testGet:CPI                          10  avgt         0.857           #/op
+Random2ListAccess.testGet:L1-dcache-load-misses        10  avgt         0.003           #/op
+Random2ListAccess.testGet:L1-dcache-loads              10  avgt       106.717           #/op
+Random2ListAccess.testGet:L1-dcache-stores             10  avgt        57.693           #/op
+Random2ListAccess.testGet:L1-icache-load-misses        10  avgt         0.007           #/op
+Random2ListAccess.testGet:LLC-load-misses              10  avgt        ≈ 10⁻³           #/op
+Random2ListAccess.testGet:LLC-loads                    10  avgt         0.002           #/op
+Random2ListAccess.testGet:LLC-store-misses             10  avgt        ≈ 10⁻⁴           #/op
+Random2ListAccess.testGet:LLC-stores                   10  avgt         0.001           #/op
+Random2ListAccess.testGet:branch-misses                10  avgt         0.001           #/op
+Random2ListAccess.testGet:branches                     10  avgt        58.874           #/op
+Random2ListAccess.testGet:cycles                       10  avgt       287.553           #/op
+Random2ListAccess.testGet:dTLB-load-misses             10  avgt         0.002           #/op
+Random2ListAccess.testGet:dTLB-loads                   10  avgt       106.723           #/op
+Random2ListAccess.testGet:dTLB-store-misses            10  avgt        ≈ 10⁻⁵           #/op
+Random2ListAccess.testGet:dTLB-stores                  10  avgt        57.768           #/op
+Random2ListAccess.testGet:iTLB-load-misses             10  avgt        ≈ 10⁻⁴           #/op
+Random2ListAccess.testGet:iTLB-loads                   10  avgt        ≈ 10⁻⁴           #/op
+Random2ListAccess.testGet:instructions                 10  avgt       335.437           #/op
+Random2ListAccess.testGet                            1000  avgt   20   24.204 ± 0.145  ns/op
+Random2ListAccess.testGet:CPI                        1000  avgt         0.867           #/op
+Random2ListAccess.testGet:L1-dcache-load-misses      1000  avgt         0.154           #/op
+Random2ListAccess.testGet:L1-dcache-loads            1000  avgt       107.342           #/op
+Random2ListAccess.testGet:L1-dcache-stores           1000  avgt        57.878           #/op
+Random2ListAccess.testGet:L1-icache-load-misses      1000  avgt         0.002           #/op
+Random2ListAccess.testGet:LLC-load-misses            1000  avgt        ≈ 10⁻⁵           #/op
+Random2ListAccess.testGet:LLC-loads                  1000  avgt         0.001           #/op
+Random2ListAccess.testGet:LLC-store-misses           1000  avgt        ≈ 10⁻⁴           #/op
+Random2ListAccess.testGet:LLC-stores                 1000  avgt         0.001           #/op
+Random2ListAccess.testGet:branch-misses              1000  avgt         0.003           #/op
+Random2ListAccess.testGet:branches                   1000  avgt        59.100           #/op
+Random2ListAccess.testGet:cycles                     1000  avgt       291.663           #/op
+Random2ListAccess.testGet:dTLB-load-misses           1000  avgt         0.001           #/op
+Random2ListAccess.testGet:dTLB-loads                 1000  avgt       106.657           #/op
+Random2ListAccess.testGet:dTLB-store-misses          1000  avgt        ≈ 10⁻⁴           #/op
+Random2ListAccess.testGet:dTLB-stores                1000  avgt        57.917           #/op
+Random2ListAccess.testGet:iTLB-load-misses           1000  avgt         0.001           #/op
+Random2ListAccess.testGet:iTLB-loads                 1000  avgt         0.001           #/op
+Random2ListAccess.testGet:instructions               1000  avgt       336.248           #/op
+Random2ListAccess.testGet                         1000000  avgt   20   94.828 ± 0.640  ns/op
+Random2ListAccess.testGet:CPI                     1000000  avgt         1.656           #/op
+Random2ListAccess.testGet:L1-dcache-load-misses   1000000  avgt         3.225           #/op
+Random2ListAccess.testGet:L1-dcache-loads         1000000  avgt       107.759           #/op
+Random2ListAccess.testGet:L1-dcache-stores        1000000  avgt        58.001           #/op
+Random2ListAccess.testGet:L1-icache-load-misses   1000000  avgt         0.008           #/op
+Random2ListAccess.testGet:LLC-load-misses         1000000  avgt         0.654           #/op
+Random2ListAccess.testGet:LLC-loads               1000000  avgt         2.269           #/op
+Random2ListAccess.testGet:LLC-store-misses        1000000  avgt        ≈ 10⁻⁴           #/op
+Random2ListAccess.testGet:LLC-stores              1000000  avgt         0.001           #/op
+Random2ListAccess.testGet:branch-misses           1000000  avgt         0.008           #/op
+Random2ListAccess.testGet:branches                1000000  avgt        59.035           #/op
+Random2ListAccess.testGet:cycles                  1000000  avgt       556.178           #/op
+Random2ListAccess.testGet:dTLB-load-misses        1000000  avgt         1.444           #/op
+Random2ListAccess.testGet:dTLB-loads              1000000  avgt       107.141           #/op
+Random2ListAccess.testGet:dTLB-store-misses       1000000  avgt        ≈ 10⁻³           #/op
+Random2ListAccess.testGet:dTLB-stores             1000000  avgt        58.052           #/op
+Random2ListAccess.testGet:iTLB-load-misses        1000000  avgt         0.002           #/op
+Random2ListAccess.testGet:iTLB-loads              1000000  avgt         0.002           #/op
+Random2ListAccess.testGet:instructions            1000000  avgt       335.877           #/op

@@ -1,0 +1,2269 @@
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ArrayAccess.testGet
+# Parameters: (size = 10)
+
+# Run progress: 0.00% complete, ETA 00:04:00
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 24.447 ns/op
+# Warmup Iteration   2: 22.526 ns/op
+# Warmup Iteration   3: 22.049 ns/op
+# Warmup Iteration   4: 21.924 ns/op
+# Warmup Iteration   5: 21.976 ns/op
+# Warmup Iteration   6: 22.114 ns/op
+# Warmup Iteration   7: 22.059 ns/op
+# Warmup Iteration   8: 21.879 ns/op
+# Warmup Iteration   9: 21.981 ns/op
+# Warmup Iteration  10: 22.209 ns/op
+# Warmup Iteration  11: 22.101 ns/op
+# Warmup Iteration  12: 22.165 ns/op
+# Warmup Iteration  13: 21.930 ns/op
+# Warmup Iteration  14: 21.971 ns/op
+# Warmup Iteration  15: 21.801 ns/op
+# Warmup Iteration  16: 21.871 ns/op
+# Warmup Iteration  17: 22.474 ns/op
+# Warmup Iteration  18: 22.295 ns/op
+# Warmup Iteration  19: 22.463 ns/op
+# Warmup Iteration  20: 22.060 ns/op
+Iteration   1: 22.073 ns/op
+Iteration   2: 22.348 ns/op
+Iteration   3: 22.071 ns/op
+Iteration   4: 22.189 ns/op
+Iteration   5: 22.142 ns/op
+Iteration   6: 22.083 ns/op
+Iteration   7: 22.223 ns/op
+Iteration   8: 22.114 ns/op
+Iteration   9: 22.021 ns/op
+Iteration  10: 22.089 ns/op
+Iteration  11: 22.068 ns/op
+Iteration  12: 22.201 ns/op
+Iteration  13: 22.051 ns/op
+Iteration  14: 22.026 ns/op
+Iteration  15: 22.110 ns/op
+Iteration  16: 22.090 ns/op
+Iteration  17: 22.336 ns/op
+Iteration  18: 22.058 ns/op
+Iteration  19: 22.023 ns/op
+Iteration  20: 22.026 ns/op
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.github.arnaudroger.Random2ArrayAccess.testGet":
+  22.117 ±(99.9%) 0.084 ns/op [Average]
+  (min, avg, max) = (22.021, 22.117, 22.348), stdev = 0.096
+  CI (99.9%): [22.033, 22.201] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:·asm":
+PrintAssembly processed: 180975 total address lines.
+Perf output processed (skipped 23.391 seconds):
+ Column 1: cycles (20411 events)
+ Column 2: instructions (20396 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+C2, level 4, com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 578 (539 bytes) 
+
+                        0x00007f992d25003d: mov    0x60(%rsp),%r10
+                        0x00007f992d250042: test   %r10,%r10
+                        0x00007f992d250045: je     0x00007f992d2505ae
+                        0x00007f992d25004b: test   %r14,%r14
+                        0x00007f992d25004e: je     0x00007f992d2505ae  ;*getstatic setupInvocationMutexUpdater
+                                                                      ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@13 (line 419)
+                        0x00007f992d250054: xor    %r13d,%r13d
+                        0x00007f992d250057: xor    %ebx,%ebx
+                  ╭     0x00007f992d250059: jmpq   0x00007f992d250183
+                  │  ↗  0x00007f992d25005e: mov    %r14,0x18(%rsp)
+  0.31%    0.00%  │  │  0x00007f992d250063: mov    %r13,(%rsp)
+  0.04%           │  │  0x00007f992d250067: mov    %rbx,0x8(%rsp)     ;*ifge
+                  │  │                                                ; - java.util.Random::nextInt@58 (line 396)
+                  │  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                  │  │  0x00007f992d25006c: mov    %edx,0x10(%r8)
+           0.00%  │  │  0x00007f992d250070: movb   $0x1,0x136(%r8)
+  0.25%           │  │  0x00007f992d250078: mov    %r12d,0x12c(%r8)
+  0.01%           │  │  0x00007f992d25007f: mov    %r8,0x70(%rsp)
+                  │  │  0x00007f992d250084: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@66 (line 430)
+  9.04%    9.41%  │  │  0x00007f992d250089: movabs $0x7f99420d8670,%r10
+                  │  │  0x00007f992d250093: callq  *%r10              ;*invokestatic nanoTime
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@140 (line 438)
+  0.31%           │  │  0x00007f992d250096: mov    %rax,0x10(%rsp)
+  0.00%           │  │  0x00007f992d25009b: mov    0x70(%rsp),%r10
+                  │  │  0x00007f992d2500a0: mov    0x10(%r10),%r10d   ;*getfield index
+                  │  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@5 (line 67)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.65%    0.55%  │  │  0x00007f992d2500a4: mov    0x70(%rsp),%r11
+                  │  │  0x00007f992d2500a9: mov    0x14(%r11),%r8d    ;*getfield data
+                  │  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@1 (line 67)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.38%    1.54%  │  │  0x00007f992d2500ad: mov    0xc(%r12,%r8,8),%r11d  ; implicit exception: dispatches to 0x00007f992d25063d
+  2.09%    6.98%  │  │  0x00007f992d2500b2: cmp    %r11d,%r10d
+                  │  │  0x00007f992d2500b5: jae    0x00007f992d25034d
+  0.64%    2.33%  │  │  0x00007f992d2500bb: lea    (%r12,%r8,8),%r11
+                  │  │  0x00007f992d2500bf: mov    0x10(%r11,%r10,4),%r11d  ;*aaload
+                  │  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@8 (line 67)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │  │  0x00007f992d2500c4: mov    0x10(%r12,%r11,8),%rdx  ;*getfield value
+                  │  │                                                ; - java.lang.Long::longValue@1 (line 1000)
+                  │  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@9 (line 67)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │  │                                                ; implicit exception: dispatches to 0x00007f992d250661
+  1.76%    2.59%  │  │  0x00007f992d2500c9: mov    0x18(%rsp),%rsi
+                  │  │  0x00007f992d2500ce: nop
+                  │  │  0x00007f992d2500cf: callq  0x00007f992d046020  ; OopMap{[96]=Oop [104]=Oop [112]=Oop [24]=Oop off=212}
+                  │  │                                                ;*invokevirtual consume
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@152 (line 439)
+                  │  │                                                ;   {optimized virtual_call}
+  0.30%    0.28%  │  │  0x00007f992d2500d4: movabs $0x7f99420d8670,%r10
+                  │  │  0x00007f992d2500de: callq  *%r10              ;*invokestatic nanoTime
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@157 (line 440)
+  0.29%    0.00%  │  │  0x00007f992d2500e1: mov    %rax,%r11
+                  │  │  0x00007f992d2500e4: mov    0x70(%rsp),%r8
+           0.00%  │  │  0x00007f992d2500e9: xor    %eax,%eax
+  0.32%    0.00%  │  │  0x00007f992d2500eb: mov    $0x1,%r10d
+                  │  │  0x00007f992d2500f1: lock cmpxchg %r10d,0x130(%r8)
+  7.28%   16.42%  │  │  0x00007f992d2500fa: sete   %r10b
+                  │  │  0x00007f992d2500fe: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                  │  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@173 (line 441)
+  0.30%           │  │  0x00007f992d250102: sub    0x10(%rsp),%r11
+                  │  │  0x00007f992d250107: mov    0x8(%rsp),%r8
+                  │  │  0x00007f992d25010c: add    %r11,%r8           ;*ladd
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@163 (line 440)
+                  │  │  0x00007f992d25010f: mov    %r8,%rbx
+  0.35%           │  │  0x00007f992d250112: test   %r10d,%r10d
+                  │  │  0x00007f992d250115: je     0x00007f992d250519  ;*ifeq
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@176 (line 441)
+                  │  │  0x00007f992d25011b: mov    0x60(%rsp),%r10
+                  │  │  0x00007f992d250120: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@180 (line 443)
+                  │  │  0x00007f992d250128: test   %r10d,%r10d
+                  │  │  0x00007f992d25012b: jne    0x00007f992d250541  ;*ifeq
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@183 (line 443)
+  0.32%           │  │  0x00007f992d250131: mov    0x70(%rsp),%r8
+                  │  │  0x00007f992d250136: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@196 (line 444)
+                  │  │  0x00007f992d25013e: test   %r11d,%r11d
+                  │  │  0x00007f992d250141: je     0x00007f992d250569
+                  │  │  0x00007f992d250147: mov    %r12b,0x136(%r8)
+  0.33%           │  │  0x00007f992d25014e: mov    %r12d,0x130(%r8)
+                  │  │  0x00007f992d250155: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@214 (line 451)
+  7.07%    5.54%  │  │  0x00007f992d25015a: mov    0x60(%rsp),%r10
+                  │  │  0x00007f992d25015f: movzbl 0x94(%r10),%r11d   ;*getfield isDone
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@295 (line 460)
+                  │  │  0x00007f992d250167: mov    (%rsp),%r13
+  4.83%    0.01%  │  │  0x00007f992d25016b: add    $0x1,%r13          ; OopMap{r8=Oop [96]=Oop [104]=Oop [24]=Oop off=367}
+                  │  │                                                ;*ifeq
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+  0.31%           │  │  0x00007f992d25016f: test   %eax,0x16199e8b(%rip)        # 0x00007f99433ea000
+                  │  │                                                ;   {poll}
+                  │  │  0x00007f992d250175: test   %r11d,%r11d
+                  │  │  0x00007f992d250178: jne    0x00007f992d2502eb  ;*ifeq
+                  │  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+                  │  │  0x00007f992d25017e: mov    0x18(%rsp),%r14
+                  ↘  │  0x00007f992d250183: xor    %eax,%eax
+  0.34%              │  0x00007f992d250185: mov    $0x1,%r10d
+                     │  0x00007f992d25018b: lock cmpxchg %r10d,0x12c(%r8)
+  5.91%    1.81%     │  0x00007f992d250194: sete   %r10b
+                     │  0x00007f992d250198: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                     │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@20 (line 419)
+  0.35%    1.08%     │  0x00007f992d25019c: test   %r10d,%r10d
+                     │  0x00007f992d25019f: je     0x00007f992d2503e9  ;*ifeq
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@23 (line 419)
+                     │  0x00007f992d2501a5: mov    0x60(%rsp),%r10
+                     │  0x00007f992d2501aa: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@27 (line 421)
+                     │  0x00007f992d2501b2: test   %r10d,%r10d
+                     │  0x00007f992d2501b5: jne    0x00007f992d250421  ;*ifeq
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@30 (line 421)
+  0.37%    0.40%     │  0x00007f992d2501bb: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@43 (line 422)
+                     │  0x00007f992d2501c3: test   %r11d,%r11d
+                     │  0x00007f992d2501c6: jne    0x00007f992d2503b1  ;*ifne
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@46 (line 422)
+                     │  0x00007f992d2501cc: mov    0x18(%r8),%r11d    ;*getfield random
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@2 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     │  0x00007f992d2501d0: mov    0xc(%r8),%r10d     ;*getfield size
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@6 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.36%              │  0x00007f992d2501d4: mov    0x8(%r12,%r11,8),%r9d  ; implicit exception: dispatches to 0x00007f992d2505d1
+                     │  0x00007f992d2501d9: test   %r10d,%r10d
+                     │  0x00007f992d2501dc: jle    0x00007f992d250459  ;*ifgt
+                     │                                                ; - java.util.Random::nextInt@1 (line 387)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     │  0x00007f992d2501e2: cmp    $0xf8014b28,%r9d   ;   {metadata(&apos;java/util/Random&apos;)}
+                     │  0x00007f992d2501e9: jne    0x00007f992d250375
+                     │  0x00007f992d2501ef: lea    (%r12,%r11,8),%r9  ;*invokevirtual next
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.42%              │  0x00007f992d2501f3: mov    0x18(%r9),%r11d    ;*getfield seed
+                     │                                                ; - java.util.Random::next@1 (line 200)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     │  0x00007f992d2501f7: mov    0x10(%r12,%r11,8),%rax  ;*invokevirtual compareAndSwapLong
+                     │                                                ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                     │                                                ; - java.util.Random::next@32 (line 204)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     │                                                ; implicit exception: dispatches to 0x00007f992d250609
+                     │  0x00007f992d2501fc: mov    %rax,%rdi
+                     │  0x00007f992d2501ff: movabs $0x5deece66d,%rcx
+  0.39%              │  0x00007f992d250209: imul   %rcx,%rdi
+                     │  0x00007f992d25020d: add    $0xb,%rdi          ;*ladd
+                     │                                                ; - java.util.Random::next@20 (line 203)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.02%              │  0x00007f992d250211: mov    %rdi,%rdx
+                     │  0x00007f992d250214: movabs $0xffffffffffff,%rcx
+  0.38%              │  0x00007f992d25021e: and    %rcx,%rdx          ;*land
+                     │                                                ; - java.util.Random::next@24 (line 203)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     │  0x00007f992d250221: lock cmpxchg %rdx,0x10(%r12,%r11,8)
+  5.55%    7.15%     │  0x00007f992d250228: sete   %cl
+                     │  0x00007f992d25022b: movzbl %cl,%ecx           ;*invokevirtual compareAndSwapLong
+                     │                                                ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                     │                                                ; - java.util.Random::next@32 (line 204)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.36%    0.89%     │  0x00007f992d25022e: test   %ecx,%ecx
+                     │  0x00007f992d250230: je     0x00007f992d250495  ;*ifeq
+                     │                                                ; - java.util.Random::next@35 (line 204)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+           0.00%     │  0x00007f992d250236: shr    $0x11,%rdi
+                     │  0x00007f992d25023a: mov    %r10d,%ebp
+                     │  0x00007f992d25023d: dec    %ebp               ;*isub
+                     │                                                ; - java.util.Random::nextInt@23 (line 391)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.32%    0.38%     │  0x00007f992d25023f: mov    %r10d,%ecx
+                     │  0x00007f992d250242: and    %ebp,%ecx          ;*iand
+                     │                                                ; - java.util.Random::nextInt@27 (line 392)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     │  0x00007f992d250244: and    $0x7fffffff,%rdi
+                     │  0x00007f992d25024b: mov    %edi,%r11d         ;*l2i  ; - java.util.Random::next@45 (line 205)
+                     │                                                ; - java.util.Random::nextInt@17 (line 390)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.40%              │  0x00007f992d25024e: test   %ecx,%ecx
+                     │  0x00007f992d250250: je     0x00007f992d2504e1  ;*ifne
+                     │                                                ; - java.util.Random::nextInt@28 (line 392)
+                     │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                     │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.00%              │  0x00007f992d250256: test   %r10d,%r10d
+                     │  0x00007f992d250259: je     0x00007f992d250315
+                     │  0x00007f992d25025f: mov    %r11d,%eax
+                     │  0x00007f992d250262: cmp    $0x80000000,%eax
+                   ╭ │  0x00007f992d250267: jne    0x00007f992d250271
+                   │ │  0x00007f992d250269: xor    %edx,%edx
+                   │ │  0x00007f992d25026b: cmp    $0xffffffff,%r10d
+                   │╭│  0x00007f992d25026f: je     0x00007f992d250275
+  0.32%            ↘││  0x00007f992d250271: cltd   
+  0.00%             ││  0x00007f992d250272: idiv   %r10d              ;*irem
+                    ││                                                ; - java.util.Random::nextInt@52 (line 396)
+                    ││                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    ││                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.67%             ↘│  0x00007f992d250275: sub    %edx,%r11d
+  0.36%              │  0x00007f992d250278: add    %r10d,%r11d
+  0.02%    0.00%     │  0x00007f992d25027b: dec    %r11d
+  0.00%              │  0x00007f992d25027e: test   %r11d,%r11d
+                     ╰  0x00007f992d250281: jge    0x00007f992d25005e  ;*aload_0
+                                                                      ; - java.util.Random::nextInt@61 (line 397)
+                                                                      ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                      ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                        0x00007f992d250287: mov    %r9,0x20(%rsp)
+                        0x00007f992d25028c: mov    %r10d,0x10(%rsp)
+                        0x00007f992d250291: mov    %rbx,0x8(%rsp)
+                        0x00007f992d250296: mov    %r13,(%rsp)
+                        0x00007f992d25029a: mov    %r8,0x70(%rsp)
+                        0x00007f992d25029f: mov    %r14,0x18(%rsp)
+....................................................................................................
+ 53.79%   57.40%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+ [vdso], [unknown] (16 bytes) 
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 23.66%   36.12%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 53.79%   57.40%         C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 578 (539 bytes) 
+ 23.66%   36.12%              [vdso]  [unknown] (16 bytes) 
+  4.25%    0.33%        libc-2.26.so  __clock_gettime (75 bytes) 
+  4.16%                    libjvm.so  _ZN2os13javaTimeNanosEv (46 bytes) 
+  3.34%    1.21%              [vdso]  [unknown] (44 bytes) 
+  2.79%                       [vdso]  [unknown] (52 bytes) 
+  1.50%                       [vdso]  [unknown] (16 bytes) 
+  1.45%    0.76%              [vdso]  [unknown] (31 bytes) 
+  1.41%    1.92%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 526 (40 bytes) 
+  1.34%    0.01%              [vdso]  [unknown] (33 bytes) 
+  0.42%    0.41%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.11%    0.03%   [kernel.kallsyms]  [unknown] (66 bytes) 
+  0.09%    0.01%   [kernel.kallsyms]  [unknown] (47 bytes) 
+  0.06%    0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.06%    0.06%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ (90 bytes) 
+  0.05%    0.00%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.04%    0.01%   [kernel.kallsyms]  [unknown] (11 bytes) 
+  0.04%    0.01%   [kernel.kallsyms]  [unknown] (24 bytes) 
+  0.04%           libpthread-2.26.so  __libc_write (16 bytes) 
+  0.03%    0.04%   [kernel.kallsyms]  [unknown] (29 bytes) 
+  1.37%    1.64%  <...other 367 warm regions...>
+....................................................................................................
+100.00%  100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 53.79%   57.40%         C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 578 
+ 34.07%   38.10%              [vdso]  [unknown] 
+  4.25%    0.33%        libc-2.26.so  __clock_gettime 
+  4.16%                    libjvm.so  _ZN2os13javaTimeNanosEv 
+  1.47%    1.41%   [kernel.kallsyms]  [unknown] 
+  1.41%    1.92%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 526 
+  0.06%    0.06%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ 
+  0.06%    0.06%        libc-2.26.so  _IO_fwrite 
+  0.04%           libpthread-2.26.so  __libc_write 
+  0.04%    0.06%      hsdis-amd64.so  decode_instructions 
+  0.03%    0.06%        libc-2.26.so  vfprintf 
+  0.02%    0.04%        libc-2.26.so  __strlen_avx2 
+  0.02%    0.02%           libjvm.so  _ZN13xmlTextStream5writeEPKcm 
+  0.02%                 libc-2.26.so  _IO_str_init_static_internal 
+  0.02%    0.00%           libjvm.so  _ZN7nmethod21print_code_comment_onEP12outputStreamiPhS2_ 
+  0.02%    0.02%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.01%    0.01%        libc-2.26.so  __memmove_avx_unaligned_erms 
+  0.01%    0.04%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.01%    0.01%           libjvm.so  _ZN12stringStream5writeEPKcm 
+  0.01%    0.01%        libc-2.26.so  __strchr_avx2 
+  0.43%    0.23%  <...other 73 warm methods...>
+....................................................................................................
+100.00%   99.80%  <totals>
+
+....[Distribution by Source]........................................................................
+ 55.20%   59.32%         C2, level 4
+ 34.07%   38.10%              [vdso]
+  4.58%    0.38%           libjvm.so
+  4.50%    0.67%        libc-2.26.so
+  1.47%    1.41%   [kernel.kallsyms]
+  0.09%    0.03%  libpthread-2.26.so
+  0.04%    0.07%      hsdis-amd64.so
+  0.02%    0.02%         interpreter
+  0.01%                  C1, level 3
+  0.00%               perf-18795.map
+  0.00%                    libzip.so
+....................................................................................................
+100.00%  100.00%  <totals>
+
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ArrayAccess.testGet
+# Parameters: (size = 1000)
+
+# Run progress: 16.67% complete, ETA 00:03:45
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 27.449 ns/op
+# Warmup Iteration   2: 22.343 ns/op
+# Warmup Iteration   3: 20.734 ns/op
+# Warmup Iteration   4: 20.777 ns/op
+# Warmup Iteration   5: 20.724 ns/op
+# Warmup Iteration   6: 20.730 ns/op
+# Warmup Iteration   7: 20.812 ns/op
+# Warmup Iteration   8: 20.661 ns/op
+# Warmup Iteration   9: 20.757 ns/op
+# Warmup Iteration  10: 20.693 ns/op
+# Warmup Iteration  11: 20.794 ns/op
+# Warmup Iteration  12: 20.896 ns/op
+# Warmup Iteration  13: 20.724 ns/op
+# Warmup Iteration  14: 20.627 ns/op
+# Warmup Iteration  15: 20.791 ns/op
+# Warmup Iteration  16: 20.777 ns/op
+# Warmup Iteration  17: 21.382 ns/op
+# Warmup Iteration  18: 21.190 ns/op
+# Warmup Iteration  19: 21.150 ns/op
+# Warmup Iteration  20: 21.146 ns/op
+Iteration   1: 21.167 ns/op
+Iteration   2: 21.397 ns/op
+Iteration   3: 21.149 ns/op
+Iteration   4: 21.242 ns/op
+Iteration   5: 21.179 ns/op
+Iteration   6: 21.187 ns/op
+Iteration   7: 21.633 ns/op
+Iteration   8: 21.188 ns/op
+Iteration   9: 21.146 ns/op
+Iteration  10: 21.335 ns/op
+Iteration  11: 21.227 ns/op
+Iteration  12: 21.295 ns/op
+Iteration  13: 21.256 ns/op
+Iteration  14: 21.194 ns/op
+Iteration  15: 21.260 ns/op
+Iteration  16: 21.231 ns/op
+Iteration  17: 21.356 ns/op
+Iteration  18: 21.146 ns/op
+Iteration  19: 21.150 ns/op
+Iteration  20: 21.189 ns/op
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.github.arnaudroger.Random2ArrayAccess.testGet":
+  21.246 ±(99.9%) 0.101 ns/op [Average]
+  (min, avg, max) = (21.146, 21.246, 21.633), stdev = 0.117
+  CI (99.9%): [21.145, 21.347] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:·asm":
+PrintAssembly processed: 181797 total address lines.
+Perf output processed (skipped 23.283 seconds):
+ Column 1: cycles (20458 events)
+ Column 2: instructions (20416 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+C2, level 4, com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 548 (499 bytes) 
+
+                       0x00007f0eb524393f: mov    0x60(%rsp),%r10
+                       0x00007f0eb5243944: test   %r10,%r10
+                       0x00007f0eb5243947: je     0x00007f0eb5243e91
+                       0x00007f0eb524394d: mov    0x18(%rsp),%r10
+                       0x00007f0eb5243952: test   %r10,%r10
+                       0x00007f0eb5243955: je     0x00007f0eb5243e91
+                       0x00007f0eb524395b: xor    %ebx,%ebx
+                       0x00007f0eb524395d: xor    %r13d,%r13d
+                    ↗  0x00007f0eb5243960: xor    %eax,%eax
+                    │  0x00007f0eb5243962: mov    $0x1,%r11d
+  0.37%             │  0x00007f0eb5243968: lock cmpxchg %r11d,0x12c(%r14)
+  6.22%    1.94%    │  0x00007f0eb5243971: sete   %r11b
+                    │  0x00007f0eb5243975: movzbl %r11b,%r11d        ;*invokevirtual compareAndSwapInt
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@20 (line 419)
+  0.37%    0.71%    │  0x00007f0eb5243979: test   %r11d,%r11d
+                    │  0x00007f0eb524397c: je     0x00007f0eb5243ce5  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@23 (line 419)
+                    │  0x00007f0eb5243982: mov    0x60(%rsp),%r10
+                    │  0x00007f0eb5243987: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@27 (line 421)
+                    │  0x00007f0eb524398f: test   %r10d,%r10d
+                    │  0x00007f0eb5243992: jne    0x00007f0eb5243d19  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@30 (line 421)
+  0.35%    0.10%    │  0x00007f0eb5243998: movzbl 0x136(%r14),%r10d  ;*getfield readyInvocation
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@43 (line 422)
+                    │  0x00007f0eb52439a0: test   %r10d,%r10d
+                    │  0x00007f0eb52439a3: jne    0x00007f0eb5243cb1  ;*ifne
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@46 (line 422)
+                    │  0x00007f0eb52439a9: mov    0x18(%r14),%r8d    ;*getfield random
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@2 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f0eb52439ad: mov    0xc(%r14),%r10d    ;*getfield size
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@6 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.34%             │  0x00007f0eb52439b1: mov    0x8(%r12,%r8,8),%r9d  ; implicit exception: dispatches to 0x00007f0eb5243eb1
+                    │  0x00007f0eb52439b6: test   %r10d,%r10d
+                    │  0x00007f0eb52439b9: jle    0x00007f0eb5243d4d  ;*ifgt
+                    │                                                ; - java.util.Random::nextInt@1 (line 387)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f0eb52439bf: cmp    $0xf8014b28,%r9d   ;   {metadata(&apos;java/util/Random&apos;)}
+                    │  0x00007f0eb52439c6: jne    0x00007f0eb5243c71
+                    │  0x00007f0eb52439cc: shl    $0x3,%r8           ;*invokevirtual next
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.34%             │  0x00007f0eb52439d0: mov    0x18(%r8),%r11d    ;*getfield seed
+                    │                                                ; - java.util.Random::next@1 (line 200)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f0eb52439d4: mov    0x10(%r12,%r11,8),%rax  ;*invokevirtual compareAndSwapLong
+                    │                                                ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                    │                                                ; - java.util.Random::next@32 (line 204)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │                                                ; implicit exception: dispatches to 0x00007f0eb5243ee5
+                    │  0x00007f0eb52439d9: mov    %rax,%rdi
+                    │  0x00007f0eb52439dc: movabs $0x5deece66d,%r9
+  0.36%             │  0x00007f0eb52439e6: imul   %r9,%rdi
+                    │  0x00007f0eb52439ea: add    $0xb,%rdi          ;*ladd
+                    │                                                ; - java.util.Random::next@20 (line 203)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f0eb52439ee: mov    %rdi,%r9
+                    │  0x00007f0eb52439f1: movabs $0xffffffffffff,%rcx
+  0.35%             │  0x00007f0eb52439fb: and    %rcx,%r9           ;*land
+                    │                                                ; - java.util.Random::next@24 (line 203)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f0eb52439fe: lock cmpxchg %r9,0x10(%r12,%r11,8)
+  5.85%    7.95%    │  0x00007f0eb5243a05: sete   %cl
+                    │  0x00007f0eb5243a08: movzbl %cl,%ecx           ;*invokevirtual compareAndSwapLong
+                    │                                                ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                    │                                                ; - java.util.Random::next@32 (line 204)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.34%    0.86%    │  0x00007f0eb5243a0b: test   %ecx,%ecx
+                    │  0x00007f0eb5243a0d: je     0x00007f0eb5243d8d  ;*ifeq
+                    │                                                ; - java.util.Random::next@35 (line 204)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.18%             │  0x00007f0eb5243a13: shr    $0x11,%rdi
+                    │  0x00007f0eb5243a17: mov    %r10d,%ebp
+                    │  0x00007f0eb5243a1a: dec    %ebp               ;*isub
+                    │                                                ; - java.util.Random::nextInt@23 (line 391)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.14%    0.26%    │  0x00007f0eb5243a1c: mov    %r10d,%r9d
+  0.20%             │  0x00007f0eb5243a1f: and    %ebp,%r9d          ;*iand
+                    │                                                ; - java.util.Random::nextInt@27 (line 392)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f0eb5243a22: and    $0x7fffffff,%rdi
+                    │  0x00007f0eb5243a29: mov    %edi,%r11d         ;*l2i  ; - java.util.Random::next@45 (line 205)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.13%             │  0x00007f0eb5243a2c: test   %r9d,%r9d
+                    │  0x00007f0eb5243a2f: je     0x00007f0eb5243ddd  ;*ifne
+                    │                                                ; - java.util.Random::nextInt@28 (line 392)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.22%             │  0x00007f0eb5243a35: test   %r10d,%r10d
+                    │  0x00007f0eb5243a38: je     0x00007f0eb5243c08
+                    │  0x00007f0eb5243a3e: mov    %r11d,%eax
+                    │  0x00007f0eb5243a41: cmp    $0x80000000,%eax
+                  ╭ │  0x00007f0eb5243a46: jne    0x00007f0eb5243a50
+                  │ │  0x00007f0eb5243a48: xor    %edx,%edx
+                  │ │  0x00007f0eb5243a4a: cmp    $0xffffffff,%r10d
+                  │╭│  0x00007f0eb5243a4e: je     0x00007f0eb5243a54
+  0.16%           ↘││  0x00007f0eb5243a50: cltd   
+  0.19%            ││  0x00007f0eb5243a51: idiv   %r10d              ;*irem
+                   ││                                                ; - java.util.Random::nextInt@52 (line 396)
+                   ││                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                   ││                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.67%            ↘│  0x00007f0eb5243a54: sub    %edx,%r11d
+  0.16%             │  0x00007f0eb5243a57: add    %r10d,%r11d
+  0.21%             │  0x00007f0eb5243a5a: dec    %r11d
+  0.00%             │  0x00007f0eb5243a5d: test   %r11d,%r11d
+                    │  0x00007f0eb5243a60: jl     0x00007f0eb5243ba7  ;*ifge
+                    │                                                ; - java.util.Random::nextInt@58 (line 396)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.00%             │  0x00007f0eb5243a66: mov    %edx,0x10(%r14)
+  0.09%             │  0x00007f0eb5243a6a: movb   $0x1,0x136(%r14)
+  0.16%             │  0x00007f0eb5243a72: mov    %r12d,0x12c(%r14)
+  0.01%             │  0x00007f0eb5243a79: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@66 (line 430)
+  8.12%    8.48%    │  0x00007f0eb5243a7e: movabs $0x7f0eca27c670,%r10
+                    │  0x00007f0eb5243a88: callq  *%r10              ;*invokestatic nanoTime
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@140 (line 438)
+  0.34%    0.00%    │  0x00007f0eb5243a8b: mov    %rax,0x10(%rsp)
+                    │  0x00007f0eb5243a90: mov    0x10(%r14),%r11d   ;*getfield index
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@5 (line 67)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │  0x00007f0eb5243a94: mov    0x14(%r14),%r10d   ;*getfield data
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@1 (line 67)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.26%             │  0x00007f0eb5243a98: mov    0xc(%r12,%r10,8),%r9d  ; implicit exception: dispatches to 0x00007f0eb5243f11
+                    │  0x00007f0eb5243a9d: cmp    %r9d,%r11d
+                    │  0x00007f0eb5243aa0: jae    0x00007f0eb5243c39
+                    │  0x00007f0eb5243aa6: shl    $0x3,%r10
+                    │  0x00007f0eb5243aaa: mov    0x10(%r10,%r11,4),%r10d  ;*aaload
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@8 (line 67)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.43%    0.19%    │  0x00007f0eb5243aaf: mov    0x10(%r12,%r10,8),%rdx  ;*getfield value
+                    │                                                ; - java.lang.Long::longValue@1 (line 1000)
+                    │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@9 (line 67)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │                                                ; implicit exception: dispatches to 0x00007f0eb5243f45
+  0.57%    1.44%    │  0x00007f0eb5243ab4: mov    %r13,%rbp
+                    │  0x00007f0eb5243ab7: mov    %rbx,(%rsp)
+                    │  0x00007f0eb5243abb: mov    %r14,0x70(%rsp)
+  0.27%    0.71%    │  0x00007f0eb5243ac0: mov    0x18(%rsp),%rsi
+  0.01%    0.05%    │  0x00007f0eb5243ac5: xchg   %ax,%ax
+                    │  0x00007f0eb5243ac7: callq  0x00007f0eb5046020  ; OopMap{[96]=Oop [104]=Oop [112]=Oop [24]=Oop off=460}
+                    │                                                ;*invokevirtual consume
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@152 (line 439)
+                    │                                                ;   {optimized virtual_call}
+  1.94%    6.03%    │  0x00007f0eb5243acc: movabs $0x7f0eca27c670,%r10
+                    │  0x00007f0eb5243ad6: callq  *%r10              ;*invokestatic nanoTime
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@157 (line 440)
+  0.36%    0.00%    │  0x00007f0eb5243ad9: mov    %rax,%r10
+                    │  0x00007f0eb5243adc: mov    0x70(%rsp),%r8
+                    │  0x00007f0eb5243ae1: xor    %eax,%eax
+  0.35%             │  0x00007f0eb5243ae3: mov    $0x1,%r11d
+                    │  0x00007f0eb5243ae9: lock cmpxchg %r11d,0x130(%r8)
+  7.39%   16.00%    │  0x00007f0eb5243af2: sete   %r11b
+                    │  0x00007f0eb5243af6: movzbl %r11b,%r11d        ;*invokevirtual compareAndSwapInt
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@173 (line 441)
+  0.35%             │  0x00007f0eb5243afa: sub    0x10(%rsp),%r10
+                    │  0x00007f0eb5243aff: add    %r10,%rbp          ;*ladd
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@163 (line 440)
+                    │  0x00007f0eb5243b02: mov    %rbp,%r13
+                    │  0x00007f0eb5243b05: test   %r11d,%r11d
+                    │  0x00007f0eb5243b08: je     0x00007f0eb5243e19  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@176 (line 441)
+  0.32%             │  0x00007f0eb5243b0e: mov    0x60(%rsp),%r10
+                    │  0x00007f0eb5243b13: movzbl 0x95(%r10),%r11d   ;*getfield isFailing
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@180 (line 443)
+                    │  0x00007f0eb5243b1b: test   %r11d,%r11d
+                    │  0x00007f0eb5243b1e: jne    0x00007f0eb5243e41  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@183 (line 443)
+                    │  0x00007f0eb5243b24: mov    %r8,%r14
+  0.36%    0.00%    │  0x00007f0eb5243b27: movzbl 0x136(%r14),%r11d  ;*getfield readyInvocation
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@196 (line 444)
+                    │  0x00007f0eb5243b2f: test   %r11d,%r11d
+                    │  0x00007f0eb5243b32: je     0x00007f0eb5243e69
+                    │  0x00007f0eb5243b38: mov    %r12b,0x136(%r14)
+                    │  0x00007f0eb5243b3f: mov    %r12d,0x130(%r14)
+  0.33%             │  0x00007f0eb5243b46: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@214 (line 451)
+  7.21%    5.32%    │  0x00007f0eb5243b4b: movzbl 0x94(%r10),%r11d   ;*getfield isDone
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@295 (line 460)
+                    │  0x00007f0eb5243b53: mov    (%rsp),%rbx
+  5.09%             │  0x00007f0eb5243b57: add    $0x1,%rbx          ; OopMap{r14=Oop [96]=Oop [104]=Oop [24]=Oop off=603}
+                    │                                                ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+  0.34%             │  0x00007f0eb5243b5b: test   %eax,0x1634a49f(%rip)        # 0x00007f0ecb58e000
+                    │                                                ;   {poll}
+                    │  0x00007f0eb5243b61: test   %r11d,%r11d
+                    ╰  0x00007f0eb5243b64: je     0x00007f0eb5243960  ;*ifeq
+                                                                     ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+                       0x00007f0eb5243b6a: movabs $0x7f0eca27c670,%r10
+                       0x00007f0eb5243b74: callq  *%r10              ;*invokestatic nanoTime
+                                                                     ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@302 (line 461)
+                       0x00007f0eb5243b77: mov    0x68(%rsp),%r10
+....................................................................................................
+ 51.45%   50.05%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+ [vdso], [unknown] (23 bytes) 
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 24.26%   33.50%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 51.45%   50.05%         C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 548 (499 bytes) 
+ 24.26%   33.50%              [vdso]  [unknown] (23 bytes) 
+  4.06%    2.20%        libc-2.26.so  __clock_gettime (75 bytes) 
+  3.50%    1.89%           libjvm.so  _ZN2os13javaTimeNanosEv (46 bytes) 
+  3.46%    1.79%              [vdso]  [unknown] (39 bytes) 
+  3.02%    0.00%              [vdso]  [unknown] (52 bytes) 
+  2.35%    6.50%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 526 (45 bytes) 
+  2.02%    0.18%              [vdso]  [unknown] (36 bytes) 
+  1.77%    1.53%              [vdso]  [unknown] (31 bytes) 
+  1.58%    0.01%              [vdso]  [unknown] (11 bytes) 
+  0.54%    0.53%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.11%            [kernel.kallsyms]  [unknown] (1 bytes) 
+  0.10%    0.00%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.06%    0.03%   [kernel.kallsyms]  [unknown] (28 bytes) 
+  0.05%    0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%    0.01%   [kernel.kallsyms]  [unknown] (27 bytes) 
+  0.03%    0.10%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ (141 bytes) 
+  0.03%           libpthread-2.26.so  __libc_write (16 bytes) 
+  0.03%    0.03%   [kernel.kallsyms]  [unknown] (31 bytes) 
+  0.03%    0.00%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  1.51%    1.60%  <...other 360 warm regions...>
+....................................................................................................
+100.00%  100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 51.45%   50.05%         C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 548 
+ 36.12%   37.02%              [vdso]  [unknown] 
+  4.06%    2.20%        libc-2.26.so  __clock_gettime 
+  3.50%    1.89%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  2.35%    6.50%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 526 
+  1.81%    1.46%   [kernel.kallsyms]  [unknown] 
+  0.07%    0.03%      hsdis-amd64.so  [unknown] 
+  0.04%           libpthread-2.26.so  __libc_write 
+  0.04%    0.10%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ 
+  0.03%    0.05%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.03%    0.13%        libc-2.26.so  vfprintf 
+  0.02%    0.00%        libc-2.26.so  _IO_str_init_static_internal 
+  0.02%    0.01%           libjvm.so  _ZN13defaultStream5writeEPKcm 
+  0.02%    0.06%        libc-2.26.so  _IO_fwrite 
+  0.02%    0.01%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.01%    0.02%        libc-2.26.so  __strlen_avx2 
+  0.01%    0.01%           libjvm.so  _ZN10decode_env12handle_eventEPKcPh 
+  0.01%    0.01%        libc-2.26.so  _itoa_word 
+  0.01%    0.01%           libjvm.so  _ZN7Monitor6unlockEv 
+  0.01%                 libc-2.26.so  _IO_do_write@@GLIBC_2.2.5 
+  0.35%    0.18%  <...other 61 warm methods...>
+....................................................................................................
+100.00%   99.77%  <totals>
+
+....[Distribution by Source]........................................................................
+ 53.80%   56.56%         C2, level 4
+ 36.12%   37.02%              [vdso]
+  4.27%    2.55%        libc-2.26.so
+  3.82%    2.34%           libjvm.so
+  1.81%    1.46%   [kernel.kallsyms]
+  0.09%    0.02%  libpthread-2.26.so
+  0.07%    0.04%      hsdis-amd64.so
+  0.02%    0.02%         interpreter
+  0.00%                             
+  0.00%                  C1, level 3
+....................................................................................................
+100.00%  100.00%  <totals>
+
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ArrayAccess.testGet
+# Parameters: (size = 1000000)
+
+# Run progress: 33.33% complete, ETA 00:03:00
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 100.033 ns/op
+# Warmup Iteration   2: 92.233 ns/op
+# Warmup Iteration   3: 89.688 ns/op
+# Warmup Iteration   4: 89.355 ns/op
+# Warmup Iteration   5: 89.741 ns/op
+# Warmup Iteration   6: 89.765 ns/op
+# Warmup Iteration   7: 89.268 ns/op
+# Warmup Iteration   8: 88.666 ns/op
+# Warmup Iteration   9: 89.294 ns/op
+# Warmup Iteration  10: 89.240 ns/op
+# Warmup Iteration  11: 90.447 ns/op
+# Warmup Iteration  12: 90.335 ns/op
+# Warmup Iteration  13: 89.426 ns/op
+# Warmup Iteration  14: 88.961 ns/op
+# Warmup Iteration  15: 88.844 ns/op
+# Warmup Iteration  16: 92.655 ns/op
+# Warmup Iteration  17: 90.024 ns/op
+# Warmup Iteration  18: 89.550 ns/op
+# Warmup Iteration  19: 89.277 ns/op
+# Warmup Iteration  20: 89.442 ns/op
+Iteration   1: 89.532 ns/op
+Iteration   2: 91.319 ns/op
+Iteration   3: 89.311 ns/op
+Iteration   4: 89.956 ns/op
+Iteration   5: 89.271 ns/op
+Iteration   6: 90.130 ns/op
+Iteration   7: 90.612 ns/op
+Iteration   8: 89.556 ns/op
+Iteration   9: 89.235 ns/op
+Iteration  10: 88.977 ns/op
+Iteration  11: 92.050 ns/op
+Iteration  12: 90.705 ns/op
+Iteration  13: 89.338 ns/op
+Iteration  14: 89.065 ns/op
+Iteration  15: 89.870 ns/op
+Iteration  16: 89.968 ns/op
+Iteration  17: 90.288 ns/op
+Iteration  18: 88.826 ns/op
+Iteration  19: 89.072 ns/op
+Iteration  20: 88.988 ns/op
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.github.arnaudroger.Random2ArrayAccess.testGet":
+  89.803 ±(99.9%) 0.740 ns/op [Average]
+  (min, avg, max) = (88.826, 89.803, 92.050), stdev = 0.852
+  CI (99.9%): [89.064, 90.543] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ArrayAccess.testGet:·asm":
+PrintAssembly processed: 182392 total address lines.
+Perf output processed (skipped 23.385 seconds):
+ Column 1: cycles (20487 events)
+ Column 2: instructions (20484 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+C2, level 4, com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 547 (491 bytes) 
+
+                     0x00007f2805241f7d: mov    0x60(%rsp),%r10
+                     0x00007f2805241f82: test   %r10,%r10
+                     0x00007f2805241f85: je     0x00007f28052424ee
+                     0x00007f2805241f8b: test   %r14,%r14
+                     0x00007f2805241f8e: je     0x00007f28052424ee  ;*getstatic setupInvocationMutexUpdater
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@13 (line 419)
+                     0x00007f2805241f94: xor    %r13d,%r13d
+                     0x00007f2805241f97: xor    %ebx,%ebx
+                  ╭  0x00007f2805241f99: jmpq   0x00007f28052420c3
+                  │  0x00007f2805241f9e: mov    %r14,0x18(%rsp)
+  0.20%           │  0x00007f2805241fa3: mov    %r13,(%rsp)
+  0.04%           │  0x00007f2805241fa7: mov    %rbx,0x8(%rsp)     ;*ifge
+                  │                                                ; - java.util.Random::nextInt@58 (line 396)
+                  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                  │  0x00007f2805241fac: mov    %edx,0x10(%r8)
+                  │  0x00007f2805241fb0: movb   $0x1,0x136(%r8)
+  0.15%           │  0x00007f2805241fb8: mov    %r12d,0x12c(%r8)
+  0.02%           │  0x00007f2805241fbf: mov    %r8,0x70(%rsp)
+                  │  0x00007f2805241fc4: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@66 (line 430)
+  4.71%    9.70%  │  0x00007f2805241fc9: movabs $0x7f281abc0670,%r10
+                  │  0x00007f2805241fd3: callq  *%r10              ;*invokestatic nanoTime
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@140 (line 438)
+  0.20%           │  0x00007f2805241fd6: mov    %rax,0x10(%rsp)
+                  │  0x00007f2805241fdb: mov    0x70(%rsp),%r10
+                  │  0x00007f2805241fe0: mov    0x10(%r10),%r10d   ;*getfield index
+                  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@5 (line 67)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.13%    0.02%  │  0x00007f2805241fe4: mov    0x70(%rsp),%r11
+                  │  0x00007f2805241fe9: mov    0x14(%r11),%r8d    ;*getfield data
+                  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@1 (line 67)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.22%    0.04%  │  0x00007f2805241fed: mov    0xc(%r12,%r8,8),%r11d  ; implicit exception: dispatches to 0x00007f280524257d
+  1.15%    5.71%  │  0x00007f2805241ff2: cmp    %r11d,%r10d
+                  │  0x00007f2805241ff5: jae    0x00007f280524228d
+  0.33%    2.14%  │  0x00007f2805241ffb: lea    (%r12,%r8,8),%r11
+                  │  0x00007f2805241fff: mov    0x10(%r11,%r10,4),%r11d  ;*aaload
+                  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@8 (line 67)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+ 10.97%    9.81%  │  0x00007f2805242004: mov    0x10(%r12,%r11,8),%rdx  ;*getfield value
+                  │                                                ; - java.lang.Long::longValue@1 (line 1000)
+                  │                                                ; - com.github.arnaudroger.Random2ArrayAccess::testGet@9 (line 67)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │                                                ; implicit exception: dispatches to 0x00007f28052425a1
+ 35.94%    0.32%  │  0x00007f2805242009: mov    0x18(%rsp),%rsi
+  0.00%           │  0x00007f280524200e: nop
+                  │  0x00007f280524200f: callq  0x00007f2805046020  ; OopMap{[96]=Oop [104]=Oop [112]=Oop [24]=Oop off=212}
+                  │                                                ;*invokevirtual consume
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@152 (line 439)
+                  │                                                ;   {optimized virtual_call}
+  0.18%           │  0x00007f2805242014: movabs $0x7f281abc0670,%r10
+                  │  0x00007f280524201e: callq  *%r10              ;*invokestatic nanoTime
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@157 (line 440)
+  0.15%           │  0x00007f2805242021: mov    %rax,%r11
+                  │  0x00007f2805242024: mov    0x70(%rsp),%r8
+                  │  0x00007f2805242029: xor    %eax,%eax
+  0.19%    0.00%  │  0x00007f280524202b: mov    $0x1,%r10d
+                  │  0x00007f2805242031: lock cmpxchg %r10d,0x130(%r8)
+  3.65%   15.84%  │  0x00007f280524203a: sete   %r10b
+                  │  0x00007f280524203e: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@173 (line 441)
+  0.17%           │  0x00007f2805242042: sub    0x10(%rsp),%r11
+                  │  0x00007f2805242047: mov    0x8(%rsp),%r8
+                  │  0x00007f280524204c: add    %r11,%r8           ;*ladd
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@163 (line 440)
+                  │  0x00007f280524204f: mov    %r8,%rbx
+  0.19%           │  0x00007f2805242052: test   %r10d,%r10d
+                  │  0x00007f2805242055: je     0x00007f2805242459  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@176 (line 441)
+                  │  0x00007f280524205b: mov    0x60(%rsp),%r10
+                  │  0x00007f2805242060: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@180 (line 443)
+                  │  0x00007f2805242068: test   %r10d,%r10d
+                  │  0x00007f280524206b: jne    0x00007f2805242481  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@183 (line 443)
+  0.14%           │  0x00007f2805242071: mov    0x70(%rsp),%r8
+                  │  0x00007f2805242076: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@196 (line 444)
+                  │  0x00007f280524207e: test   %r11d,%r11d
+                  │  0x00007f2805242081: je     0x00007f28052424a9
+                  │  0x00007f2805242087: mov    %r12b,0x136(%r8)
+  0.13%           │  0x00007f280524208e: mov    %r12d,0x130(%r8)
+                  │  0x00007f2805242095: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@214 (line 451)
+  3.75%    5.64%  │  0x00007f280524209a: mov    0x60(%rsp),%r10
+                  │  0x00007f280524209f: movzbl 0x94(%r10),%r11d   ;*getfield isDone
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@295 (line 460)
+                  │  0x00007f28052420a7: mov    (%rsp),%r13
+  2.90%    0.00%  │  0x00007f28052420ab: add    $0x1,%r13          ; OopMap{r8=Oop [96]=Oop [104]=Oop [24]=Oop off=367}
+                  │                                                ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+  0.15%           │  0x00007f28052420af: test   %eax,0x16c8ff4b(%rip)        # 0x00007f281bed2000
+                  │                                                ;   {poll}
+                  │  0x00007f28052420b5: test   %r11d,%r11d
+                  │  0x00007f28052420b8: jne    0x00007f280524222b  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+                  │  0x00007f28052420be: mov    0x18(%rsp),%r14
+                  ↘  0x00007f28052420c3: xor    %eax,%eax
+  0.23%              0x00007f28052420c5: mov    $0x1,%r10d
+                     0x00007f28052420cb: lock cmpxchg %r10d,0x12c(%r8)
+  3.03%    2.60%     0x00007f28052420d4: sete   %r10b
+                     0x00007f28052420d8: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                                                                   ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@20 (line 419)
+  0.20%    0.64%     0x00007f28052420dc: test   %r10d,%r10d
+                     0x00007f28052420df: je     0x00007f2805242329  ;*ifeq
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@23 (line 419)
+                     0x00007f28052420e5: mov    0x60(%rsp),%r10
+                     0x00007f28052420ea: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@27 (line 421)
+                     0x00007f28052420f2: test   %r10d,%r10d
+                     0x00007f28052420f5: jne    0x00007f2805242361  ;*ifeq
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@30 (line 421)
+  0.14%    0.00%     0x00007f28052420fb: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@43 (line 422)
+                     0x00007f2805242103: test   %r11d,%r11d
+                     0x00007f2805242106: jne    0x00007f28052422f1  ;*ifne
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@46 (line 422)
+                     0x00007f280524210c: mov    0x18(%r8),%r11d    ;*getfield random
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@2 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f2805242110: mov    0xc(%r8),%r10d     ;*getfield size
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@6 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.15%              0x00007f2805242114: mov    0x8(%r12,%r11,8),%r9d  ; implicit exception: dispatches to 0x00007f2805242511
+                     0x00007f2805242119: test   %r10d,%r10d
+                     0x00007f280524211c: jle    0x00007f2805242399  ;*ifgt
+                                                                   ; - java.util.Random::nextInt@1 (line 387)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f2805242122: cmp    $0xf8014b28,%r9d   ;   {metadata(&apos;java/util/Random&apos;)}
+                     0x00007f2805242129: jne    0x00007f28052422b5
+                     0x00007f280524212f: lea    (%r12,%r11,8),%r9  ;*invokevirtual next
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.16%              0x00007f2805242133: mov    0x18(%r9),%r11d    ;*getfield seed
+                                                                   ; - java.util.Random::next@1 (line 200)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f2805242137: mov    0x10(%r12,%r11,8),%rax  ;*invokevirtual compareAndSwapLong
+                                                                   ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                                                                   ; - java.util.Random::next@32 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                                                                   ; implicit exception: dispatches to 0x00007f2805242549
+                     0x00007f280524213c: mov    %rax,%rdi
+                     0x00007f280524213f: movabs $0x5deece66d,%rcx
+  0.16%              0x00007f2805242149: imul   %rcx,%rdi
+                     0x00007f280524214d: add    $0xb,%rdi          ;*ladd
+                                                                   ; - java.util.Random::next@20 (line 203)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f2805242151: mov    %rdi,%rdx
+                     0x00007f2805242154: movabs $0xffffffffffff,%rcx
+  0.16%              0x00007f280524215e: and    %rcx,%rdx          ;*land
+                                                                   ; - java.util.Random::next@24 (line 203)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.00%              0x00007f2805242161: lock cmpxchg %rdx,0x10(%r12,%r11,8)
+  3.05%    7.52%     0x00007f2805242168: sete   %cl
+                     0x00007f280524216b: movzbl %cl,%ecx           ;*invokevirtual compareAndSwapLong
+                                                                   ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                                                                   ; - java.util.Random::next@32 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.19%    0.62%     0x00007f280524216e: test   %ecx,%ecx
+                     0x00007f2805242170: je     0x00007f28052423d5  ;*ifeq
+                                                                   ; - java.util.Random::next@35 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.01%              0x00007f2805242176: shr    $0x11,%rdi
+                     0x00007f280524217a: mov    %r10d,%ebp
+                     0x00007f280524217d: dec    %ebp               ;*isub
+                                                                   ; - java.util.Random::nextInt@23 (line 391)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.18%              0x00007f280524217f: mov    %r10d,%ecx
+  0.00%              0x00007f2805242182: and    %ebp,%ecx          ;*iand
+                                                                   ; - java.util.Random::nextInt@27 (line 392)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f2805242184: and    $0x7fffffff,%rdi
+                     0x00007f280524218b: mov    %edi,%r11d         ;*l2i  ; - java.util.Random::next@45 (line 205)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.19%              0x00007f280524218e: test   %ecx,%ecx
+                     0x00007f2805242190: je     0x00007f2805242421  ;*ifne
+                                                                   ; - java.util.Random::nextInt@28 (line 392)
+                                                                   ; - com.github.arnaudroger.Random2ArrayAccess::nextIndex@9 (line 61)
+                                                                   ; - com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f2805242196: test   %r10d,%r10d
+                     0x00007f2805242199: je     0x00007f2805242255
+                     0x00007f280524219f: mov    %r11d,%eax
+....................................................................................................
+ 73.49%   60.63%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+ [vdso], [unknown] (16 bytes) 
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 12.81%   35.92%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 73.49%   60.63%         C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 547 (491 bytes) 
+ 12.81%   35.92%              [vdso]  [unknown] (16 bytes) 
+  2.26%    0.00%        libc-2.26.so  __clock_gettime (75 bytes) 
+  1.79%    0.00%              [vdso]  [unknown] (39 bytes) 
+  1.70%    0.00%           libjvm.so  _ZN2os13javaTimeNanosEv (46 bytes) 
+  1.40%                       [vdso]  [unknown] (52 bytes) 
+  0.99%    0.00%              [vdso]  [unknown] (40 bytes) 
+  0.81%    0.82%              [vdso]  [unknown] (19 bytes) 
+  0.77%                  C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 529 (40 bytes) 
+  0.72%                  C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 547 (13 bytes) 
+  0.64%                       [vdso]  [unknown] (13 bytes) 
+  0.57%    0.58%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.16%    0.01%   [kernel.kallsyms]  [unknown] (47 bytes) 
+  0.06%    0.00%   [kernel.kallsyms]  [unknown] (6 bytes) 
+  0.05%    0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%    0.02%   [kernel.kallsyms]  [unknown] (9 bytes) 
+  0.03%    0.01%   [kernel.kallsyms]  [unknown] (57 bytes) 
+  0.03%    0.02%  libpthread-2.26.so  __pthread_getspecific (58 bytes) 
+  0.03%    0.00%  libpthread-2.26.so  __libc_write (49 bytes) 
+  0.03%    0.03%   [kernel.kallsyms]  [unknown] (27 bytes) 
+  1.61%    1.92%  <...other 385 warm regions...>
+....................................................................................................
+100.00%  100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 74.21%   60.63%         C2, level 4  com.github.arnaudroger.generated.Random2ArrayAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 547 
+ 18.45%   36.76%              [vdso]  [unknown] 
+  2.26%    0.00%        libc-2.26.so  __clock_gettime 
+  1.76%    1.68%   [kernel.kallsyms]  [unknown] 
+  1.70%    0.00%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  0.77%                  C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 529 
+  0.06%    0.05%      hsdis-amd64.so  [unknown] 
+  0.05%    0.02%        libc-2.26.so  _IO_fwrite 
+  0.03%    0.04%        libc-2.26.so  __strlen_avx2 
+  0.03%    0.00%           libjvm.so  _ZN2os13PlatformEvent4parkEl 
+  0.03%    0.02%  libpthread-2.26.so  __pthread_getspecific 
+  0.03%    0.00%  libpthread-2.26.so  __libc_write 
+  0.03%    0.07%        libc-2.26.so  vfprintf 
+  0.03%    0.03%           libjvm.so  _ZN13xmlTextStream5writeEPKcm 
+  0.03%           libpthread-2.26.so  pthread_cond_timedwait@@GLIBC_2.3.2 
+  0.03%    0.01%           libjvm.so  _ZN7Monitor6unlockEv 
+  0.02%    0.09%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ 
+  0.02%    0.03%  libpthread-2.26.so  __pthread_enable_asynccancel 
+  0.02%    0.03%        libc-2.26.so  _IO_str_init_static_internal 
+  0.02%    0.00%           libjvm.so  _ZN10decode_env12handle_eventEPKcPh 
+  0.41%    0.27%  <...other 61 warm methods...>
+....................................................................................................
+100.00%   99.77%  <totals>
+
+....[Distribution by Source]........................................................................
+ 74.98%   60.64%         C2, level 4
+ 18.45%   36.76%              [vdso]
+  2.48%    0.36%        libc-2.26.so
+  2.11%    0.41%           libjvm.so
+  1.76%    1.68%   [kernel.kallsyms]
+  0.13%    0.08%  libpthread-2.26.so
+  0.06%    0.05%      hsdis-amd64.so
+  0.02%    0.02%         interpreter
+  0.00%                             
+  0.00%                    libzip.so
+....................................................................................................
+100.00%  100.00%  <totals>
+
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ListAccess.testGet
+# Parameters: (size = 10)
+
+# Run progress: 50.00% complete, ETA 00:02:15
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 27.669 ns/op
+# Warmup Iteration   2: 23.779 ns/op
+# Warmup Iteration   3: 23.671 ns/op
+# Warmup Iteration   4: 23.404 ns/op
+# Warmup Iteration   5: 23.192 ns/op
+# Warmup Iteration   6: 23.203 ns/op
+# Warmup Iteration   7: 23.333 ns/op
+# Warmup Iteration   8: 23.204 ns/op
+# Warmup Iteration   9: 23.474 ns/op
+# Warmup Iteration  10: 23.148 ns/op
+# Warmup Iteration  11: 21.004 ns/op
+# Warmup Iteration  12: 21.211 ns/op
+# Warmup Iteration  13: 20.849 ns/op
+# Warmup Iteration  14: 20.946 ns/op
+# Warmup Iteration  15: 20.924 ns/op
+# Warmup Iteration  16: 20.891 ns/op
+# Warmup Iteration  17: 21.000 ns/op
+# Warmup Iteration  18: 20.910 ns/op
+# Warmup Iteration  19: 20.706 ns/op
+# Warmup Iteration  20: 20.727 ns/op
+Iteration   1: 20.743 ns/op
+Iteration   2: 21.010 ns/op
+Iteration   3: 20.797 ns/op
+Iteration   4: 20.786 ns/op
+Iteration   5: 20.742 ns/op
+Iteration   6: 20.733 ns/op
+Iteration   7: 20.900 ns/op
+Iteration   8: 20.858 ns/op
+Iteration   9: 20.706 ns/op
+Iteration  10: 20.766 ns/op
+Iteration  11: 20.736 ns/op
+Iteration  12: 20.939 ns/op
+Iteration  13: 20.887 ns/op
+Iteration  14: 20.703 ns/op
+Iteration  15: 20.765 ns/op
+Iteration  16: 20.737 ns/op
+Iteration  17: 20.921 ns/op
+Iteration  18: 20.818 ns/op
+Iteration  19: 20.702 ns/op
+Iteration  20: 20.732 ns/op
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.github.arnaudroger.Random2ListAccess.testGet":
+  20.799 ±(99.9%) 0.078 ns/op [Average]
+  (min, avg, max) = (20.702, 20.799, 21.010), stdev = 0.090
+  CI (99.9%): [20.721, 20.877] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:·asm":
+PrintAssembly processed: 182020 total address lines.
+Perf output processed (skipped 23.363 seconds):
+ Column 1: cycles (20457 events)
+ Column 2: instructions (20448 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+C2, level 4, com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 567 (543 bytes) 
+
+                       0x00007f733924dedf: mov    0x60(%rsp),%r10
+                       0x00007f733924dee4: test   %r10,%r10
+                       0x00007f733924dee7: je     0x00007f733924e49d
+                       0x00007f733924deed: mov    0x18(%rsp),%r10
+                       0x00007f733924def2: test   %r10,%r10
+                       0x00007f733924def5: je     0x00007f733924e49d
+                       0x00007f733924defb: xor    %ebx,%ebx
+                       0x00007f733924defd: xor    %r13d,%r13d
+                    ↗  0x00007f733924df00: xor    %eax,%eax
+                    │  0x00007f733924df02: mov    $0x1,%r11d
+  0.35%             │  0x00007f733924df08: lock cmpxchg %r11d,0x12c(%r14)
+  6.37%    2.30%    │  0x00007f733924df11: sete   %r10b
+                    │  0x00007f733924df15: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@20 (line 419)
+  0.34%    0.28%    │  0x00007f733924df19: test   %r10d,%r10d
+                    │  0x00007f733924df1c: je     0x00007f733924e2b1  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@23 (line 419)
+                    │  0x00007f733924df22: mov    0x60(%rsp),%r10
+                    │  0x00007f733924df27: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@27 (line 421)
+                    │  0x00007f733924df2f: test   %r10d,%r10d
+                    │  0x00007f733924df32: jne    0x00007f733924e2e5  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@30 (line 421)
+  0.37%             │  0x00007f733924df38: movzbl 0x136(%r14),%r10d  ;*getfield readyInvocation
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@43 (line 422)
+                    │  0x00007f733924df40: test   %r10d,%r10d
+                    │  0x00007f733924df43: jne    0x00007f733924e27d  ;*ifne
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@46 (line 422)
+                    │  0x00007f733924df49: mov    0x18(%r14),%r8d    ;*getfield random
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@2 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924df4d: mov    0xc(%r14),%r10d    ;*getfield size
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@6 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.38%             │  0x00007f733924df51: mov    0x8(%r12,%r8,8),%r11d  ; implicit exception: dispatches to 0x00007f733924e4f1
+                    │  0x00007f733924df56: test   %r10d,%r10d
+                    │  0x00007f733924df59: jle    0x00007f733924e319  ;*ifgt
+                    │                                                ; - java.util.Random::nextInt@1 (line 387)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924df5f: cmp    $0xf8014b28,%r11d  ;   {metadata(&apos;java/util/Random&apos;)}
+                    │  0x00007f733924df66: jne    0x00007f733924e23d
+                    │  0x00007f733924df6c: lea    (%r12,%r8,8),%r9   ;*invokevirtual next
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.37%             │  0x00007f733924df70: mov    0x18(%r9),%r8d     ;*getfield seed
+                    │                                                ; - java.util.Random::next@1 (line 200)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924df74: mov    0x10(%r12,%r8,8),%rax  ;*invokevirtual compareAndSwapLong
+                    │                                                ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                    │                                                ; - java.util.Random::next@32 (line 204)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │                                                ; implicit exception: dispatches to 0x00007f733924e525
+                    │  0x00007f733924df79: mov    %rax,%rdi
+                    │  0x00007f733924df7c: movabs $0x5deece66d,%r11
+  0.34%             │  0x00007f733924df86: imul   %r11,%rdi
+                    │  0x00007f733924df8a: add    $0xb,%rdi          ;*ladd
+                    │                                                ; - java.util.Random::next@20 (line 203)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924df8e: mov    %rdi,%rcx
+                    │  0x00007f733924df91: movabs $0xffffffffffff,%r11
+  0.38%             │  0x00007f733924df9b: and    %r11,%rcx          ;*land
+                    │                                                ; - java.util.Random::next@24 (line 203)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924df9e: lock cmpxchg %rcx,0x10(%r12,%r8,8)
+  5.94%    7.93%    │  0x00007f733924dfa5: sete   %r11b
+                    │  0x00007f733924dfa9: movzbl %r11b,%r11d        ;*invokevirtual compareAndSwapLong
+                    │                                                ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                    │                                                ; - java.util.Random::next@32 (line 204)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.32%    0.63%    │  0x00007f733924dfad: test   %r11d,%r11d
+                    │  0x00007f733924dfb0: je     0x00007f733924e359  ;*ifeq
+                    │                                                ; - java.util.Random::next@35 (line 204)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.07%             │  0x00007f733924dfb6: shr    $0x11,%rdi
+                    │  0x00007f733924dfba: mov    %r10d,%ebp
+                    │  0x00007f733924dfbd: dec    %ebp               ;*isub
+                    │                                                ; - java.util.Random::nextInt@23 (line 391)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.31%             │  0x00007f733924dfbf: mov    %r10d,%r8d
+  0.04%             │  0x00007f733924dfc2: and    %ebp,%r8d          ;*iand
+                    │                                                ; - java.util.Random::nextInt@27 (line 392)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924dfc5: and    $0x7fffffff,%rdi
+                    │  0x00007f733924dfcc: mov    %edi,%r11d         ;*l2i  ; - java.util.Random::next@45 (line 205)
+                    │                                                ; - java.util.Random::nextInt@17 (line 390)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.27%             │  0x00007f733924dfcf: test   %r8d,%r8d
+                    │  0x00007f733924dfd2: je     0x00007f733924e3a9  ;*ifne
+                    │                                                ; - java.util.Random::nextInt@28 (line 392)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.05%             │  0x00007f733924dfd8: test   %r10d,%r10d
+                    │  0x00007f733924dfdb: je     0x00007f733924e1d4
+                    │  0x00007f733924dfe1: mov    %r11d,%eax
+                    │  0x00007f733924dfe4: cmp    $0x80000000,%eax
+                  ╭ │  0x00007f733924dfe9: jne    0x00007f733924dff3
+                  │ │  0x00007f733924dfeb: xor    %edx,%edx
+                  │ │  0x00007f733924dfed: cmp    $0xffffffff,%r10d
+                  │╭│  0x00007f733924dff1: je     0x00007f733924dff7
+  0.26%           ↘││  0x00007f733924dff3: cltd   
+  0.03%            ││  0x00007f733924dff4: idiv   %r10d              ;*irem
+                   ││                                                ; - java.util.Random::nextInt@52 (line 396)
+                   ││                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                   ││                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.77%            ↘│  0x00007f733924dff7: sub    %edx,%r11d
+  0.25%             │  0x00007f733924dffa: add    %r10d,%r11d
+  0.09%             │  0x00007f733924dffd: dec    %r11d
+                    │  0x00007f733924e000: test   %r11d,%r11d
+                    │  0x00007f733924e003: jl     0x00007f733924e173  ;*ifge
+                    │                                                ; - java.util.Random::nextInt@58 (line 396)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                    │  0x00007f733924e009: mov    %edx,0x10(%r14)
+  0.24%             │  0x00007f733924e00d: movb   $0x1,0x136(%r14)
+  0.10%             │  0x00007f733924e015: mov    %r12d,0x12c(%r14)
+                    │  0x00007f733924e01c: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@66 (line 430)
+  8.64%    8.51%    │  0x00007f733924e021: movabs $0x7f734fc34670,%r10
+                    │  0x00007f733924e02b: callq  *%r10              ;*invokestatic nanoTime
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@140 (line 438)
+  0.31%             │  0x00007f733924e02e: mov    %rax,0x10(%rsp)
+                    │  0x00007f733924e033: mov    0x10(%r14),%r9d    ;*getfield index
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@5 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │  0x00007f733924e037: mov    0x14(%r14),%r10d   ;*getfield data
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@1 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.31%             │  0x00007f733924e03b: mov    0x10(%r12,%r10,8),%r8d  ;*getfield size
+                    │                                                ; - java.util.ArrayList::rangeCheck@2 (line 652)
+                    │                                                ; - java.util.ArrayList::get@2 (line 429)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │                                                ; implicit exception: dispatches to 0x00007f733924e551
+                    │  0x00007f733924e040: cmp    %r8d,%r9d
+                    │  0x00007f733924e043: jge    0x00007f733924e3e5  ;*if_icmplt
+                    │                                                ; - java.util.ArrayList::rangeCheck@5 (line 652)
+                    │                                                ; - java.util.ArrayList::get@2 (line 429)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │  0x00007f733924e049: mov    0x14(%r12,%r10,8),%r10d  ;*getfield elementData
+                    │                                                ; - java.util.ArrayList::elementData@1 (line 418)
+                    │                                                ; - java.util.ArrayList::get@7 (line 431)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │  0x00007f733924e04e: mov    0xc(%r12,%r10,8),%r8d  ; implicit exception: dispatches to 0x00007f733924e585
+  0.33%    0.34%    │  0x00007f733924e053: cmp    %r8d,%r9d
+                    │  0x00007f733924e056: jae    0x00007f733924e205
+  0.11%    0.18%    │  0x00007f733924e05c: shl    $0x3,%r10
+                    │  0x00007f733924e060: mov    0x10(%r10,%r9,4),%r11d  ;*aaload
+                    │                                                ; - java.util.ArrayList::elementData@5 (line 418)
+                    │                                                ; - java.util.ArrayList::get@7 (line 431)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │  0x00007f733924e065: mov    0x8(%r12,%r11,8),%r10d  ; implicit exception: dispatches to 0x00007f733924e5b9
+  1.27%    4.13%    │  0x00007f733924e06a: cmp    $0xf80022ae,%r10d  ;   {metadata(&apos;java/lang/Long&apos;)}
+                    │  0x00007f733924e071: jne    0x00007f733924e4bd
+  0.38%    1.01%    │  0x00007f733924e077: mov    %r13,%rbp
+                    │  0x00007f733924e07a: mov    %rbx,(%rsp)
+                    │  0x00007f733924e07e: mov    %r14,0x70(%rsp)
+                    │  0x00007f733924e083: lea    (%r12,%r11,8),%r10  ;*checkcast
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@11 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.34%    1.05%    │  0x00007f733924e087: mov    0x10(%r10),%rdx    ;*getfield value
+                    │                                                ; - java.lang.Long::longValue@1 (line 1000)
+                    │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@14 (line 85)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                    │  0x00007f733924e08b: mov    0x18(%rsp),%rsi
+                    │  0x00007f733924e090: data16 xchg %ax,%ax
+                    │  0x00007f733924e093: callq  0x00007f7339046020  ; OopMap{[96]=Oop [104]=Oop [112]=Oop [24]=Oop off=504}
+                    │                                                ;*invokevirtual consume
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@152 (line 439)
+                    │                                                ;   {optimized virtual_call}
+  1.10%    2.20%    │  0x00007f733924e098: movabs $0x7f734fc34670,%r10
+                    │  0x00007f733924e0a2: callq  *%r10              ;*invokestatic nanoTime
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@157 (line 440)
+  0.37%             │  0x00007f733924e0a5: mov    %rax,%r10
+                    │  0x00007f733924e0a8: mov    0x70(%rsp),%r8
+                    │  0x00007f733924e0ad: xor    %eax,%eax
+  0.37%    0.33%    │  0x00007f733924e0af: mov    $0x1,%r11d
+                    │  0x00007f733924e0b5: lock cmpxchg %r11d,0x130(%r8)
+  6.65%   14.83%    │  0x00007f733924e0be: sete   %r11b
+                    │  0x00007f733924e0c2: movzbl %r11b,%r11d        ;*invokevirtual compareAndSwapInt
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@173 (line 441)
+  0.36%    0.36%    │  0x00007f733924e0c6: sub    0x10(%rsp),%r10
+                    │  0x00007f733924e0cb: add    %r10,%rbp          ;*ladd
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@163 (line 440)
+                    │  0x00007f733924e0ce: mov    %rbp,%r13
+                    │  0x00007f733924e0d1: test   %r11d,%r11d
+                    │  0x00007f733924e0d4: je     0x00007f733924e425  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@176 (line 441)
+  0.39%    0.10%    │  0x00007f733924e0da: mov    0x60(%rsp),%r10
+                    │  0x00007f733924e0df: movzbl 0x95(%r10),%r11d   ;*getfield isFailing
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@180 (line 443)
+                    │  0x00007f733924e0e7: test   %r11d,%r11d
+                    │  0x00007f733924e0ea: jne    0x00007f733924e44d  ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@183 (line 443)
+                    │  0x00007f733924e0f0: mov    %r8,%r14
+  0.36%             │  0x00007f733924e0f3: movzbl 0x136(%r14),%r11d  ;*getfield readyInvocation
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@196 (line 444)
+                    │  0x00007f733924e0fb: test   %r11d,%r11d
+                    │  0x00007f733924e0fe: je     0x00007f733924e475
+                    │  0x00007f733924e104: mov    %r12b,0x136(%r14)
+                    │  0x00007f733924e10b: mov    %r12d,0x130(%r14)
+  0.39%             │  0x00007f733924e112: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                    │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@214 (line 451)
+  7.83%    5.21%    │  0x00007f733924e117: movzbl 0x94(%r10),%r11d   ;*getfield isDone
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@295 (line 460)
+                    │  0x00007f733924e11f: mov    (%rsp),%rbx
+  4.84%             │  0x00007f733924e123: add    $0x1,%rbx          ; OopMap{r14=Oop [96]=Oop [104]=Oop [24]=Oop off=647}
+                    │                                                ;*ifeq
+                    │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+  0.29%             │  0x00007f733924e127: test   %eax,0x17cf7ed3(%rip)        # 0x00007f7350f46000
+                    │                                                ;   {poll}
+                    │  0x00007f733924e12d: test   %r11d,%r11d
+                    ╰  0x00007f733924e130: je     0x00007f733924df00  ;*ifeq
+                                                                     ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+                       0x00007f733924e136: movabs $0x7f734fc34670,%r10
+                       0x00007f733924e140: callq  *%r10              ;*invokestatic nanoTime
+                                                                     ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@302 (line 461)
+                       0x00007f733924e143: mov    0x68(%rsp),%r10
+....................................................................................................
+ 52.30%   49.39%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+ [vdso], [unknown] (16 bytes) 
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 24.55%   33.90%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 52.30%   49.39%         C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 567 (543 bytes) 
+ 24.55%   33.90%              [vdso]  [unknown] (16 bytes) 
+  4.42%    2.11%        libc-2.26.so  __clock_gettime (73 bytes) 
+  3.82%    2.79%           libjvm.so  _ZN2os13javaTimeNanosEv (46 bytes) 
+  3.47%    3.17%              [vdso]  [unknown] (39 bytes) 
+  2.85%                       [vdso]  [unknown] (52 bytes) 
+  1.73%    4.52%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 531 (51 bytes) 
+  1.50%    0.00%              [vdso]  [unknown] (36 bytes) 
+  1.43%                       [vdso]  [unknown] (10 bytes) 
+  1.38%    1.61%              [vdso]  [unknown] (34 bytes) 
+  0.52%    0.51%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.14%    0.00%   [kernel.kallsyms]  [unknown] (45 bytes) 
+  0.10%    0.01%   [kernel.kallsyms]  [unknown] (2 bytes) 
+  0.06%    0.02%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.05%    0.04%           libjvm.so  _ZN10fileStream5writeEPKcm (18 bytes) 
+  0.04%    0.01%   [kernel.kallsyms]  [unknown] (26 bytes) 
+  0.04%            [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%    0.02%           libjvm.so  _ZN12outputStream15update_positionEPKcm (21 bytes) 
+  0.03%    0.01%   [kernel.kallsyms]  [unknown] (7 bytes) 
+  0.02%    0.01%   [kernel.kallsyms]  [unknown] (74 bytes) 
+  1.51%    1.84%  <...other 388 warm regions...>
+....................................................................................................
+100.00%  100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 52.30%   49.39%         C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 567 
+ 35.18%   38.68%              [vdso]  [unknown] 
+  4.42%    2.11%        libc-2.26.so  __clock_gettime 
+  3.82%    2.79%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  1.77%    1.59%   [kernel.kallsyms]  [unknown] 
+  1.73%    4.52%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 531 
+  0.07%    0.03%      hsdis-amd64.so  [unknown] 
+  0.05%    0.05%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.04%    0.05%        libc-2.26.so  _IO_fwrite 
+  0.04%    0.03%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.03%    0.06%           libjvm.so  _ZN13xmlTextStream5writeEPKcm 
+  0.03%    0.05%        libc-2.26.so  vfprintf 
+  0.02%    0.09%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ 
+  0.02%    0.01%           libjvm.so  _ZN7Monitor6unlockEv 
+  0.02%           libpthread-2.26.so  __pthread_disable_asynccancel 
+  0.01%    0.05%        libc-2.26.so  _IO_default_xsputn 
+  0.01%    0.01%           libjvm.so  _ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm 
+  0.01%    0.01%         interpreter  method entry point (kind = zerolocals)  
+  0.01%           libpthread-2.26.so  __libc_write 
+  0.01%                    libjvm.so  _ZN15StatSamplerTask4taskEv 
+  0.37%    0.17%  <...other 64 warm methods...>
+....................................................................................................
+100.00%   99.71%  <totals>
+
+....[Distribution by Source]........................................................................
+ 54.03%   53.92%         C2, level 4
+ 35.18%   38.68%              [vdso]
+  4.59%    2.40%        libc-2.26.so
+  4.26%    3.29%           libjvm.so
+  1.77%    1.59%   [kernel.kallsyms]
+  0.08%    0.04%      hsdis-amd64.so
+  0.05%    0.02%         interpreter
+  0.04%    0.03%  libpthread-2.26.so
+  0.01%               perf-19020.map
+....................................................................................................
+100.00%  100.00%  <totals>
+
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ListAccess.testGet
+# Parameters: (size = 1000)
+
+# Run progress: 66.67% complete, ETA 00:01:30
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 29.173 ns/op
+# Warmup Iteration   2: 25.876 ns/op
+# Warmup Iteration   3: 24.229 ns/op
+# Warmup Iteration   4: 24.109 ns/op
+# Warmup Iteration   5: 24.126 ns/op
+# Warmup Iteration   6: 24.126 ns/op
+# Warmup Iteration   7: 24.157 ns/op
+# Warmup Iteration   8: 24.072 ns/op
+# Warmup Iteration   9: 24.128 ns/op
+# Warmup Iteration  10: 24.139 ns/op
+# Warmup Iteration  11: 24.233 ns/op
+# Warmup Iteration  12: 24.292 ns/op
+# Warmup Iteration  13: 24.185 ns/op
+# Warmup Iteration  14: 24.073 ns/op
+# Warmup Iteration  15: 24.046 ns/op
+# Warmup Iteration  16: 24.145 ns/op
+# Warmup Iteration  17: 24.251 ns/op
+# Warmup Iteration  18: 24.067 ns/op
+# Warmup Iteration  19: 24.141 ns/op
+# Warmup Iteration  20: 24.068 ns/op
+Iteration   1: 24.062 ns/op
+Iteration   2: 24.560 ns/op
+Iteration   3: 24.098 ns/op
+Iteration   4: 24.199 ns/op
+Iteration   5: 24.218 ns/op
+Iteration   6: 24.095 ns/op
+Iteration   7: 24.290 ns/op
+Iteration   8: 24.123 ns/op
+Iteration   9: 24.129 ns/op
+Iteration  10: 24.044 ns/op
+Iteration  11: 24.044 ns/op
+Iteration  12: 24.324 ns/op
+Iteration  13: 24.122 ns/op
+Iteration  14: 24.051 ns/op
+Iteration  15: 24.257 ns/op
+Iteration  16: 24.172 ns/op
+Iteration  17: 24.321 ns/op
+Iteration  18: 24.022 ns/op
+Iteration  19: 23.811 ns/op
+Iteration  20: 24.054 ns/op
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.github.arnaudroger.Random2ListAccess.testGet":
+  24.150 ±(99.9%) 0.134 ns/op [Average]
+  (min, avg, max) = (23.811, 24.150, 24.560), stdev = 0.155
+  CI (99.9%): [24.016, 24.284] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:·asm":
+PrintAssembly processed: 180440 total address lines.
+Perf output processed (skipped 23.296 seconds):
+ Column 1: cycles (20349 events)
+ Column 2: instructions (20337 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+C2, level 4, com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 558 (526 bytes) 
+
+                     0x00007f36d01a9f5d: mov    0x60(%rsp),%r10
+                     0x00007f36d01a9f62: test   %r10,%r10
+                     0x00007f36d01a9f65: je     0x00007f36d01aa522
+                     0x00007f36d01a9f6b: test   %r14,%r14
+                     0x00007f36d01a9f6e: je     0x00007f36d01aa522  ;*getstatic setupInvocationMutexUpdater
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@13 (line 419)
+                     0x00007f36d01a9f74: xor    %r13d,%r13d
+                     0x00007f36d01a9f77: xor    %ebx,%ebx
+                  ╭  0x00007f36d01a9f79: jmpq   0x00007f36d01aa0c7
+                  │  0x00007f36d01a9f7e: mov    %r14,0x18(%rsp)
+  0.31%           │  0x00007f36d01a9f83: mov    %r13,(%rsp)
+                  │  0x00007f36d01a9f87: mov    %rbx,0x8(%rsp)     ;*ifge
+                  │                                                ; - java.util.Random::nextInt@58 (line 396)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                  │  0x00007f36d01a9f8c: mov    %edx,0x10(%r8)
+                  │  0x00007f36d01a9f90: movb   $0x1,0x136(%r8)
+  0.37%           │  0x00007f36d01a9f98: mov    %r12d,0x12c(%r8)
+                  │  0x00007f36d01a9f9f: mov    %r8,0x70(%rsp)
+                  │  0x00007f36d01a9fa4: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@66 (line 430)
+  8.57%    9.64%  │  0x00007f36d01a9fa9: movabs $0x7f36e4e62670,%r10
+                  │  0x00007f36d01a9fb3: callq  *%r10              ;*invokestatic nanoTime
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@140 (line 438)
+  0.30%           │  0x00007f36d01a9fb6: mov    %rax,0x10(%rsp)
+                  │  0x00007f36d01a9fbb: mov    0x70(%rsp),%r10
+                  │  0x00007f36d01a9fc0: mov    0x10(%r10),%r8d    ;*getfield index
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@5 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.38%           │  0x00007f36d01a9fc4: mov    0x14(%r10),%r10d   ;*getfield data
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@1 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.39%    0.00%  │  0x00007f36d01a9fc8: mov    0x10(%r12,%r10,8),%r11d  ;*getfield size
+                  │                                                ; - java.util.ArrayList::rangeCheck@2 (line 652)
+                  │                                                ; - java.util.ArrayList::get@2 (line 429)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │                                                ; implicit exception: dispatches to 0x00007f36d01aa5d5
+  2.17%    6.84%  │  0x00007f36d01a9fcd: cmp    %r11d,%r8d
+                  │  0x00007f36d01a9fd0: jge    0x00007f36d01aa459  ;*if_icmplt
+                  │                                                ; - java.util.ArrayList::rangeCheck@5 (line 652)
+                  │                                                ; - java.util.ArrayList::get@2 (line 429)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.62%    2.04%  │  0x00007f36d01a9fd6: mov    0x14(%r12,%r10,8),%r11d  ;*getfield elementData
+                  │                                                ; - java.util.ArrayList::elementData@1 (line 418)
+                  │                                                ; - java.util.ArrayList::get@7 (line 431)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │  0x00007f36d01a9fdb: mov    0xc(%r12,%r11,8),%r10d  ; implicit exception: dispatches to 0x00007f36d01aa5f9
+  0.91%    2.70%  │  0x00007f36d01a9fe0: cmp    %r10d,%r8d
+                  │  0x00007f36d01a9fe3: jae    0x00007f36d01aa261
+  0.65%    2.11%  │  0x00007f36d01a9fe9: lea    (%r12,%r11,8),%r10
+                  │  0x00007f36d01a9fed: mov    0x10(%r10,%r8,4),%r10d  ;*aaload
+                  │                                                ; - java.util.ArrayList::elementData@5 (line 418)
+                  │                                                ; - java.util.ArrayList::get@7 (line 431)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.04%    0.05%  │  0x00007f36d01a9ff2: mov    0x8(%r12,%r10,8),%r8d  ; implicit exception: dispatches to 0x00007f36d01aa61d
+  2.11%    2.15%  │  0x00007f36d01a9ff7: cmp    $0xf80022ae,%r8d   ;   {metadata(&apos;java/lang/Long&apos;)}
+                  │  0x00007f36d01a9ffe: jne    0x00007f36d01aa545
+  0.31%    0.15%  │  0x00007f36d01aa004: shl    $0x3,%r10          ;*checkcast
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@11 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │  0x00007f36d01aa008: mov    0x10(%r10),%rdx    ;*getfield value
+                  │                                                ; - java.lang.Long::longValue@1 (line 1000)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@14 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.21%    0.03%  │  0x00007f36d01aa00c: mov    0x18(%rsp),%rsi
+                  │  0x00007f36d01aa011: xchg   %ax,%ax
+  0.35%           │  0x00007f36d01aa013: callq  0x00007f36cffa8020  ; OopMap{[96]=Oop [104]=Oop [112]=Oop [24]=Oop off=248}
+                  │                                                ;*invokevirtual consume
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@152 (line 439)
+                  │                                                ;   {optimized virtual_call}
+  0.04%           │  0x00007f36d01aa018: movabs $0x7f36e4e62670,%r10
+                  │  0x00007f36d01aa022: callq  *%r10              ;*invokestatic nanoTime
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@157 (line 440)
+  0.31%           │  0x00007f36d01aa025: mov    %rax,%r11
+                  │  0x00007f36d01aa028: mov    0x70(%rsp),%r8
+                  │  0x00007f36d01aa02d: xor    %eax,%eax
+  0.40%           │  0x00007f36d01aa02f: mov    $0x1,%r10d
+                  │  0x00007f36d01aa035: lock cmpxchg %r10d,0x130(%r8)
+  7.13%   15.61%  │  0x00007f36d01aa03e: sete   %r10b
+                  │  0x00007f36d01aa042: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@173 (line 441)
+  0.38%           │  0x00007f36d01aa046: sub    0x10(%rsp),%r11
+                  │  0x00007f36d01aa04b: mov    0x8(%rsp),%r8
+                  │  0x00007f36d01aa050: add    %r11,%r8           ;*ladd
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@163 (line 440)
+                  │  0x00007f36d01aa053: mov    %r8,%rbx
+  0.29%           │  0x00007f36d01aa056: test   %r10d,%r10d
+                  │  0x00007f36d01aa059: je     0x00007f36d01aa48d  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@176 (line 441)
+                  │  0x00007f36d01aa05f: mov    0x60(%rsp),%r10
+                  │  0x00007f36d01aa064: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@180 (line 443)
+                  │  0x00007f36d01aa06c: test   %r10d,%r10d
+                  │  0x00007f36d01aa06f: jne    0x00007f36d01aa4b5  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@183 (line 443)
+  0.35%           │  0x00007f36d01aa075: mov    0x70(%rsp),%r8
+                  │  0x00007f36d01aa07a: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@196 (line 444)
+                  │  0x00007f36d01aa082: test   %r11d,%r11d
+                  │  0x00007f36d01aa085: je     0x00007f36d01aa4dd
+                  │  0x00007f36d01aa08b: mov    %r12b,0x136(%r8)
+  0.31%           │  0x00007f36d01aa092: mov    %r12d,0x130(%r8)
+                  │  0x00007f36d01aa099: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@214 (line 451)
+  6.87%    5.18%  │  0x00007f36d01aa09e: mov    0x60(%rsp),%r10
+                  │  0x00007f36d01aa0a3: movzbl 0x94(%r10),%r10d   ;*getfield isDone
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@295 (line 460)
+                  │  0x00007f36d01aa0ab: mov    (%rsp),%r13
+  4.98%    0.02%  │  0x00007f36d01aa0af: add    $0x1,%r13          ; OopMap{r8=Oop [96]=Oop [104]=Oop [24]=Oop off=403}
+                  │                                                ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+  0.30%           │  0x00007f36d01aa0b3: test   %eax,0x15fc9f47(%rip)        # 0x00007f36e6174000
+                  │                                                ;   {poll}
+  0.01%           │  0x00007f36d01aa0b9: test   %r10d,%r10d
+                  │  0x00007f36d01aa0bc: jne    0x00007f36d01aa289  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+                  │  0x00007f36d01aa0c2: mov    0x18(%rsp),%r14
+                  ↘  0x00007f36d01aa0c7: xor    %eax,%eax
+  0.31%              0x00007f36d01aa0c9: mov    $0x1,%r10d
+                     0x00007f36d01aa0cf: lock cmpxchg %r10d,0x12c(%r8)
+  5.48%    2.22%     0x00007f36d01aa0d8: sete   %r11b
+                     0x00007f36d01aa0dc: movzbl %r11b,%r11d        ;*invokevirtual compareAndSwapInt
+                                                                   ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@20 (line 419)
+  0.34%    0.77%     0x00007f36d01aa0e0: test   %r11d,%r11d
+                     0x00007f36d01aa0e3: je     0x00007f36d01aa329  ;*ifeq
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@23 (line 419)
+                     0x00007f36d01aa0e9: mov    0x60(%rsp),%r10
+                     0x00007f36d01aa0ee: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@27 (line 421)
+                     0x00007f36d01aa0f6: test   %r10d,%r10d
+                     0x00007f36d01aa0f9: jne    0x00007f36d01aa361  ;*ifeq
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@30 (line 421)
+  0.35%    0.13%     0x00007f36d01aa0ff: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@43 (line 422)
+                     0x00007f36d01aa107: test   %r11d,%r11d
+                     0x00007f36d01aa10a: jne    0x00007f36d01aa2f1  ;*ifne
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@46 (line 422)
+                     0x00007f36d01aa110: mov    0x18(%r8),%r11d    ;*getfield random
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@2 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f36d01aa114: mov    0xc(%r8),%r10d     ;*getfield size
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@6 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.35%              0x00007f36d01aa118: mov    0x8(%r12,%r11,8),%ecx  ; implicit exception: dispatches to 0x00007f36d01aa569
+                     0x00007f36d01aa11d: test   %r10d,%r10d
+                     0x00007f36d01aa120: jle    0x00007f36d01aa399  ;*ifgt
+                                                                   ; - java.util.Random::nextInt@1 (line 387)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f36d01aa126: cmp    $0xf8014b28,%ecx   ;   {metadata(&apos;java/util/Random&apos;)}
+                     0x00007f36d01aa12c: jne    0x00007f36d01aa2b3
+                     0x00007f36d01aa132: lea    (%r12,%r11,8),%r9  ;*invokevirtual next
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.38%              0x00007f36d01aa136: mov    0x18(%r9),%r11d    ;*getfield seed
+                                                                   ; - java.util.Random::next@1 (line 200)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f36d01aa13a: mov    0x10(%r12,%r11,8),%rax  ;*invokevirtual compareAndSwapLong
+                                                                   ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                                                                   ; - java.util.Random::next@32 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                                                                   ; implicit exception: dispatches to 0x00007f36d01aa5a1
+                     0x00007f36d01aa13f: mov    %rax,%rdi
+                     0x00007f36d01aa142: movabs $0x5deece66d,%rcx
+  0.32%              0x00007f36d01aa14c: imul   %rcx,%rdi
+                     0x00007f36d01aa150: add    $0xb,%rdi          ;*ladd
+                                                                   ; - java.util.Random::next@20 (line 203)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.00%              0x00007f36d01aa154: mov    %rdi,%rdx
+                     0x00007f36d01aa157: movabs $0xffffffffffff,%rcx
+  0.27%              0x00007f36d01aa161: and    %rcx,%rdx          ;*land
+                                                                   ; - java.util.Random::next@24 (line 203)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.00%              0x00007f36d01aa164: lock cmpxchg %rdx,0x10(%r12,%r11,8)
+  5.91%    7.68%     0x00007f36d01aa16b: sete   %cl
+                     0x00007f36d01aa16e: movzbl %cl,%ecx           ;*invokevirtual compareAndSwapLong
+                                                                   ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                                                                   ; - java.util.Random::next@32 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.34%    0.73%     0x00007f36d01aa171: test   %ecx,%ecx
+                     0x00007f36d01aa173: je     0x00007f36d01aa3d5  ;*ifeq
+                                                                   ; - java.util.Random::next@35 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f36d01aa179: shr    $0x11,%rdi
+                     0x00007f36d01aa17d: mov    %r10d,%ebp
+                     0x00007f36d01aa180: dec    %ebp               ;*isub
+                                                                   ; - java.util.Random::nextInt@23 (line 391)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.29%    0.14%     0x00007f36d01aa182: mov    %r10d,%ecx
+  0.00%              0x00007f36d01aa185: and    %ebp,%ecx          ;*iand
+                                                                   ; - java.util.Random::nextInt@27 (line 392)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f36d01aa187: and    $0x7fffffff,%rdi
+                     0x00007f36d01aa18e: mov    %edi,%r11d         ;*l2i  ; - java.util.Random::next@45 (line 205)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.33%              0x00007f36d01aa191: test   %ecx,%ecx
+                     0x00007f36d01aa193: je     0x00007f36d01aa421  ;*ifne
+                                                                   ; - java.util.Random::nextInt@28 (line 392)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f36d01aa199: test   %r10d,%r10d
+                     0x00007f36d01aa19c: je     0x00007f36d01aa22b
+                     0x00007f36d01aa1a2: mov    %r11d,%eax
+....................................................................................................
+ 53.78%   58.20%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+ [vdso], [unknown] (16 bytes) 
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 23.43%   35.62%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 53.78%   58.20%         C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 558 (526 bytes) 
+ 23.43%   35.62%              [vdso]  [unknown] (16 bytes) 
+  3.88%    0.36%        libc-2.26.so  __clock_gettime (74 bytes) 
+  3.59%    1.04%              [vdso]  [unknown] (39 bytes) 
+  3.44%    0.77%           libjvm.so  _ZN2os13javaTimeNanosEv (46 bytes) 
+  2.96%                       [vdso]  [unknown] (52 bytes) 
+  1.65%                       [vdso]  [unknown] (31 bytes) 
+  1.43%                  C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 558 (13 bytes) 
+  1.41%    0.24%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 526 (51 bytes) 
+  1.24%                       [vdso]  [unknown] (14 bytes) 
+  1.14%    1.75%              [vdso]  [unknown] (19 bytes) 
+  0.17%    0.16%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.13%    0.00%   [kernel.kallsyms]  [unknown] (45 bytes) 
+  0.07%    0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.07%    0.01%   [kernel.kallsyms]  [unknown] (3 bytes) 
+  0.05%    0.04%           libjvm.so  _ZN10fileStream5writeEPKcm (14 bytes) 
+  0.04%    0.02%   [kernel.kallsyms]  [unknown] (51 bytes) 
+  0.04%    0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%    0.03%   [kernel.kallsyms]  [unknown] (11 bytes) 
+  0.03%    0.03%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  1.41%    1.68%  <...other 370 warm regions...>
+....................................................................................................
+100.00%  100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 55.21%   58.20%         C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 558 
+ 34.01%   38.41%              [vdso]  [unknown] 
+  3.88%    0.36%        libc-2.26.so  __clock_gettime 
+  3.44%    0.77%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  1.41%    0.24%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 526 
+  1.27%    1.10%   [kernel.kallsyms]  [unknown] 
+  0.06%    0.06%      hsdis-amd64.so  [unknown] 
+  0.05%    0.06%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.04%    0.03%        libc-2.26.so  _IO_fwrite 
+  0.03%    0.08%           libjvm.so  _ZN13RelocIterator10initializeEP7nmethodPhS2_ 
+  0.02%    0.01%        libc-2.26.so  _IO_fflush 
+  0.02%    0.01%        libc-2.26.so  _IO_str_init_static_internal 
+  0.02%    0.01%           libjvm.so  _ZN13defaultStream5writeEPKcm 
+  0.02%    0.00%           libjvm.so  _ZN12outputStream5printEPKcz 
+  0.01%    0.02%        libc-2.26.so  __strlen_avx2 
+  0.01%    0.03%        libc-2.26.so  __strchr_avx2 
+  0.01%                    libjvm.so  _ZN7Monitor5IWaitEP6Threadl 
+  0.01%    0.05%           libjvm.so  _ZN13xmlTextStream5writeEPKcm 
+  0.01%    0.01%           libjvm.so  _ZN7nmethod21print_code_comment_onEP12outputStreamiPhS2_ 
+  0.01%    0.03%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.43%    0.22%  <...other 70 warm methods...>
+....................................................................................................
+100.00%   99.73%  <totals>
+
+....[Distribution by Source]........................................................................
+ 56.62%   58.44%         C2, level 4
+ 34.01%   38.41%              [vdso]
+  4.09%    0.64%        libc-2.26.so
+  3.83%    1.27%           libjvm.so
+  1.27%    1.10%   [kernel.kallsyms]
+  0.07%    0.06%      hsdis-amd64.so
+  0.05%    0.02%         interpreter
+  0.04%    0.04%  libpthread-2.26.so
+  0.01%    0.00%         C1, level 3
+  0.00%    0.00%                    
+....................................................................................................
+100.00%  100.00%  <totals>
+
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Random2ListAccess.testGet
+# Parameters: (size = 1000000)
+
+# Run progress: 83.33% complete, ETA 00:00:44
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 103.874 ns/op
+# Warmup Iteration   2: 96.855 ns/op
+# Warmup Iteration   3: 95.551 ns/op
+# Warmup Iteration   4: 95.176 ns/op
+# Warmup Iteration   5: 94.956 ns/op
+# Warmup Iteration   6: 95.802 ns/op
+# Warmup Iteration   7: 94.938 ns/op
+# Warmup Iteration   8: 97.129 ns/op
+# Warmup Iteration   9: 97.210 ns/op
+# Warmup Iteration  10: 94.696 ns/op
+# Warmup Iteration  11: 97.372 ns/op
+# Warmup Iteration  12: 95.848 ns/op
+# Warmup Iteration  13: 95.715 ns/op
+# Warmup Iteration  14: 94.498 ns/op
+# Warmup Iteration  15: 94.587 ns/op
+# Warmup Iteration  16: 94.829 ns/op
+# Warmup Iteration  17: 96.151 ns/op
+# Warmup Iteration  18: 94.793 ns/op
+# Warmup Iteration  19: 94.395 ns/op
+# Warmup Iteration  20: 94.532 ns/op
+Iteration   1: 95.039 ns/op
+Iteration   2: 100.534 ns/op
+Iteration   3: 95.133 ns/op
+Iteration   4: 98.220 ns/op
+Iteration   5: 95.309 ns/op
+Iteration   6: 94.702 ns/op
+Iteration   7: 94.826 ns/op
+Iteration   8: 94.852 ns/op
+Iteration   9: 94.608 ns/op
+Iteration  10: 94.843 ns/op
+Iteration  11: 95.514 ns/op
+Iteration  12: 94.852 ns/op
+Iteration  13: 94.646 ns/op
+Iteration  14: 94.380 ns/op
+Iteration  15: 94.896 ns/op
+Iteration  16: 95.006 ns/op
+Iteration  17: 95.716 ns/op
+Iteration  18: 94.819 ns/op
+Iteration  19: 94.352 ns/op
+Iteration  20: 97.154 ns/op
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.github.arnaudroger.Random2ListAccess.testGet":
+  95.470 ±(99.9%) 1.313 ns/op [Average]
+  (min, avg, max) = (94.352, 95.470, 100.534), stdev = 1.512
+  CI (99.9%): [94.157, 96.783] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Random2ListAccess.testGet:·asm":
+PrintAssembly processed: 168022 total address lines.
+Perf output processed (skipped 22.941 seconds):
+ Column 1: cycles (20404 events)
+ Column 2: instructions (20398 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+C2, level 4, com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 526 (526 bytes) 
+
+                     0x00007f18bcdf6c9d: mov    0x60(%rsp),%r10
+                     0x00007f18bcdf6ca2: test   %r10,%r10
+                     0x00007f18bcdf6ca5: je     0x00007f18bcdf7262
+                     0x00007f18bcdf6cab: test   %r14,%r14
+                     0x00007f18bcdf6cae: je     0x00007f18bcdf7262  ;*getstatic setupInvocationMutexUpdater
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@13 (line 419)
+                     0x00007f18bcdf6cb4: xor    %r13d,%r13d
+                     0x00007f18bcdf6cb7: xor    %ebx,%ebx
+                  ╭  0x00007f18bcdf6cb9: jmpq   0x00007f18bcdf6e07
+                  │  0x00007f18bcdf6cbe: mov    %r14,0x18(%rsp)
+  0.16%           │  0x00007f18bcdf6cc3: mov    %r13,(%rsp)
+  0.02%           │  0x00007f18bcdf6cc7: mov    %rbx,0x8(%rsp)     ;*ifge
+                  │                                                ; - java.util.Random::nextInt@58 (line 396)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                  │  0x00007f18bcdf6ccc: mov    %edx,0x10(%r8)
+                  │  0x00007f18bcdf6cd0: movb   $0x1,0x136(%r8)
+  0.13%           │  0x00007f18bcdf6cd8: mov    %r12d,0x12c(%r8)
+  0.02%           │  0x00007f18bcdf6cdf: mov    %r8,0x70(%rsp)
+                  │  0x00007f18bcdf6ce4: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@66 (line 430)
+  4.57%    9.52%  │  0x00007f18bcdf6ce9: movabs $0x7f18d1a77670,%r10
+                  │  0x00007f18bcdf6cf3: callq  *%r10              ;*invokestatic nanoTime
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@140 (line 438)
+  0.22%           │  0x00007f18bcdf6cf6: mov    %rax,0x10(%rsp)
+           0.00%  │  0x00007f18bcdf6cfb: mov    0x70(%rsp),%r10
+                  │  0x00007f18bcdf6d00: mov    0x10(%r10),%r8d    ;*getfield index
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@5 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.23%    0.00%  │  0x00007f18bcdf6d04: mov    0x14(%r10),%r10d   ;*getfield data
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@1 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.16%           │  0x00007f18bcdf6d08: mov    0x10(%r12,%r10,8),%r11d  ;*getfield size
+                  │                                                ; - java.util.ArrayList::rangeCheck@2 (line 652)
+                  │                                                ; - java.util.ArrayList::get@2 (line 429)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │                                                ; implicit exception: dispatches to 0x00007f18bcdf7315
+  1.23%    6.48%  │  0x00007f18bcdf6d0d: cmp    %r11d,%r8d
+                  │  0x00007f18bcdf6d10: jge    0x00007f18bcdf7199  ;*if_icmplt
+                  │                                                ; - java.util.ArrayList::rangeCheck@5 (line 652)
+                  │                                                ; - java.util.ArrayList::get@2 (line 429)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.34%    1.97%  │  0x00007f18bcdf6d16: mov    0x14(%r12,%r10,8),%r11d  ;*getfield elementData
+                  │                                                ; - java.util.ArrayList::elementData@1 (line 418)
+                  │                                                ; - java.util.ArrayList::get@7 (line 431)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  0.00%           │  0x00007f18bcdf6d1b: mov    0xc(%r12,%r11,8),%r10d  ; implicit exception: dispatches to 0x00007f18bcdf7339
+  0.71%    3.31%  │  0x00007f18bcdf6d20: cmp    %r10d,%r8d
+                  │  0x00007f18bcdf6d23: jae    0x00007f18bcdf6fcd
+  0.35%    1.91%  │  0x00007f18bcdf6d29: lea    (%r12,%r11,8),%r10
+                  │  0x00007f18bcdf6d2d: mov    0x10(%r10,%r8,4),%r10d  ;*aaload
+                  │                                                ; - java.util.ArrayList::elementData@5 (line 418)
+                  │                                                ; - java.util.ArrayList::get@7 (line 431)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@8 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+ 10.70%    3.99%  │  0x00007f18bcdf6d32: mov    0x8(%r12,%r10,8),%r8d  ; implicit exception: dispatches to 0x00007f18bcdf735d
+ 35.23%    0.34%  │  0x00007f18bcdf6d37: cmp    $0xf80022ae,%r8d   ;   {metadata(&apos;java/lang/Long&apos;)}
+                  │  0x00007f18bcdf6d3e: jne    0x00007f18bcdf7285
+  0.19%           │  0x00007f18bcdf6d44: shl    $0x3,%r10          ;*checkcast
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@11 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+                  │  0x00007f18bcdf6d48: mov    0x10(%r10),%rdx    ;*getfield value
+                  │                                                ; - java.lang.Long::longValue@1 (line 1000)
+                  │                                                ; - com.github.arnaudroger.Random2ListAccess::testGet@14 (line 85)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@149 (line 439)
+  1.54%    0.03%  │  0x00007f18bcdf6d4c: mov    0x18(%rsp),%rsi
+                  │  0x00007f18bcdf6d51: xchg   %ax,%ax
+  0.01%           │  0x00007f18bcdf6d53: callq  0x00007f18bcc19020  ; OopMap{[96]=Oop [104]=Oop [112]=Oop [24]=Oop off=248}
+                  │                                                ;*invokevirtual consume
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@152 (line 439)
+                  │                                                ;   {optimized virtual_call}
+  0.20%    0.00%  │  0x00007f18bcdf6d58: movabs $0x7f18d1a77670,%r10
+                  │  0x00007f18bcdf6d62: callq  *%r10              ;*invokestatic nanoTime
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@157 (line 440)
+  0.18%           │  0x00007f18bcdf6d65: mov    %rax,%r11
+                  │  0x00007f18bcdf6d68: mov    0x70(%rsp),%r8
+                  │  0x00007f18bcdf6d6d: xor    %eax,%eax
+  0.14%           │  0x00007f18bcdf6d6f: mov    $0x1,%r10d
+                  │  0x00007f18bcdf6d75: lock cmpxchg %r10d,0x130(%r8)
+  3.46%   15.03%  │  0x00007f18bcdf6d7e: sete   %r10b
+                  │  0x00007f18bcdf6d82: movzbl %r10b,%r10d        ;*invokevirtual compareAndSwapInt
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@173 (line 441)
+  0.13%           │  0x00007f18bcdf6d86: sub    0x10(%rsp),%r11
+                  │  0x00007f18bcdf6d8b: mov    0x8(%rsp),%r8
+                  │  0x00007f18bcdf6d90: add    %r11,%r8           ;*ladd
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@163 (line 440)
+                  │  0x00007f18bcdf6d93: mov    %r8,%rbx
+  0.16%           │  0x00007f18bcdf6d96: test   %r10d,%r10d
+                  │  0x00007f18bcdf6d99: je     0x00007f18bcdf71cd  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@176 (line 441)
+                  │  0x00007f18bcdf6d9f: mov    0x60(%rsp),%r10
+                  │  0x00007f18bcdf6da4: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@180 (line 443)
+                  │  0x00007f18bcdf6dac: test   %r10d,%r10d
+                  │  0x00007f18bcdf6daf: jne    0x00007f18bcdf71f5  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@183 (line 443)
+  0.16%           │  0x00007f18bcdf6db5: mov    0x70(%rsp),%r8
+                  │  0x00007f18bcdf6dba: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@196 (line 444)
+                  │  0x00007f18bcdf6dc2: test   %r11d,%r11d
+                  │  0x00007f18bcdf6dc5: je     0x00007f18bcdf721d
+                  │  0x00007f18bcdf6dcb: mov    %r12b,0x136(%r8)
+  0.22%           │  0x00007f18bcdf6dd2: mov    %r12d,0x130(%r8)
+                  │  0x00007f18bcdf6dd9: lock addl $0x0,(%rsp)     ;*invokevirtual putIntVolatile
+                  │                                                ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::set@14 (line 499)
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@214 (line 451)
+  3.37%    5.67%  │  0x00007f18bcdf6dde: mov    0x60(%rsp),%r10
+                  │  0x00007f18bcdf6de3: movzbl 0x94(%r10),%r10d   ;*getfield isDone
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@295 (line 460)
+                  │  0x00007f18bcdf6deb: mov    (%rsp),%r13
+  2.37%    0.01%  │  0x00007f18bcdf6def: add    $0x1,%r13          ; OopMap{r8=Oop [96]=Oop [104]=Oop [24]=Oop off=403}
+                  │                                                ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+  0.18%           │  0x00007f18bcdf6df3: test   %eax,0x15f92207(%rip)        # 0x00007f18d2d89000
+                  │                                                ;   {poll}
+  0.01%           │  0x00007f18bcdf6df9: test   %r10d,%r10d
+                  │  0x00007f18bcdf6dfc: jne    0x00007f18bcdf6f6b  ;*ifeq
+                  │                                                ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@298 (line 460)
+                  │  0x00007f18bcdf6e02: mov    0x18(%rsp),%r14
+                  ↘  0x00007f18bcdf6e07: xor    %eax,%eax
+  0.18%              0x00007f18bcdf6e09: mov    $0x1,%r10d
+                     0x00007f18bcdf6e0f: lock cmpxchg %r10d,0x12c(%r8)
+  3.09%    1.76%     0x00007f18bcdf6e18: sete   %r11b
+                     0x00007f18bcdf6e1c: movzbl %r11b,%r11d        ;*invokevirtual compareAndSwapInt
+                                                                   ; - java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::compareAndSet@15 (line 489)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@20 (line 419)
+  0.20%    1.01%     0x00007f18bcdf6e20: test   %r11d,%r11d
+                     0x00007f18bcdf6e23: je     0x00007f18bcdf7069  ;*ifeq
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@23 (line 419)
+                     0x00007f18bcdf6e29: mov    0x60(%rsp),%r10
+                     0x00007f18bcdf6e2e: movzbl 0x95(%r10),%r10d   ;*getfield isFailing
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@27 (line 421)
+                     0x00007f18bcdf6e36: test   %r10d,%r10d
+                     0x00007f18bcdf6e39: jne    0x00007f18bcdf70a1  ;*ifeq
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@30 (line 421)
+  0.16%    0.31%     0x00007f18bcdf6e3f: movzbl 0x136(%r8),%r11d   ;*getfield readyInvocation
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@43 (line 422)
+                     0x00007f18bcdf6e47: test   %r11d,%r11d
+                     0x00007f18bcdf6e4a: jne    0x00007f18bcdf7031  ;*ifne
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@46 (line 422)
+                     0x00007f18bcdf6e50: mov    0x18(%r8),%r11d    ;*getfield random
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@2 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6e54: mov    0xc(%r8),%r10d     ;*getfield size
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@6 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.22%              0x00007f18bcdf6e58: mov    0x8(%r12,%r11,8),%ecx  ; implicit exception: dispatches to 0x00007f18bcdf72a9
+  0.00%    0.00%     0x00007f18bcdf6e5d: test   %r10d,%r10d
+                     0x00007f18bcdf6e60: jle    0x00007f18bcdf70d9  ;*ifgt
+                                                                   ; - java.util.Random::nextInt@1 (line 387)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6e66: cmp    $0xf8014b28,%ecx   ;   {metadata(&apos;java/util/Random&apos;)}
+                     0x00007f18bcdf6e6c: jne    0x00007f18bcdf6ff5
+                     0x00007f18bcdf6e72: lea    (%r12,%r11,8),%r9  ;*invokevirtual next
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.24%              0x00007f18bcdf6e76: mov    0x18(%r9),%r11d    ;*getfield seed
+                                                                   ; - java.util.Random::next@1 (line 200)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6e7a: mov    0x10(%r12,%r11,8),%rax  ;*invokevirtual compareAndSwapLong
+                                                                   ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                                                                   ; - java.util.Random::next@32 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                                                                   ; implicit exception: dispatches to 0x00007f18bcdf72e1
+                     0x00007f18bcdf6e7f: mov    %rax,%rdi
+                     0x00007f18bcdf6e82: movabs $0x5deece66d,%rcx
+  0.14%              0x00007f18bcdf6e8c: imul   %rcx,%rdi
+                     0x00007f18bcdf6e90: add    $0xb,%rdi          ;*ladd
+                                                                   ; - java.util.Random::next@20 (line 203)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6e94: mov    %rdi,%rdx
+                     0x00007f18bcdf6e97: movabs $0xffffffffffff,%rcx
+  0.17%              0x00007f18bcdf6ea1: and    %rcx,%rdx          ;*land
+                                                                   ; - java.util.Random::next@24 (line 203)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6ea4: lock cmpxchg %rdx,0x10(%r12,%r11,8)
+  2.97%    7.28%     0x00007f18bcdf6eab: sete   %cl
+                     0x00007f18bcdf6eae: movzbl %cl,%ecx           ;*invokevirtual compareAndSwapLong
+                                                                   ; - java.util.concurrent.atomic.AtomicLong::compareAndSet@9 (line 147)
+                                                                   ; - java.util.Random::next@32 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.19%    0.92%     0x00007f18bcdf6eb1: test   %ecx,%ecx
+                     0x00007f18bcdf6eb3: je     0x00007f18bcdf7115  ;*ifeq
+                                                                   ; - java.util.Random::next@35 (line 204)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6eb9: shr    $0x11,%rdi
+                     0x00007f18bcdf6ebd: mov    %r10d,%ebp
+                     0x00007f18bcdf6ec0: dec    %ebp               ;*isub
+                                                                   ; - java.util.Random::nextInt@23 (line 391)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.12%    0.30%     0x00007f18bcdf6ec2: mov    %r10d,%ecx
+                     0x00007f18bcdf6ec5: and    %ebp,%ecx          ;*iand
+                                                                   ; - java.util.Random::nextInt@27 (line 392)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6ec7: and    $0x7fffffff,%rdi
+                     0x00007f18bcdf6ece: mov    %edi,%r11d         ;*l2i  ; - java.util.Random::next@45 (line 205)
+                                                                   ; - java.util.Random::nextInt@17 (line 390)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+  0.17%              0x00007f18bcdf6ed1: test   %ecx,%ecx
+                     0x00007f18bcdf6ed3: je     0x00007f18bcdf7161  ;*ifne
+                                                                   ; - java.util.Random::nextInt@28 (line 392)
+                                                                   ; - com.github.arnaudroger.Random2ListAccess::nextIndex@9 (line 79)
+                                                                   ; - com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub@51 (line 423)
+                     0x00007f18bcdf6ed9: test   %r10d,%r10d
+                     0x00007f18bcdf6edc: je     0x00007f18bcdf6f95
+                     0x00007f18bcdf6ee2: mov    %r11d,%eax
+....................................................................................................
+ 74.22%   59.85%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+ [vdso], [unknown] (16 bytes) 
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 12.55%   35.85%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 74.22%   59.85%         C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 526 (526 bytes) 
+ 12.55%   35.85%              [vdso]  [unknown] (16 bytes) 
+  2.18%    0.06%        libc-2.26.so  __clock_gettime (73 bytes) 
+  1.81%    0.93%              [vdso]  [unknown] (44 bytes) 
+  1.76%    0.07%           libjvm.so  _ZN2os13javaTimeNanosEv (46 bytes) 
+  1.43%    0.01%              [vdso]  [unknown] (52 bytes) 
+  0.84%    0.01%              [vdso]  [unknown] (40 bytes) 
+  0.76%                       [vdso]  [unknown] (11 bytes) 
+  0.75%    0.95%              [vdso]  [unknown] (31 bytes) 
+  0.71%    0.01%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 511 (51 bytes) 
+  0.70%                  C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 526 (13 bytes) 
+  0.39%    0.38%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.13%    0.01%   [kernel.kallsyms]  [unknown] (47 bytes) 
+  0.08%    0.00%   [kernel.kallsyms]  [unknown] (6 bytes) 
+  0.06%    0.01%   [kernel.kallsyms]  [unknown] (14 bytes) 
+  0.05%    0.03%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%    0.01%   [kernel.kallsyms]  [unknown] (9 bytes) 
+  0.02%    0.01%   [kernel.kallsyms]  [unknown] (16 bytes) 
+  0.02%    0.00%   [kernel.kallsyms]  [unknown] (38 bytes) 
+  0.02%    0.01%           libjvm.so  _ZN10fileStream5writeEPKcm (14 bytes) 
+  1.46%    1.76%  <...other 383 warm regions...>
+....................................................................................................
+100.00%  100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 74.92%   59.85%         C2, level 4  com.github.arnaudroger.generated.Random2ListAccess_testGet_jmhTest::testGet_avgt_jmhStub, version 526 
+ 18.15%   37.75%              [vdso]  [unknown] 
+  2.18%    0.06%        libc-2.26.so  __clock_gettime 
+  1.76%    0.07%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  1.56%    1.36%   [kernel.kallsyms]  [unknown] 
+  0.71%    0.01%         C2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 511 
+  0.09%    0.05%      hsdis-amd64.so  [unknown] 
+  0.06%    0.08%        libc-2.26.so  vfprintf 
+  0.03%    0.04%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.02%    0.02%        libc-2.26.so  __strlen_avx2 
+  0.02%    0.04%           libjvm.so  _ZN13xmlTextStream5writeEPKcm 
+  0.02%    0.04%        libc-2.26.so  _IO_fwrite 
+  0.02%    0.03%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.01%    0.01%           libjvm.so  _ZN13defaultStream4holdEl 
+  0.01%                 libc-2.26.so  _IO_old_init 
+  0.01%    0.01%  libpthread-2.26.so  __libc_write 
+  0.01%               perf-19180.map  [unknown] 
+  0.01%    0.01%        libc-2.26.so  _IO_fflush 
+  0.01%    0.00%           libjvm.so  _ZN2os13PlatformEvent4parkEl 
+  0.01%    0.03%        libc-2.26.so  _IO_default_xsputn 
+  0.38%    0.28%  <...other 67 warm methods...>
+....................................................................................................
+100.00%   99.77%  <totals>
+
+....[Distribution by Source]........................................................................
+ 75.63%   59.86%         C2, level 4
+ 18.15%   37.75%              [vdso]
+  2.37%    0.34%        libc-2.26.so
+  2.10%    0.53%           libjvm.so
+  1.56%    1.36%   [kernel.kallsyms]
+  0.09%    0.06%      hsdis-amd64.so
+  0.06%    0.03%  libpthread-2.26.so
+  0.02%    0.05%         interpreter
+  0.01%    0.00%         C1, level 3
+  0.01%               perf-19180.map
+....................................................................................................
+100.00%  100.00%  <totals>
+
+
+
+# Run complete. Total time: 00:04:29
+
+Benchmark                         (size)  Mode  Cnt   Score   Error  Units
+Random2ArrayAccess.testGet            10  avgt   20  22.117 ± 0.084  ns/op
+Random2ArrayAccess.testGet:·asm       10  avgt          NaN            ---
+Random2ArrayAccess.testGet          1000  avgt   20  21.246 ± 0.101  ns/op
+Random2ArrayAccess.testGet:·asm     1000  avgt          NaN            ---
+Random2ArrayAccess.testGet       1000000  avgt   20  89.803 ± 0.740  ns/op
+Random2ArrayAccess.testGet:·asm  1000000  avgt          NaN            ---
+Random2ListAccess.testGet             10  avgt   20  20.799 ± 0.078  ns/op
+Random2ListAccess.testGet:·asm        10  avgt          NaN            ---
+Random2ListAccess.testGet           1000  avgt   20  24.150 ± 0.134  ns/op
+Random2ListAccess.testGet:·asm      1000  avgt          NaN            ---
+Random2ListAccess.testGet        1000000  avgt   20  95.470 ± 1.313  ns/op
+Random2ListAccess.testGet:·asm   1000000  avgt          NaN            ---
