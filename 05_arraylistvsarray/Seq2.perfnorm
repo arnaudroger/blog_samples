@@ -1,0 +1,855 @@
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Seq2ArrayAccess.testGet
+# Parameters: (size = 10)
+
+# Run progress: 0.00% complete, ETA 00:04:00
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 7.595 ns/op
+# Warmup Iteration   2: 7.505 ns/op
+# Warmup Iteration   3: 7.645 ns/op
+# Warmup Iteration   4: 7.729 ns/op
+# Warmup Iteration   5: 7.623 ns/op
+# Warmup Iteration   6: 7.675 ns/op
+# Warmup Iteration   7: 7.646 ns/op
+# Warmup Iteration   8: 7.651 ns/op
+# Warmup Iteration   9: 7.709 ns/op
+# Warmup Iteration  10: 7.623 ns/op
+# Warmup Iteration  11: 7.688 ns/op
+# Warmup Iteration  12: 7.632 ns/op
+# Warmup Iteration  13: 7.648 ns/op
+# Warmup Iteration  14: 7.747 ns/op
+# Warmup Iteration  15: 7.640 ns/op
+# Warmup Iteration  16: 7.634 ns/op
+# Warmup Iteration  17: 7.610 ns/op
+# Warmup Iteration  18: 7.645 ns/op
+# Warmup Iteration  19: 7.687 ns/op
+# Warmup Iteration  20: 7.637 ns/op
+Iteration   1: 7.639 ns/op
+Iteration   2: 7.621 ns/op
+Iteration   3: 7.650 ns/op
+Iteration   4: 7.679 ns/op
+Iteration   5: 7.632 ns/op
+Iteration   6: 7.647 ns/op
+Iteration   7: 7.678 ns/op
+Iteration   8: 7.644 ns/op
+Iteration   9: 7.689 ns/op
+Iteration  10: 7.657 ns/op
+Iteration  11: 7.621 ns/op
+Iteration  12: 7.615 ns/op
+Iteration  13: 7.643 ns/op
+Iteration  14: 7.663 ns/op
+Iteration  15: 7.628 ns/op
+Iteration  16: 7.639 ns/op
+Iteration  17: 7.646 ns/op
+Iteration  18: 7.664 ns/op
+Iteration  19: 7.673 ns/op
+Iteration  20: 7.627 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Seq2ArrayAccess.testGet":
+  7.648 ±(99.9%) 0.019 ns/op [Average]
+  (min, avg, max) = (7.615, 7.648, 7.689), stdev = 0.021
+  CI (99.9%): [7.629, 7.666] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:CPI":
+  0.343 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-loads":
+  31.937 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-stores":
+  3.974 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-icache-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-loads":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-store-misses":
+  ≈ 10⁻⁵ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-stores":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:branch-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:branches":
+  13.040 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:cycles":
+  28.844 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-loads":
+  31.723 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁵ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-stores":
+  3.968 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:iTLB-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:iTLB-loads":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:instructions":
+  84.044 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Seq2ArrayAccess.testGet
+# Parameters: (size = 1000)
+
+# Run progress: 16.67% complete, ETA 00:03:30
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 329.842 ns/op
+# Warmup Iteration   2: 343.970 ns/op
+# Warmup Iteration   3: 319.241 ns/op
+# Warmup Iteration   4: 318.760 ns/op
+# Warmup Iteration   5: 321.423 ns/op
+# Warmup Iteration   6: 320.754 ns/op
+# Warmup Iteration   7: 318.946 ns/op
+# Warmup Iteration   8: 320.458 ns/op
+# Warmup Iteration   9: 320.714 ns/op
+# Warmup Iteration  10: 323.269 ns/op
+# Warmup Iteration  11: 320.609 ns/op
+# Warmup Iteration  12: 318.893 ns/op
+# Warmup Iteration  13: 320.201 ns/op
+# Warmup Iteration  14: 322.066 ns/op
+# Warmup Iteration  15: 322.566 ns/op
+# Warmup Iteration  16: 318.419 ns/op
+# Warmup Iteration  17: 319.035 ns/op
+# Warmup Iteration  18: 317.861 ns/op
+# Warmup Iteration  19: 318.307 ns/op
+# Warmup Iteration  20: 324.314 ns/op
+Iteration   1: 317.827 ns/op
+Iteration   2: 318.420 ns/op
+Iteration   3: 317.791 ns/op
+Iteration   4: 318.472 ns/op
+Iteration   5: 323.964 ns/op
+Iteration   6: 318.278 ns/op
+Iteration   7: 318.365 ns/op
+Iteration   8: 321.004 ns/op
+Iteration   9: 322.456 ns/op
+Iteration  10: 320.231 ns/op
+Iteration  11: 317.785 ns/op
+Iteration  12: 318.161 ns/op
+Iteration  13: 318.068 ns/op
+Iteration  14: 321.697 ns/op
+Iteration  15: 320.067 ns/op
+Iteration  16: 317.860 ns/op
+Iteration  17: 318.124 ns/op
+Iteration  18: 319.214 ns/op
+Iteration  19: 318.296 ns/op
+Iteration  20: 320.110 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Seq2ArrayAccess.testGet":
+  319.310 ±(99.9%) 1.542 ns/op [Average]
+  (min, avg, max) = (317.785, 319.310, 323.964), stdev = 1.775
+  CI (99.9%): [317.768, 320.851] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:CPI":
+  0.317 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-load-misses":
+  8.089 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-loads":
+  2005.414 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-stores":
+  4.151 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-icache-load-misses":
+  0.016 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-loads":
+  0.011 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-store-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-stores":
+  0.006 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:branch-misses":
+  1.001 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:branches":
+  261.589 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:cycles":
+  1202.677 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-load-misses":
+  0.003 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-loads":
+  2016.417 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-stores":
+  4.458 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:iTLB-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:iTLB-loads":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:instructions":
+  3794.591 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Seq2ArrayAccess.testGet
+# Parameters: (size = 1000000)
+
+# Run progress: 33.33% complete, ETA 00:02:52
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 1732136.204 ns/op
+# Warmup Iteration   2: 1627723.559 ns/op
+# Warmup Iteration   3: 1624600.526 ns/op
+# Warmup Iteration   4: 1626942.634 ns/op
+# Warmup Iteration   5: 1629430.143 ns/op
+# Warmup Iteration   6: 1640509.172 ns/op
+# Warmup Iteration   7: 1627419.545 ns/op
+# Warmup Iteration   8: 1624693.844 ns/op
+# Warmup Iteration   9: 1624983.326 ns/op
+# Warmup Iteration  10: 1627709.013 ns/op
+# Warmup Iteration  11: 1636616.951 ns/op
+# Warmup Iteration  12: 1627218.620 ns/op
+# Warmup Iteration  13: 1623729.647 ns/op
+# Warmup Iteration  14: 1627246.041 ns/op
+# Warmup Iteration  15: 1633096.140 ns/op
+# Warmup Iteration  16: 1644181.537 ns/op
+# Warmup Iteration  17: 1625263.404 ns/op
+# Warmup Iteration  18: 1624340.343 ns/op
+# Warmup Iteration  19: 1625224.193 ns/op
+# Warmup Iteration  20: 1626256.557 ns/op
+Iteration   1: 1640811.413 ns/op
+Iteration   2: 1624529.940 ns/op
+Iteration   3: 1624556.709 ns/op
+Iteration   4: 1612605.768 ns/op
+Iteration   5: 1628903.901 ns/op
+Iteration   6: 1637123.386 ns/op
+Iteration   7: 1614339.871 ns/op
+Iteration   8: 1611347.027 ns/op
+Iteration   9: 1613665.027 ns/op
+Iteration  10: 1628583.782 ns/op
+Iteration  11: 1638063.874 ns/op
+Iteration  12: 1632818.109 ns/op
+Iteration  13: 1622574.303 ns/op
+Iteration  14: 1626422.143 ns/op
+Iteration  15: 1626688.010 ns/op
+Iteration  16: 1636908.667 ns/op
+Iteration  17: 1627153.494 ns/op
+Iteration  18: 1623578.935 ns/op
+Iteration  19: 1631425.972 ns/op
+Iteration  20: 1625901.740 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Seq2ArrayAccess.testGet":
+  1626400.104 ±(99.9%) 7458.014 ns/op [Average]
+  (min, avg, max) = (1611347.027, 1626400.104, 1640811.413), stdev = 8588.660
+  CI (99.9%): [1618942.090, 1633858.118] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:CPI":
+  1.634 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-load-misses":
+  441021.756 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-loads":
+  2000822.494 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-dcache-stores":
+  1522.244 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:L1-icache-load-misses":
+  166.779 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-load-misses":
+  102326.803 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-loads":
+  380315.793 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-store-misses":
+  16.702 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:LLC-stores":
+  22.877 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:branch-misses":
+  131.852 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:branches":
+  250953.766 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:cycles":
+  6123020.980 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-load-misses":
+  1991.891 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-loads":
+  1997514.691 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-store-misses":
+  5.704 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:dTLB-stores":
+  1281.273 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:iTLB-load-misses":
+  11.875 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:iTLB-loads":
+  0.348 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ArrayAccess.testGet:instructions":
+  3747496.801 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Seq2ListAccess.testIndexed
+# Parameters: (size = 10)
+
+# Run progress: 50.00% complete, ETA 00:02:09
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 12.623 ns/op
+# Warmup Iteration   2: 11.703 ns/op
+# Warmup Iteration   3: 11.480 ns/op
+# Warmup Iteration   4: 11.496 ns/op
+# Warmup Iteration   5: 11.457 ns/op
+# Warmup Iteration   6: 11.456 ns/op
+# Warmup Iteration   7: 11.518 ns/op
+# Warmup Iteration   8: 11.457 ns/op
+# Warmup Iteration   9: 11.442 ns/op
+# Warmup Iteration  10: 11.468 ns/op
+# Warmup Iteration  11: 11.484 ns/op
+# Warmup Iteration  12: 11.518 ns/op
+# Warmup Iteration  13: 11.449 ns/op
+# Warmup Iteration  14: 11.451 ns/op
+# Warmup Iteration  15: 11.444 ns/op
+# Warmup Iteration  16: 11.460 ns/op
+# Warmup Iteration  17: 11.529 ns/op
+# Warmup Iteration  18: 11.464 ns/op
+# Warmup Iteration  19: 11.520 ns/op
+# Warmup Iteration  20: 11.464 ns/op
+Iteration   1: 11.459 ns/op
+Iteration   2: 11.528 ns/op
+Iteration   3: 11.443 ns/op
+Iteration   4: 11.442 ns/op
+Iteration   5: 11.452 ns/op
+Iteration   6: 11.461 ns/op
+Iteration   7: 11.526 ns/op
+Iteration   8: 11.461 ns/op
+Iteration   9: 11.436 ns/op
+Iteration  10: 11.465 ns/op
+Iteration  11: 11.461 ns/op
+Iteration  12: 11.529 ns/op
+Iteration  13: 11.441 ns/op
+Iteration  14: 11.449 ns/op
+Iteration  15: 11.503 ns/op
+Iteration  16: 11.470 ns/op
+Iteration  17: 11.541 ns/op
+Iteration  18: 11.440 ns/op
+Iteration  19: 11.471 ns/op
+Iteration  20: 11.471 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Seq2ListAccess.testIndexed":
+  11.472 ±(99.9%) 0.029 ns/op [Average]
+  (min, avg, max) = (11.436, 11.472, 11.541), stdev = 0.034
+  CI (99.9%): [11.443, 11.502] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:CPI":
+  0.295 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-loads":
+  43.924 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-stores":
+  4.995 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-icache-load-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-loads":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-store-misses":
+  ≈ 10⁻⁶ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-stores":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:branch-misses":
+  ≈ 10⁻³ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:branches":
+  31.952 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:cycles":
+  43.258 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-load-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-loads":
+  43.840 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-store-misses":
+  ≈ 10⁻⁶ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-stores":
+  4.989 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:iTLB-load-misses":
+  ≈ 10⁻⁵ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:iTLB-loads":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:instructions":
+  146.788 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Seq2ListAccess.testIndexed
+# Parameters: (size = 1000)
+
+# Run progress: 66.67% complete, ETA 00:01:26
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 589.175 ns/op
+# Warmup Iteration   2: 569.515 ns/op
+# Warmup Iteration   3: 585.987 ns/op
+# Warmup Iteration   4: 590.586 ns/op
+# Warmup Iteration   5: 584.897 ns/op
+# Warmup Iteration   6: 584.979 ns/op
+# Warmup Iteration   7: 585.389 ns/op
+# Warmup Iteration   8: 588.553 ns/op
+# Warmup Iteration   9: 587.568 ns/op
+# Warmup Iteration  10: 584.969 ns/op
+# Warmup Iteration  11: 586.975 ns/op
+# Warmup Iteration  12: 585.945 ns/op
+# Warmup Iteration  13: 586.067 ns/op
+# Warmup Iteration  14: 587.818 ns/op
+# Warmup Iteration  15: 586.569 ns/op
+# Warmup Iteration  16: 584.890 ns/op
+# Warmup Iteration  17: 585.659 ns/op
+# Warmup Iteration  18: 587.342 ns/op
+# Warmup Iteration  19: 589.251 ns/op
+# Warmup Iteration  20: 584.719 ns/op
+Iteration   1: 586.582 ns/op
+Iteration   2: 585.952 ns/op
+Iteration   3: 590.557 ns/op
+Iteration   4: 588.022 ns/op
+Iteration   5: 587.354 ns/op
+Iteration   6: 585.950 ns/op
+Iteration   7: 586.104 ns/op
+Iteration   8: 587.502 ns/op
+Iteration   9: 588.213 ns/op
+Iteration  10: 585.896 ns/op
+Iteration  11: 585.963 ns/op
+Iteration  12: 586.888 ns/op
+Iteration  13: 586.464 ns/op
+Iteration  14: 587.921 ns/op
+Iteration  15: 586.704 ns/op
+Iteration  16: 585.613 ns/op
+Iteration  17: 585.516 ns/op
+Iteration  18: 589.452 ns/op
+Iteration  19: 589.248 ns/op
+Iteration  20: 585.782 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Seq2ListAccess.testIndexed":
+  587.084 ±(99.9%) 1.241 ns/op [Average]
+  (min, avg, max) = (585.516, 587.084, 590.557), stdev = 1.429
+  CI (99.9%): [585.843, 588.325] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:CPI":
+  0.259 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-load-misses":
+  9.929 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-loads":
+  3006.482 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-stores":
+  5.388 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-icache-load-misses":
+  0.041 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-loads":
+  0.021 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-store-misses":
+  ≈ 10⁻⁴ #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-stores":
+  0.003 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:branch-misses":
+  1.007 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:branches":
+  2016.102 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:cycles":
+  2214.391 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-load-misses":
+  0.008 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-loads":
+  3013.051 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-store-misses":
+  0.001 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-stores":
+  5.704 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:iTLB-load-misses":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:iTLB-loads":
+  0.002 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:instructions":
+  8562.880 #/op
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_131, VM 25.131-b11
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.arnaudroger.Seq2ListAccess.testIndexed
+# Parameters: (size = 1000000)
+
+# Run progress: 83.33% complete, ETA 00:00:43
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 1772876.030 ns/op
+# Warmup Iteration   2: 1670385.689 ns/op
+# Warmup Iteration   3: 1664658.166 ns/op
+# Warmup Iteration   4: 1674267.171 ns/op
+# Warmup Iteration   5: 1688479.182 ns/op
+# Warmup Iteration   6: 1666095.519 ns/op
+# Warmup Iteration   7: 1664426.624 ns/op
+# Warmup Iteration   8: 1682499.336 ns/op
+# Warmup Iteration   9: 1677801.168 ns/op
+# Warmup Iteration  10: 1706627.211 ns/op
+# Warmup Iteration  11: 1668228.725 ns/op
+# Warmup Iteration  12: 1672895.055 ns/op
+# Warmup Iteration  13: 1664939.907 ns/op
+# Warmup Iteration  14: 1672284.371 ns/op
+# Warmup Iteration  15: 1685082.044 ns/op
+# Warmup Iteration  16: 1662778.859 ns/op
+# Warmup Iteration  17: 1668950.128 ns/op
+# Warmup Iteration  18: 1670091.586 ns/op
+# Warmup Iteration  19: 1674649.329 ns/op
+# Warmup Iteration  20: 1688629.455 ns/op
+Iteration   1: 1662929.010 ns/op
+Iteration   2: 1676687.020 ns/op
+Iteration   3: 1664585.075 ns/op
+Iteration   4: 1675482.339 ns/op
+Iteration   5: 1695778.078 ns/op
+Iteration   6: 1677086.028 ns/op
+Iteration   7: 1670037.192 ns/op
+Iteration   8: 1665483.506 ns/op
+Iteration   9: 1672548.474 ns/op
+Iteration  10: 1683184.529 ns/op
+Iteration  11: 1668396.088 ns/op
+Iteration  12: 1673155.273 ns/op
+Iteration  13: 1668582.932 ns/op
+Iteration  14: 1675273.709 ns/op
+Iteration  15: 1685129.862 ns/op
+Iteration  16: 1668892.877 ns/op
+Iteration  17: 1665894.047 ns/op
+Iteration  18: 1666565.213 ns/op
+Iteration  19: 1671978.923 ns/op
+Iteration  20: 1683163.240 ns/op
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.github.arnaudroger.Seq2ListAccess.testIndexed":
+  1673541.671 ±(99.9%) 7174.495 ns/op [Average]
+  (min, avg, max) = (1662929.010, 1673541.671, 1695778.078), stdev = 8262.159
+  CI (99.9%): [1666367.176, 1680716.166] (assumes normal distribution)
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:CPI":
+  0.741 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-load-misses":
+  439508.067 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-loads":
+  3006791.421 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-dcache-stores":
+  853.249 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:L1-icache-load-misses":
+  198.911 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-load-misses":
+  82926.748 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-loads":
+  317541.760 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-store-misses":
+  13.870 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:LLC-stores":
+  42.699 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:branch-misses":
+  21.422 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:branches":
+  2005243.761 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:cycles":
+  6312241.639 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-load-misses":
+  1886.664 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-loads":
+  3021354.292 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-store-misses":
+  6.566 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:dTLB-stores":
+  1148.424 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:iTLB-load-misses":
+  17.448 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:iTLB-loads":
+  1.908 #/op
+
+Secondary result "com.github.arnaudroger.Seq2ListAccess.testIndexed:instructions":
+  8514529.296 #/op
+
+
+# Run complete. Total time: 00:04:21
+
+Benchmark                                          (size)  Mode  Cnt        Score      Error  Units
+Seq2ArrayAccess.testGet                                10  avgt   20        7.648 ±    0.019  ns/op
+Seq2ArrayAccess.testGet:CPI                            10  avgt             0.343              #/op
+Seq2ArrayAccess.testGet:L1-dcache-load-misses          10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:L1-dcache-loads                10  avgt            31.937              #/op
+Seq2ArrayAccess.testGet:L1-dcache-stores               10  avgt             3.974              #/op
+Seq2ArrayAccess.testGet:L1-icache-load-misses          10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:LLC-load-misses                10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:LLC-loads                      10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:LLC-store-misses               10  avgt            ≈ 10⁻⁵              #/op
+Seq2ArrayAccess.testGet:LLC-stores                     10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:branch-misses                  10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:branches                       10  avgt            13.040              #/op
+Seq2ArrayAccess.testGet:cycles                         10  avgt            28.844              #/op
+Seq2ArrayAccess.testGet:dTLB-load-misses               10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:dTLB-loads                     10  avgt            31.723              #/op
+Seq2ArrayAccess.testGet:dTLB-store-misses              10  avgt            ≈ 10⁻⁵              #/op
+Seq2ArrayAccess.testGet:dTLB-stores                    10  avgt             3.968              #/op
+Seq2ArrayAccess.testGet:iTLB-load-misses               10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:iTLB-loads                     10  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:instructions                   10  avgt            84.044              #/op
+Seq2ArrayAccess.testGet                              1000  avgt   20      319.310 ±    1.542  ns/op
+Seq2ArrayAccess.testGet:CPI                          1000  avgt             0.317              #/op
+Seq2ArrayAccess.testGet:L1-dcache-load-misses        1000  avgt             8.089              #/op
+Seq2ArrayAccess.testGet:L1-dcache-loads              1000  avgt          2005.414              #/op
+Seq2ArrayAccess.testGet:L1-dcache-stores             1000  avgt             4.151              #/op
+Seq2ArrayAccess.testGet:L1-icache-load-misses        1000  avgt             0.016              #/op
+Seq2ArrayAccess.testGet:LLC-load-misses              1000  avgt             0.002              #/op
+Seq2ArrayAccess.testGet:LLC-loads                    1000  avgt             0.011              #/op
+Seq2ArrayAccess.testGet:LLC-store-misses             1000  avgt            ≈ 10⁻³              #/op
+Seq2ArrayAccess.testGet:LLC-stores                   1000  avgt             0.006              #/op
+Seq2ArrayAccess.testGet:branch-misses                1000  avgt             1.001              #/op
+Seq2ArrayAccess.testGet:branches                     1000  avgt           261.589              #/op
+Seq2ArrayAccess.testGet:cycles                       1000  avgt          1202.677              #/op
+Seq2ArrayAccess.testGet:dTLB-load-misses             1000  avgt             0.003              #/op
+Seq2ArrayAccess.testGet:dTLB-loads                   1000  avgt          2016.417              #/op
+Seq2ArrayAccess.testGet:dTLB-store-misses            1000  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:dTLB-stores                  1000  avgt             4.458              #/op
+Seq2ArrayAccess.testGet:iTLB-load-misses             1000  avgt            ≈ 10⁻⁴              #/op
+Seq2ArrayAccess.testGet:iTLB-loads                   1000  avgt             0.001              #/op
+Seq2ArrayAccess.testGet:instructions                 1000  avgt          3794.591              #/op
+Seq2ArrayAccess.testGet                           1000000  avgt   20  1626400.104 ± 7458.014  ns/op
+Seq2ArrayAccess.testGet:CPI                       1000000  avgt             1.634              #/op
+Seq2ArrayAccess.testGet:L1-dcache-load-misses     1000000  avgt        441021.756              #/op
+Seq2ArrayAccess.testGet:L1-dcache-loads           1000000  avgt       2000822.494              #/op
+Seq2ArrayAccess.testGet:L1-dcache-stores          1000000  avgt          1522.244              #/op
+Seq2ArrayAccess.testGet:L1-icache-load-misses     1000000  avgt           166.779              #/op
+Seq2ArrayAccess.testGet:LLC-load-misses           1000000  avgt        102326.803              #/op
+Seq2ArrayAccess.testGet:LLC-loads                 1000000  avgt        380315.793              #/op
+Seq2ArrayAccess.testGet:LLC-store-misses          1000000  avgt            16.702              #/op
+Seq2ArrayAccess.testGet:LLC-stores                1000000  avgt            22.877              #/op
+Seq2ArrayAccess.testGet:branch-misses             1000000  avgt           131.852              #/op
+Seq2ArrayAccess.testGet:branches                  1000000  avgt        250953.766              #/op
+Seq2ArrayAccess.testGet:cycles                    1000000  avgt       6123020.980              #/op
+Seq2ArrayAccess.testGet:dTLB-load-misses          1000000  avgt          1991.891              #/op
+Seq2ArrayAccess.testGet:dTLB-loads                1000000  avgt       1997514.691              #/op
+Seq2ArrayAccess.testGet:dTLB-store-misses         1000000  avgt             5.704              #/op
+Seq2ArrayAccess.testGet:dTLB-stores               1000000  avgt          1281.273              #/op
+Seq2ArrayAccess.testGet:iTLB-load-misses          1000000  avgt            11.875              #/op
+Seq2ArrayAccess.testGet:iTLB-loads                1000000  avgt             0.348              #/op
+Seq2ArrayAccess.testGet:instructions              1000000  avgt       3747496.801              #/op
+Seq2ListAccess.testIndexed                             10  avgt   20       11.472 ±    0.029  ns/op
+Seq2ListAccess.testIndexed:CPI                         10  avgt             0.295              #/op
+Seq2ListAccess.testIndexed:L1-dcache-load-misses       10  avgt             0.002              #/op
+Seq2ListAccess.testIndexed:L1-dcache-loads             10  avgt            43.924              #/op
+Seq2ListAccess.testIndexed:L1-dcache-stores            10  avgt             4.995              #/op
+Seq2ListAccess.testIndexed:L1-icache-load-misses       10  avgt             0.001              #/op
+Seq2ListAccess.testIndexed:LLC-load-misses             10  avgt            ≈ 10⁻⁴              #/op
+Seq2ListAccess.testIndexed:LLC-loads                   10  avgt            ≈ 10⁻³              #/op
+Seq2ListAccess.testIndexed:LLC-store-misses            10  avgt            ≈ 10⁻⁶              #/op
+Seq2ListAccess.testIndexed:LLC-stores                  10  avgt            ≈ 10⁻⁴              #/op
+Seq2ListAccess.testIndexed:branch-misses               10  avgt            ≈ 10⁻³              #/op
+Seq2ListAccess.testIndexed:branches                    10  avgt            31.952              #/op
+Seq2ListAccess.testIndexed:cycles                      10  avgt            43.258              #/op
+Seq2ListAccess.testIndexed:dTLB-load-misses            10  avgt            ≈ 10⁻⁴              #/op
+Seq2ListAccess.testIndexed:dTLB-loads                  10  avgt            43.840              #/op
+Seq2ListAccess.testIndexed:dTLB-store-misses           10  avgt            ≈ 10⁻⁶              #/op
+Seq2ListAccess.testIndexed:dTLB-stores                 10  avgt             4.989              #/op
+Seq2ListAccess.testIndexed:iTLB-load-misses            10  avgt            ≈ 10⁻⁵              #/op
+Seq2ListAccess.testIndexed:iTLB-loads                  10  avgt            ≈ 10⁻⁴              #/op
+Seq2ListAccess.testIndexed:instructions                10  avgt           146.788              #/op
+Seq2ListAccess.testIndexed                           1000  avgt   20      587.084 ±    1.241  ns/op
+Seq2ListAccess.testIndexed:CPI                       1000  avgt             0.259              #/op
+Seq2ListAccess.testIndexed:L1-dcache-load-misses     1000  avgt             9.929              #/op
+Seq2ListAccess.testIndexed:L1-dcache-loads           1000  avgt          3006.482              #/op
+Seq2ListAccess.testIndexed:L1-dcache-stores          1000  avgt             5.388              #/op
+Seq2ListAccess.testIndexed:L1-icache-load-misses     1000  avgt             0.041              #/op
+Seq2ListAccess.testIndexed:LLC-load-misses           1000  avgt             0.002              #/op
+Seq2ListAccess.testIndexed:LLC-loads                 1000  avgt             0.021              #/op
+Seq2ListAccess.testIndexed:LLC-store-misses          1000  avgt            ≈ 10⁻⁴              #/op
+Seq2ListAccess.testIndexed:LLC-stores                1000  avgt             0.003              #/op
+Seq2ListAccess.testIndexed:branch-misses             1000  avgt             1.007              #/op
+Seq2ListAccess.testIndexed:branches                  1000  avgt          2016.102              #/op
+Seq2ListAccess.testIndexed:cycles                    1000  avgt          2214.391              #/op
+Seq2ListAccess.testIndexed:dTLB-load-misses          1000  avgt             0.008              #/op
+Seq2ListAccess.testIndexed:dTLB-loads                1000  avgt          3013.051              #/op
+Seq2ListAccess.testIndexed:dTLB-store-misses         1000  avgt             0.001              #/op
+Seq2ListAccess.testIndexed:dTLB-stores               1000  avgt             5.704              #/op
+Seq2ListAccess.testIndexed:iTLB-load-misses          1000  avgt             0.002              #/op
+Seq2ListAccess.testIndexed:iTLB-loads                1000  avgt             0.002              #/op
+Seq2ListAccess.testIndexed:instructions              1000  avgt          8562.880              #/op
+Seq2ListAccess.testIndexed                        1000000  avgt   20  1673541.671 ± 7174.495  ns/op
+Seq2ListAccess.testIndexed:CPI                    1000000  avgt             0.741              #/op
+Seq2ListAccess.testIndexed:L1-dcache-load-misses  1000000  avgt        439508.067              #/op
+Seq2ListAccess.testIndexed:L1-dcache-loads        1000000  avgt       3006791.421              #/op
+Seq2ListAccess.testIndexed:L1-dcache-stores       1000000  avgt           853.249              #/op
+Seq2ListAccess.testIndexed:L1-icache-load-misses  1000000  avgt           198.911              #/op
+Seq2ListAccess.testIndexed:LLC-load-misses        1000000  avgt         82926.748              #/op
+Seq2ListAccess.testIndexed:LLC-loads              1000000  avgt        317541.760              #/op
+Seq2ListAccess.testIndexed:LLC-store-misses       1000000  avgt            13.870              #/op
+Seq2ListAccess.testIndexed:LLC-stores             1000000  avgt            42.699              #/op
+Seq2ListAccess.testIndexed:branch-misses          1000000  avgt            21.422              #/op
+Seq2ListAccess.testIndexed:branches               1000000  avgt       2005243.761              #/op
+Seq2ListAccess.testIndexed:cycles                 1000000  avgt       6312241.639              #/op
+Seq2ListAccess.testIndexed:dTLB-load-misses       1000000  avgt          1886.664              #/op
+Seq2ListAccess.testIndexed:dTLB-loads             1000000  avgt       3021354.292              #/op
+Seq2ListAccess.testIndexed:dTLB-store-misses      1000000  avgt             6.566              #/op
+Seq2ListAccess.testIndexed:dTLB-stores            1000000  avgt          1148.424              #/op
+Seq2ListAccess.testIndexed:iTLB-load-misses       1000000  avgt            17.448              #/op
+Seq2ListAccess.testIndexed:iTLB-loads             1000000  avgt             1.908              #/op
+Seq2ListAccess.testIndexed:instructions           1000000  avgt       8514529.296              #/op
